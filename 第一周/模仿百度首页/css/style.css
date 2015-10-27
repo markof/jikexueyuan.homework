@@ -1,0 +1,123 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+
+body{
+	font-size: 13px;
+}
+
+/*头部导航栏*/
+header nav{
+	text-align: right;
+	padding-top : 20px;
+	padding-bottom  : 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+/*头部导航栏的导航项*/
+header nav ul li{
+	list-style: none;
+	display: inline;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+/*当头部导航中的链接鼠标悬停时*/
+header nav a:hover {
+	color: #0000FF;
+}
+
+/*头部的导航中的链接*/
+header nav a{
+	color:#000;
+}
+
+/*百度logo*/
+#logo {
+	width: 270px;
+	height: 129px;
+}
+
+/*整个表单外围包裹*/
+#search_form {
+	text-align: center;
+	position: absolute;
+	bottom: 60%;
+	width: 100%;
+}
+
+/*整个表单*/
+#form{
+	margin: 20px;
+}
+
+/*搜索表单中的文本输入框外围的包裹*/
+#sf_txt{
+	border: 1px solid #22f;
+	width: 500px;
+	display: inline-block;
+	height: 34px;
+	text-align: left;
+}
+
+/*搜索表单中的文本输入框*/
+#sf_txt input{
+	outline: none;
+	border: 0px;
+	height: 23px;
+	width: 490px;
+	margin: 6px 0 0 6px;
+	/*【疑问：为什么输入框和按钮无法对其？必须要设置外边框才能对其？
+	貌似该输入框外的包裹是贴着输入框的top边对齐？且IE和Chrome对此的理解还不一样】*/
+}
+
+/*搜索表单中的按钮外围的包裹*/
+#sf_btn{
+	border: 0px;
+	display: inline-block;
+}
+
+/*搜索表单中的文本输入框*/
+#sf_btn input{
+	width: 100px;
+	height: 36px;
+	border: 1px solid #22f;
+	border-right: 0px; 
+	background-color: #22f;
+	font-size: 14px;
+	color: #fff;
+	letter-spacing: 2px;
+	text-align: center;
+}
+
+footer{
+	position: absolute;
+	bottom: 80px;
+	width: 100%;
+}
+
+footer div{
+	text-align: center;
+	margin: 5px auto;
+}
+
+footer nav ul li{
+	list-style: none;
+	display: inline;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+#cp {
+	color: #888;
+}
+
+#cp a{
+	color: #888;
+}
+
+#cp a:hover{
+	color: #888;
+}
