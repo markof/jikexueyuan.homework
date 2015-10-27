@@ -1,0 +1,38 @@
+body{
+	font-family:  'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-size: 12px;
+}
+
+table{
+	width: 100%;
+}
+
+table,tr,td{
+	border: 1px solid #BBB;
+	border-collapse: collapse;
+	padding: 5px;
+}
+
+thead tr td{
+	background-color: #558;
+	color: #fff;
+	font-weight:  bold;
+	text-align: center;
+}
+
+tbody td:nth-last-child(2n){
+	background-color: #ddf;
+}
+
+tbody td[rowspan]{
+	background-color: #558;
+	color: #fff;
+	font-weight:  bold;
+	text-align: center;
+}
+
+#tb_title{
+	font-size: 20px;
+	font-weight:  bold;
+	text-align: center;
+}
