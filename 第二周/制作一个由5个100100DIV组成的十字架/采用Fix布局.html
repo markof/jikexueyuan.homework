@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>5个DIV-采用XXX布局</title>
+	<style type="text/css">
+		/*因为该作业可以采用多种布局思路，因此为了老师检查方便，没有分离CSS代码到css文件中，将CSS内嵌到HTML页面中。
+		[思路]创建container容器，然后布局到整个页面的中间位置。
+		container中包含5个100*100的DIV，然后将5个DIV相对自己位置进行上下左右的偏移。
+		中间DIV中的图像采用相同的定位思路
+		该布局方式定位锚点为窗口的左上角，该布局方式可以实现自动适配窗口大小，始终布局在窗口中央。*/
+		
+		/*因为容器本身有默认的padding和margin会导致相对于此容器的abolute布局不能实现绝对居中，因此在这里把所有元素的内边距和外边距设置为0*/
+		/*实际上只要把容纳div-container的容器的外边距和内边距设置为0即可,因为div-container在position设置为abolute之后，其容器已经是整个窗口，所以不设置也可以*/
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		
+		/*5个DIV的容器*/
+		.div-container {
+			position: absolute;/*这里也可以采用Fixed，悬浮于窗口之上，不随窗口滚动而滚动*/
+			top: 50%;
+			left: 50%;
+			margin-top: -50px;
+			margin-left: -50px;
+		}
+		
+		/*统一所有DIV的大小*/
+		div {
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			box-shadow: 8px 8px 6px 2px #EEE;
+		}
+		
+		/*中心DIV*/
+		.div-center {
+			background-color: #888;
+		}
+		
+		/*中心DIV下的iamge*/
+		.div-center img {
+			position: relative;
+			top: 14px;
+			left: 14px;
+		}
+		
+		/*左侧DIV*/
+		.div-left {
+			background-color: #0F0;
+			left:-100px;
+		}
+		
+		/*顶部DIV*/
+		.div-top {
+			background-color: #00F;
+			top: -100px;
+		}
+		
+		/*右侧DIV*/
+		.div-right {
+			background-color: #FF0;
+			right:-100px;
+		}
+		
+		/*底部DIV*/
+		.div-bottom {
+			background-color: #0FF;
+			bottom: -100px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="div-container">
+		<div class="div-left"></div>
+		<div class="div-top"></div>
+		<div class="div-center">
+			<img src="img/rocket.png" alt="火箭发射">
+		</div>
+		<div class="div-right"></div>
+		<div class="div-bottom"></div>
+	</div>
+
+</body>
+
+</html>
