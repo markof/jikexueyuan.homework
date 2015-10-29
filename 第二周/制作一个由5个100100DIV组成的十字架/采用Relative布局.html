@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>5个DIV-采用Relative/float布局</title>
+	<style type="text/css">
+		/*因为该作业可以采用多种布局思路，因此为了老师检查方便，没有分离CSS代码到css文件中，将CSS内嵌到HTML页面中。
+		[思路]设置三行，第一行容纳一个DIV，第二行容纳3个DIV，第三行容纳1个DIV，使得这些DIV全部居中以组合成十字状
+		然后用一个大DIV包裹上述三行，并采用Absolute实现在整个屏幕上的垂直居中。该方案在窗口宽度不到150px时，布局会乱。
+		该布局方式div的使用与HTML的结构强相关，代码维护上不优。
+		*/
+		
+		body {
+			text-align: center;
+		}
+		
+		/*最外层的DIV，该DIV用于包裹“三行”*/
+		.div-l1-container{
+			position: absolute;
+			top:50%;
+			margin-top: -150px;
+			width: 100%;
+			display: block;
+			box-shadow: none;
+		}
+		
+		/*行DIV，用于实现“三行”，设置内容居中*/
+		.div-l2-container {
+			width: 100%;
+			box-shadow: none;
+			text-align: center;
+			display: block;
+		}
+		
+		/*统一所有DIV的大小*/
+		div {
+			width: 100px;
+			height: 100px;
+			box-shadow: 8px 8px 6px #EEE;
+			display: inline-block;
+		}
+		
+		/*中心DIV*/
+		.div-3rd {
+			background-color: #888;
+		}
+		
+		/*中心DIV下的iamge，使用Float定位；也可以使用Absolute定位*/
+		.div-3rd img {
+			float: left;
+			margin: 14px;/*采用偏移的方式对img进行居中对齐*/
+		}
+		
+		/*顶部DIV*/
+		.div-1st {
+			background-color: #0F0;
+		}
+		
+		/*左侧DIV*/
+		.div-2nd {
+			background-color: #00F;
+		}
+		
+		/*右侧DIV*/
+		.div-4th {
+			background-color: #FF0;
+		}
+		
+		/*底部DIV*/
+		.div-5th {
+			background-color: #0FF;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="div-l1-container">
+		<div class="div-l2-container">
+			<div class="div-1st"></div>
+		</div>
+		<div class="div-l2-container">
+			<!--中间三个元素使用inline-block和float组合会出现间距，之间的间距产生的原因是代码中的换行和空格，
+			因此在代码中删除三个元素中间的换行符-->
+			<div class="div-2nd"></div><div class="div-3rd">
+				<img src="img/rocket.png" alt="火箭发射">
+			</div><div class="div-4th"></div>
+		</div>
+		<div class="div-l2-container">
+			<div class="div-5th"></div>
+		</div>
+	</div>
+</body>
+
+</html>

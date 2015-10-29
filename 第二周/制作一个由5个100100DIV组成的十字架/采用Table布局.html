@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>采用Table布局</title>
+	<style type="text/css">
+		/*因为该作业可以采用多种布局思路，因此为了老师检查方便，没有分离CSS代码到css文件中，将CSS内嵌到HTML页面中。
+		[思路]设置一个3*3的Table，利用table的单元格进行布局。然后定位talbe来实现十字布局。好处是每个DIV的布局和其内部元素的布局与外围DIV无关。
+		中心DIV的图像采用将DIV设置为table-cell，然后利用vertical-align进行垂直居中布局。*/
+	
+		/*对table的边框进行设置*/
+		table, tr, td{
+			border-collapse: collapse;
+			border: 0px;
+			padding :0px;
+			margin: 0px;
+		}
+		
+		table{
+			position: fixed;
+			top : 50%;
+			left: 50%;
+			margin-top: -150px;
+			margin-left: -150px;
+		}
+		
+		div {
+			width: 100px;
+			height: 100px;
+			box-shadow: 8px 8px 6px 2px #EEE;
+		}
+		
+		.div-container{
+			box-shadow: none;
+		}
+		
+		/*中心DIV*/
+		.div-center {
+			background-color: #888;
+			display: table-cell;
+			vertical-align: middle;/*采用table模型对内img图像进行居中对齐*/
+			text-align: center;
+		}
+		
+		/*左侧DIV*/
+		.div-left {
+			background-color: #0F0;
+			left:-100px;
+		}
+		
+		/*顶部DIV*/
+		.div-top {
+			background-color: #00F;
+			top: -100px;
+		}
+		
+		/*右侧DIV*/
+		.div-right {
+			background-color: #FF0;
+			right:-100px;
+		}
+		
+		/*底部DIV*/
+		.div-bottom {
+			background-color: #0FF;
+			bottom: -100px;
+		}
+	</style>
+</head>
+<body>
+	<div class="div-container">
+		<table>
+			<tr>
+				<td></td>
+				<td><div class="div-top"></div></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><div class="div-left"></div></td>
+				<td><div class="div-center"><img src="img/rocket.png" alt=""></div></td>
+				<td><div class="div-right"></div></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><div class="div-bottom"></div></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

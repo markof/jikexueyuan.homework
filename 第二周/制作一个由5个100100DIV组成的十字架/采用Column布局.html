@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>5个DIV-采用Column布局</title>
+	<style type="text/css">
+		/*因为该作业可以采用多种布局思路，因此为了老师检查方便，没有分离CSS代码到css文件中，将CSS内嵌到HTML页面中。
+		[思路]设置三行，第一行容纳一个DIV，第二行容纳3个DIV，第三行容纳1个DIV，
+		第二行3个DIV采用column布局方式，即采用CSS3的分列方式对三个DIV进行布局。
+		第一行和第三行的DIV居中采用左右Margin自动的方式。
+		*/
+		
+		body {
+			text-align: center;
+		}
+		/*最外层的DIV，该DIV用于包裹“三行”*/
+		
+		.div-l1-container {
+			position: absolute;
+			top: 50%;
+			margin-top: -150px;
+			width: 100%;
+			box-shadow: none;
+			/*取消最外层布局用的DIV的阴影*/
+		}
+		/*行DIV，用于实现“三行”，设置内容居中*/
+		
+		.div-row-1,
+		.div-row-3 {
+			box-shadow: none;
+			text-align: center;
+			margin: 0px auto;
+		}
+		/*行DIV，用于实现“三行”，设置内容居中*/
+		
+		.div-row-2 {
+			-webkit-column-count: 3;
+			-webkit-column-gap: 0px;
+			-webkit-column-width: 100px;
+			column-count: 3;
+			column-gap: 0px;
+			column-width: 100px;
+			margin: 0px auto;
+			width: 300px;
+		}
+		/*统一所有DIV的大小和现实方式并设置阴影*/
+		
+		div {
+			width: 100px;
+			height: 100px;
+			box-shadow: 8px 8px 6px 2px #EEE;
+			display: block;
+			position: relative;
+		}
+		/*中心DIV*/
+		
+		.div-3rd {
+			background-color: #888;
+			display: -webkit-box;
+			/*采用盒模型对中间的img进行水平和垂直居中对齐*/
+			-webkit-box-align: center;
+			-webkit-box-pack: center;
+		}
+		/*顶部DIV*/
+		
+		.div-1st {
+			background-color: #0F0;
+		}
+		/*左侧DIV*/
+		
+		.div-2nd {
+			background-color: #00F;
+		}
+		/*右侧DIV*/
+		
+		.div-4th {
+			background-color: #FF0;
+		}
+		/*底部DIV*/
+		
+		.div-5th {
+			background-color: #0FF;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="div-l1-container">
+		<div class="div-row-1">
+			<div class="div-1st"></div>
+		</div>
+		<div class="div-row-2">
+			<div class="div-2nd"></div>
+			<div class="div-3rd">
+				<img src="img/rocket.png" alt="火箭发射">
+			</div>
+			<div class="div-4th"></div>
+		</div>
+		<div class="div-row-3">
+			<div class="div-5th"></div>
+		</div>
+	</div>
+</body>
+
+</html>
