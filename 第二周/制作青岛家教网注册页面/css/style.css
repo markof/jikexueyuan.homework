@@ -1,0 +1,129 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+/*整个页面的背景*/
+body{
+	background-image: url("../img/bg.gif");
+	font-size: 12px;
+	margin: 30px 0px;
+	line-height: 150%;
+}
+
+div{
+	padding: 5px;
+}
+
+input[type="text"]{
+	width: 250px;
+}
+
+textarea{
+	width: 500px;
+}
+
+/*页面头部圆角*/
+.holder_header{
+	border-top-left-radius: 30px;
+	border-top-right-radius: 30px;
+	padding: 0px 30px;
+	background-color: #FFF;
+	display: block;
+	width: 700px;
+	margin: 0px auto;
+}
+
+/*页面底部圆角*/
+.holder_footer{
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+	padding: 0px 30px;
+	background-color: #FFF;
+	display: block;
+	width: 700px;
+	margin: 0px auto;
+}
+
+.holder_body{
+	padding: 0px 30px;
+	background-color: #FFF;
+	display: block;
+	width: 700px;
+	margin: 0px auto;
+}
+
+/*注册页面注册选项部分中每一大段的说明抬头*/
+.tb_section{
+	background-color: #BBB;
+	color: #00F;
+	font-weight: bold;
+}
+
+/*注册页面顶部用于说明部分的表格样式*/
+.tb_prompt{
+	background-color: #9D1;
+	text-align: center;
+}
+
+/*注册页面顶部的说明文字*/
+.tb_title{
+	text-align: center;
+	font-size: 14px;
+}
+
+/*主页页面最下方的表格，包含顶部，左右，底部的border*/
+.tb_footer{
+	border: 1px solid #DDD;
+}
+
+/*只有1列的样式，包含顶部，右端，左端border*/
+.tb_1col_cell{
+	border-top: 1px solid #DDD;
+	border-left: 1px solid #DDD;
+	border-right: 1px solid #DDD;
+	border-bottom: 0px;
+}
+
+/*每行的通用样式*/
+.tb_row{
+	display: table-row;
+	padding: 0px;
+	width: 100%;
+}
+
+/*两列行中，左边的cell的样式，包含顶部，左端border*/
+.tb_2col_left_cell{
+	display: table-cell;
+	width: 25%;
+	text-align: right;
+	vertical-align: middle;
+	border-top: 1px solid #DDD;
+	border-left: 1px solid #DDD;
+}
+
+/*两列行中，左边的cell的样式，包含顶部，左端，右端border*/
+.tb_2col_right_cell{
+	display: table-cell;
+	width: 75%;
+	border-bottom: 0px;
+	border-top: 1px solid #DDD;
+	border-left: 1px solid #DDD;
+	border-right: 1px solid #DDD;
+}
+
+/*红色加强说明的文字*/
+.txt_strong{
+	color:red;
+}
+
+/*蓝色说明文字*/
+.txt_blue{
+	color:blue;
+}
+
+/*文字提示部分为必选项的样式*/
+.txt_required:before{
+	content: "*";
+	color: red;
+}
