@@ -8,44 +8,49 @@ body{
 	background-image: url("../img/bg.gif");
 	font-size: 12px;
 	margin: 30px 0px;
-	line-height: 150%;
-}
-
-div{
-	padding: 5px;
-}
-
-input[type="text"]{
-	width: 250px;
-}
-
-textarea{
-	width: 500px;
+	line-height: 200%;
 }
 
 /*页面头部圆角*/
-.holder_header{
+.header{
 	border-top-left-radius: 30px;
 	border-top-right-radius: 30px;
 	padding: 0px 30px;
 	background-color: #FFF;
-	display: block;
 	width: 700px;
 	margin: 0px auto;
 }
 
+.header_logo{
+	display: inline-block;
+	width: 180px;
+}
+
+.header_nav{
+	display: inline-block;
+	width: 520px;
+	text-align: right;
+}
+
+.header ul li{
+	display: inline-block;
+}
+
 /*页面底部圆角*/
-.holder_footer{
+.footer{
 	border-bottom-left-radius: 30px;
 	border-bottom-right-radius: 30px;
 	padding: 0px 30px;
 	background-color: #FFF;
 	display: block;
 	width: 700px;
+	height: 60px;
+	text-align: center;
 	margin: 0px auto;
 }
 
-.holder_body{
+/*页面中间的整个表单部分*/
+.content{
 	padding: 0px 30px;
 	background-color: #FFF;
 	display: block;
@@ -53,23 +58,55 @@ textarea{
 	margin: 0px auto;
 }
 
-/*注册页面注册选项部分中每一大段的说明抬头*/
-.tb_section{
-	background-color: #BBB;
-	color: #00F;
-	font-weight: bold;
+/*由于content部分全部使用DIV模拟表格，因此统一通过对DIV设置padding*/
+.content div{
+	padding: 5px;
 }
 
-/*注册页面顶部用于说明部分的表格样式*/
-.tb_prompt{
-	background-color: #9D1;
-	text-align: center;
+/*统一对checkbox设置样式*/
+.content input[type="checkbox"]{
+	margin: 0px 0px 0px 5px;
+}
+
+/*统一对输入框设置基本样式*/
+.content input[type="text"]{
+	width: 260px;
+}
+
+/*对所有textarea设置基本样式*/
+.content textarea{
+	width: 500px;
 }
 
 /*注册页面顶部的说明文字*/
 .tb_title{
 	text-align: center;
-	font-size: 14px;
+	font-size: 1.3rem;
+	padding: 20px;
+	display: block;
+}
+
+/*注册页面注册选项部分中每一大段的说明抬头*/
+.tb_section{
+	background-color: #EAEAEA;
+	color: #001B8A;
+	font-weight: bold;
+	font-size: 110%;
+}
+
+/*注册页面顶部用于说明部分的表格样式*/
+.tb_prompt{
+	background-image: url("../img/title_bg.gif");
+	text-align: center;
+}
+
+.tb_submit{
+	display: block;
+	text-align: center;
+}
+
+.tb_submit input{
+	margin: 30px;
 }
 
 /*主页页面最下方的表格，包含顶部，左右，底部的border*/
