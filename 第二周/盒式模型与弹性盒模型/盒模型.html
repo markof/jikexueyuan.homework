@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>实战盒子模型</title>
+	<link rel="stylesheet" href="css/box.css">
+</head>
+
+<body>
+	<div class="box1">
+		<!--margin-->
+		<div class="box_margin hover">
+			<div class="title">margin</div>
+			<div class="margin_top"><span class="top_size">20</span></div>
+			<div class="margin_left"><span class="left_size">20</span></div>
+			<!--boder-->
+			<div class="box_border hover">
+				<div class="title">border</div>
+				<div class="border_top"><span class="top_size">20</span></div>
+				<div class="border_left"><span class="left_size">20</span></div>
+				<!--padding-->
+				<div class="box_padding hover">
+					<div class="title">padding</div>
+					<div class="padding_top"><span class="top_size">20</span></div>
+					<div class="padding_left"><span class="left_size">20</span></div>
+					<!--content-->
+					<div class="box_content hover">
+						<span class="title">content</span><span class="size">100*100</span>
+					</div>
+					<!--content end-->
+					<div class="padding_right"><span class="right_size">20</span></div>
+					<div class="padding_bottom"><span class="bottom_size">20</span></div>
+				</div>
+				<!--padding end-->
+				<div class="border_right"><span class="right_size">20</span></div>
+				<div class="border_bottom"><span class="bottom_size">20</span></div>
+			</div>
+			<!--border end-->
+			<div class="margin_right"><span class="right_size">20</span></div>
+			<div class="margin_bottom"><span class="bottom_size">20</span></div>
+		</div>
+		<!--marging end-->
+		<!--summary-->
+		<div class="box1_summary">
+			<h1>
+				对标准盒模型的理解
+			</h1>
+			<ul>
+				<li>目前常用的盒模型有块级元素，和行内元素两大类，可以分别使用block，和inline来改变原有标签的块或行内属性。</li>
+				<li>块级元素可以设置宽高，而行内元素设置宽高无效。有个例外，就是设置为inline-block，该元素具备行内元素和块级元素的两个特点</li>
+				<li>如果块级元素不设置长宽，默认情况下会水平占满父级元素的所有content部分的空间。</li>
+				<li>标准盒模型设置宽高时，指的是设置content的部分的区块大小。而设置padding，border，margin后，盒子会向外延展。</li>
+				<li>左边的盒子长宽为264*228，其中横向为1（边框）*8+6（inline-block之间的空格占位）*6+20*4+100</li>
+				<li>纵向为1*8+20*6+100</li>
+			</ul>
+		</div>
+	</div>
+	<br/>
+	<div class="box2">
+		<!--margin-->
+		<div class="box_margin hover">
+			<div class="title">margin</div>
+			<div class="margin_top"><span class="top_size">20</span></div>
+			<div class="margin_left"><span class="left_size">20</span></div>
+			<!--boder-->
+			<div class="box_border hover">
+				<div class="title">border</div>
+				<div class="border_top"><span class="top_size">20</span></div>
+				<div class="border_left"><span class="left_size">20</span></div>
+				<!--padding-->
+				<div class="box_padding hover">
+					<div class="title">padding</div>
+					<div class="padding_top"><span class="top_size">20</span></div>
+					<div class="padding_left"><span class="left_size">20</span></div>
+					<!--content-->
+					<div class="box_content hover">
+						<div class="title">content</div>
+						<div class="size">这里有很多字，按照道理来说这些字会撑大整个box;但是如果外层是指定了宽和高的Box (只有块级元素才能宽高属性)的话，
+							<br/>那么这部分文字会溢出，溢出后的操作可以采用overflow来进行控制。
+							<br/>撑大区块是依赖于父级元素的宽高的设定，当父级元素只设置有高时，将向水平方向撑开，
+							<br/>当父级元素只设置有宽时，将向垂直方面向撑开。默认是向水平方向撑开。
+							<br/>当前看到的情况是：外围Box没有设置宽度，因此整个box会被这段文字横向撑大。</div>
+					</div>
+					<!--content end-->
+					<div class="padding_right"><span class="right_size">20</span></div>
+					<div class="padding_bottom"><span class="bottom_size">20</span></div>
+				</div>
+				<!--padding end-->
+				<div class="border_right"><span class="right_size">20</span></div>
+				<div class="border_bottom"><span class="bottom_size">20</span></div>
+			</div>
+			<!--border end-->
+			<div class="margin_right"><span class="right_size">20</span></div>
+			<div class="margin_bottom"><span class="bottom_size">20</span></div>
+		</div>
+		<!--marging end-->
+	</div>
+	<br/>
+	<div class="box3">
+		<!--margin-->
+		<div class="box_margin hover">
+			<div class="title">margin</div>
+			<div class="margin_top"><span class="top_size">20</span></div>
+			<div class="margin_left"><span class="left_size">20</span></div>
+			<!--boder-->
+			<div class="box_border hover">
+				<div class="title">border</div>
+				<div class="border_top"><span class="top_size">20</span></div>
+				<div class="border_left"><span class="left_size">20</span></div>
+				<!--padding-->
+				<div class="box_padding hover">
+					<div class="title">padding</div>
+					<div class="padding_top"><span class="top_size">20</span></div>
+					<div class="padding_left"><span class="left_size">20</span></div>
+					<!--content-->
+					<div class="box_content hover">
+						<div class="title">content</div>
+						<div class="size">
+							看到的这里演示了当设置宽高后，文字溢出的效果。这里设置了overfolow-y的溢出效果为scroll。
+							<br>
+							<br>这里有很多字，按照道理来说这些字会撑大整个box;但是如果外层是指定了宽和高的Box (只有块级元素才能宽高属性)的话，
+							<br/>那么这部分文字会溢出，溢出后的操作可以采用overflow来进行控制。
+							<br/>撑大区块是依赖于父级元素的宽高的设定，当父级元素只设置有高时，将向水平方向撑开，
+							<br/>当父级元素只设置有宽时，将向垂直方面向撑开。默认是向水平方向撑开。
+							<br/>当前看到的情况是：外围Box没有设置宽度，因此整个box会被这段文字横向撑大。</div>
+					</div>
+					<!--content end-->
+					<div class="padding_right"><span class="right_size">20</span></div>
+					<div class="padding_bottom"><span class="bottom_size">20</span></div>
+				</div>
+				<!--padding end-->
+				<div class="border_right"><span class="right_size">20</span></div>
+				<div class="border_bottom"><span class="bottom_size">20</span></div>
+			</div>
+			<!--border end-->
+			<div class="margin_right"><span class="right_size">20</span></div>
+			<div class="margin_bottom"><span class="bottom_size">20</span></div>
+		</div>
+		<!--marging end-->
+	</div>
+</body>
+
+</html>

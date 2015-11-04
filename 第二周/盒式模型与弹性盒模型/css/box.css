@@ -1,0 +1,167 @@
+body{
+	font-size:10px;
+	min-width: 600px;
+}
+
+.box_margin{
+	display: inline-block;
+	position: relative;
+	vertical-align: middle;
+	background-color: #f1c40f;
+	border: 1px solid #EEEEEE;
+	text-align: center;
+}
+
+.margin_left{
+	display: inline-block;
+	width: 20px;
+}
+
+.margin_right{
+	display: inline-block;
+	width: 20px;
+}
+
+.margin_top{
+	display: block;
+	height: 20px;
+}
+
+.margin_top .top_size{
+	line-height: 20px;
+}
+
+.margin_bottom{
+	display: block;
+	height: 20px;
+}
+
+.margin_bottom .bottom_size{
+	line-height: 20px;
+}
+
+.box_border{
+	display: inline-block;
+	position: relative;
+	vertical-align: middle;
+	background-color: #f39c12;
+	border: 1px solid #EEEEEE;
+}
+
+.border_left{
+	display: inline-block;
+	width: 20px;
+}
+
+.border_right{
+	display: inline-block;
+	width: 20px;
+}
+
+.border_top{
+	display: block;
+	height: 20px;
+}
+
+.border_bottom{
+	display: block;
+	height: 20px;
+}
+
+.border_top .top_size{
+	line-height: 20px;
+}
+
+.border_bottom .bottom_size{
+	line-height: 20px;
+}
+
+.box_padding{
+	display: inline-block;
+	position: relative;
+	vertical-align: middle;
+	background-color: #e67e22;
+	border: 1px solid #EEEEEE;
+}
+
+.padding_left{
+	display: inline-block;
+	width: 20px;
+}
+
+.padding_right{
+	display: inline-block;
+	width: 20px;
+}
+
+.padding_top{
+	display: block;
+	height: 20px;
+}
+
+.padding_bottom{
+	display: block;
+	height: 20px;
+}
+
+.padding_top .top_size{
+	line-height: 20px;
+}
+
+.padding_bottom .bottom_size{
+	line-height: 20px;
+}
+
+
+.box1 .box_content{
+	display: inline-block;
+	position: relative;
+	background-color: #d35400;
+	border: 1px solid #EEEEEE;
+	width: 100px;
+	height: 100px;
+}
+
+.box1 .box_content .size{
+	line-height: 100px;
+	position: relative;
+}
+
+.box2 .box_content{
+	display: inline-block;
+	position: relative;
+	height: 100px;
+	vertical-align: middle;
+	background-color: #d35400;
+	border: 1px solid #EEEEEE;
+}
+
+.box2 .box_content .size{
+	position: relative;
+}
+
+.box3 .box_content{
+	display: inline-block;
+	position: relative;
+	background-color: #d35400;
+	border: 1px solid #EEEEEE;
+	width: 100px;
+	height: 100px;
+	overflow-y: scroll;
+}
+
+.box1_summary{
+	display: inline-block;
+	width: auto;
+}
+
+.title{
+	position: absolute;
+	left: 5px;
+	top: 5px;
+}
+
+.hover:hover{
+	background-color: #BBBBBB;
+	border-color: #000000;
+}
