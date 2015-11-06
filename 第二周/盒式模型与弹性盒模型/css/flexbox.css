@@ -1,0 +1,59 @@
+body{
+	font-size: 12px;
+}
+
+.boxSizing .container{
+	width: 100%;
+	background-color: #333;
+	height: 180px;
+}
+
+.boxSizing .container div{
+	box-sizing: border-box;
+	width: 33.333%;
+	float: left;
+}
+
+.boxColumn .container{
+	column-count: 3;
+	-webkit-column-count: 3;
+	-moz-column-count:3;
+}
+
+.boxColumn .container img {
+	float: left;
+	height: 200px;
+	margin: 10px;
+	margin-top: 0px;
+}
+
+.flexBox .container{
+	display: flex;
+}
+
+.box1{
+	flex: 1;
+	height: 100px;
+	background-color: #F00;
+	border: 30px solid #F5E;
+}
+
+.box2{
+	flex: 1;
+	height: 150px;
+	background-color: #0F0;
+}
+
+.box3{
+	flex: 1;
+	height: 120px;
+	background-color: #00F;
+}
+
+.summary{
+	padding: 5px;
+	font-size: 14px;
+	background: #115;
+	color: #EEE;
+	font-weight: bold;
+}
