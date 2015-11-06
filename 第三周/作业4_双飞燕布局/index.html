@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>双飞燕布局</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<!--双飞翼布局部分-->
+	<div id="page_header">
+		<div id="hd_searchform">
+			<div class="input_holder">
+				<input type="text" id="sf_text" placeholder="搜索课程、问答或Wiki">
+			</div><div class="input_holder">
+				<input type="button" id="sf_button">
+			</div>
+		</div>
+		<div id="hd_logo">
+			<a href="">
+				<img src="img/logo.png" alt="">
+			</a>
+		</div>
+		<div id="hd_link">
+			<nav>
+				<ul>
+					<a href=""><li class="li_item"><div class="icon_message"></div></li></a>
+					<li class="li_spilter">|</li>
+					<a href=""><li class="li_item">QQ登录</li></a>
+					<li class="li_spilter">|</li>
+					<a href=""><li class="li_item">登录</li></a>
+					<li class="li_spilter">|</li>
+					<a href=""><li class="li_item">注册</li></a>
+				</ul>
+			</nav>
+		</div>
+	</div>
+
+	<div id="page_nav">
+		<div id="nav_container">
+			<div id="nav_main">
+				<nav>
+					<ul>
+						<li>首页</li>
+						<li>职业课程库</li>
+						<li>知识体系图</li>
+						<li>职业路径图</li>
+						<li>技术问答</li>
+						<li>Wiki</li>
+					</ul>
+				</nav>
+			</div>
+			<div id="nav_side"></div>
+		</div>
+	</div>
+
+	<!--双飞翼布局部分-->
+	<div id="page_body">
+		<!--bd_main为最终要的部分，故在文档流中靠前，为第一个-->
+		<div id="bd_main_holder"><!--【疑问】为什么不能在这里加入padding，而是要在下级元素中加入margin？-->
+			<div id="bd_main">
+				<img src="img/ad1.jpg" alt="">
+			</div>
+		</div>
+		<!--bd_nav为左侧的导航部分，重要性仅次于bd_main的部分，因此在文档流中处于第二部分-->
+		<div id="bd_nav">
+			<ul>
+				<li>移动开发</li>
+				<li>前端开发</li>
+				<li>后端开发</li>
+				<li>基础知识</li>
+				<li>云计算&大数据</li>
+				<li>智能硬件&物联网</li>
+				<li>数据库</li>
+				<li>认证考试</li>
+			</ul>
+			<div id="last_li"></div>
+		</div>
+		<!--bd_side在page_body中相比其他部分没有那么重要，因此放在最后。-->
+		<div id="bd_side">
+			<div id="side_top">
+				<div id="sidetop_title">极客学院 让学习更有效</div>
+				<div id="sidetop_info">最新 | 系统 | 实战</div>
+				<div id="sidetop_button">了解极客学院</div>
+			</div>
+			<div id="side_bottom">
+				<div id="sidebottom_title">成为VIP 极客启程</div>
+				<div id="sidebottom_info">√ 全部课程 √ 高清视频<br>√ 问答服务 √ 课程资料</div>
+				<div id="sidebottom_button">了解VIP权限</div>
+			</div>
+		</div>
+		
+		<div id="footer">
+			<br/>
+			<br/>
+			<h3>总共有两处尝试实用了双飞翼布局，第一处为最顶端logo所在的部分,第二处为图片所在的中间部分</h3>
+			<br/>
+			<h5>顶端部分</h5>
+			顶端部分包含三部分内容，分别是logo部分，中间的搜索框和右侧的链接功能部分。
+			但顶部的双飞翼布局有一点与老师教的不一样，就是搜索框的部分，因为搜索框要全局居中，因此不能受到两端宽度变化的影响，因此就继续让搜索框所在的DIV处于全局的最底部分，这样搜索框的真个DIV的宽度是占满父元素，这样在设置该DIV水平居中，这样可以使中间的搜索框全局居中而不受两端宽度的影响。
+			<br/>
+			<br/>
+			<h5>中间部分</h5>
+			这部分包含三个内容，一个是左边的导航，中间的图片幻灯片，右边的简介部分。这部分与老师教的采用一样的方法。
+			<br/>【疑问】:在做到让中间部分给两边部分让出空间的时候，为什么不能使用中间部分的容器向左右进行padding的方式？我尝试使用这种方式，但发现左边的导航貌似也一并向右移动了padding的像素。疑问的部分，我在html代码中标示出来了。
+		</div>
+	</div>
+</body>
+
+</html>
