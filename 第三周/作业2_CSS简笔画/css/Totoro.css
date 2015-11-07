@@ -4,6 +4,9 @@
 }
 
 .Totoro{
+	position: absolute;
+	left: 50%;
+	margin-left: -250px;
 }
 
 /*大头部分*/
@@ -38,6 +41,18 @@
 	border-bottom-right-radius: 20px 10px;
 	border: 1px solid #000000;
 	z-index: 920;
+}
+
+.Totoro #nose #nose_shadow{
+	position: absolute;
+	top:-10px;
+	left:-17px;
+	border-top: 5px solid #666666;
+	border-top-style: dotted;
+	width: 60px;
+	height: 20px;
+	border-top-right-radius: 30px 10px;
+	transform: scaleX(0.5) rotateZ(-3deg);
 }
 
 /*耳朵部分，比较复杂，一个耳朵用了6个DIV，三个用来组成边框（但不太完美，无法刚好形成2px粗细的边框）。*/
