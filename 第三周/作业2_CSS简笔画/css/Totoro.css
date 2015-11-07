@@ -43,6 +43,7 @@
 	z-index: 920;
 }
 
+/*鼻子上方的阴影*/
 .Totoro #nose #nose_shadow{
 	position: absolute;
 	top:-10px;
@@ -435,11 +436,11 @@
 
 /*转动眼珠的动画*/
 .Totoro #eyes .pupil{
-	animation: Anima 5s infinite;
+	animation: pupil_Anima 7s infinite;
 }
 
 /*眼珠移动动画关键帧定义*/
-@keyframes Anima{
+@keyframes pupil_Anima{
 	0%		{transform: translate(0px, 0px);}
 	23%		{transform: translate(0px, 0px);}
 	25%		{transform: translate(3px, 0px);}
@@ -449,4 +450,36 @@
 	65%		{transform: translate(-4px, 3px);}
 	98%		{transform: translate(-4px, 3px);}
 	100%	{transform: translate(0px, 0px);}
+}
+
+/*转动眼珠的动画*/
+.Totoro #eyes #eye_left, .Totoro #eyes #eye_right {
+	animation: eyes_Anima 6s infinite;
+}
+
+/*眼珠移动动画关键帧定义*/
+@keyframes eyes_Anima{
+	0%		{transform: scaleY(1) ;}
+	30%		{transform: scaleY(1);}
+	31%		{transform: scaleY(0.01);}
+	32%		{transform: scaleY(1) ;}
+	96%		{transform: scaleY(1);}
+	97%		{transform: scaleY(0.01);}
+	98%		{transform: scaleY(1) ;}
+	99%		{transform: scaleY(0.01) ;}
+	100%	{transform: scaleY(1) ;}
+}
+
+
+/*嘴巴部分*/
+.Totoro #mouth{
+	animation:Anima_mouth 10s infinite; 
+}
+
+@keyframes Anima_mouth{
+	0%		{transform: rotateX(0deg) translateY(0px);}
+	50%		{transform: rotateX(0deg) translateY(0px);}
+	52%		{transform: rotateX(180deg) translateY(3px);}
+	98%		{transform: rotateX(180deg) translateY(3px);}
+	100%	{transform: rotateX(0deg) translateY(0px);}
 }
