@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!--<!DOCTYPE html>-->
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>完善百度首页</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<!--
+	主要的适配点：
+	1. 修改了所有IE认识的标签为DIV，并以class的方式进行命名和样式修改，这次包含header，section，footer，标签。
+	2. 在上述基础上去掉了所有在HTML5中的语义化标签，如 nav标签。
+	3. 在HTML定义部分，不再使用HTML5的定义方式，使用DTD定义方式，这里采用HTML 4.01的非严格方式。
+	【疑问：】百度首页使用了命名空间xmlns="http://www.w3.org/1999/xhtml"，但我看整个页面的其他代码好像没有使用到该命名前缀。不知道百度在这里用命名空间是怎么考虑？
+	【疑问：】我看百度首页也没有使用早期的DTD，感觉理论上使用DTD兼容性应该会更好，也不知道百度在这里不使用DTD是怎么考虑的。
+-->
+
+<body>
+	<div id="wrapper">
+		<!--中间的搜索框部分-->
+		<div class="search_form">
+			<div id="logo_holder">
+				<img id="logo" src="img/bd_logo1.png" />
+			</div>
+			<form action="#" id="form_holder">
+				<div id="input_holder">
+					<input id="sf_input" type="text" autofocus="autofocus" /></div><div id="button_holder"><input id="sf_btn" type="button" value="百度一下" />
+				</div>
+			</form>
+		</div>
+
+		<!--抬头的导航部分-->
+		<div class="header">
+			<ul>
+				<li><a href=""><span><strong>糯米</strong></span></a></li>
+				<li><a href=""><span><strong>新闻</strong></span></a></li>
+				<li><a href=""><span><strong>hao123</strong></span></a></li>
+				<li><a href=""><span><strong>地图</strong></span></a></li>
+				<li><a href=""><span><strong>视频</strong></span></a></li>
+				<li><a href=""><span>贴吧</span></a></li>
+				<li><a href=""><span>登录</span></a></li>
+				<li id="config">
+					<span>设置</span>
+					<ul id="config_list">
+						<li class="config_item">搜索设置</li>
+						<li class="config_item">高级搜索</li>
+						<li class="config_item">关闭预测</li>
+						<li class="config_item">搜索历史</li>
+					</ul>
+				</li>
+				<li>
+					<a href="" id="hd_morelink">
+						<span id="hd_moretext">更多产品</span>
+					</a>
+					<div id="more">
+						<div id="nav_more_title">
+							<span>更多产品</span>
+						</div>
+						<div id="nav_more">
+							<ul>
+								<li>
+									<a href="">
+										<div class="icon3"></div>
+										<span>音乐</span>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<div class="icon4"></div>
+										<span>图片</span>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<div class="icon2"></div>
+										<span>知道</span>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<div class="icon5"></div>
+										<span>文库</span>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<div class="icon6"></div>
+										<span>风云榜</span>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<div class="icon7"></div>
+										<span>百度推广</span>
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<span>全部产品>></span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<!--最下方的footer部分-->
+		<div class="footer">
+			<div id="footer_link">
+				<ul>
+					<li><a href="">把百度设为首页</a></li>
+					<li><a href="">关于百度</a></li>
+					<li><a href="">About Baidu</a></li>
+				</ul>
+			</div>
+			<div id="footer_copyright">
+				©2015 Baidu <a href="">使用百度前必读</a> <a href="">意见反馈</a> 京ICP证030173号
+			</div>
+		</div>
+		
+	</div>
+</body>
+
+</html>
