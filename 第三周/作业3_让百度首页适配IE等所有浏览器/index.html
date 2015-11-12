@@ -15,6 +15,11 @@
 	3. 在HTML定义部分，不再使用HTML5的定义方式，使用DTD定义方式，这里采用HTML 4.01的非严格方式。
 	【疑问：】百度首页使用了命名空间xmlns="http://www.w3.org/1999/xhtml"，但我看整个页面的其他代码好像没有使用到该命名前缀。不知道百度在这里用命名空间是怎么考虑？
 	【疑问：】我看百度首页也没有使用早期的DTD，感觉理论上使用DTD兼容性应该会更好，也不知道百度在这里不使用DTD是怎么考虑的。
+	
+	【已知缺陷】百度最右侧的更多产品的悬停效果，经过再三研究，无法做到在屏幕缩小后一模一样，因为需要把这个导航拉倒wrapper之外，才能实现一模一样的效果，即屏幕高度小于wrapper设定的最小高度时，该导航可实现自身的滚动。
+	但这样的话无法通过CSS的选择器实现悬停效果，个人感觉只能用Javascript的实现了。但鉴于课程还没有到javascript，所以只能用CSS在屏幕大于最小高度时的外观效果了。
+	另外，由于IE6无法支持除了A标签以外的元素的hover选择器，所以在IE6下没实现悬停效果。
+	同样因为上面的原因，中间搜索框的hover和focus的效果在IE6不能起效。
 -->
 
 <body>
@@ -30,83 +35,86 @@
 				</div>
 			</form>
 		</div>
-
+		
 		<!--抬头的导航部分-->
-		<div class="header">
-			<ul>
-				<li><a href=""><span><strong>糯米</strong></span></a></li>
-				<li><a href=""><span><strong>新闻</strong></span></a></li>
-				<li><a href=""><span><strong>hao123</strong></span></a></li>
-				<li><a href=""><span><strong>地图</strong></span></a></li>
-				<li><a href=""><span><strong>视频</strong></span></a></li>
-				<li><a href=""><span>贴吧</span></a></li>
-				<li><a href=""><span>登录</span></a></li>
-				<li id="config">
-					<span>设置</span>
-					<ul id="config_list">
+		<ul class="header">
+			<li><a href=""><span><strong>糯米</strong></span></a></li>
+			<li><a href=""><span><strong>新闻</strong></span></a></li>
+			<li><a href=""><span><strong>hao123</strong></span></a></li>
+			<li><a href=""><span><strong>地图</strong></span></a></li>
+			<li><a href=""><span><strong>视频</strong></span></a></li>
+			<li><a href=""><span>贴吧</span></a></li>
+			<li><a href=""><span>登录</span></a></li>
+			<li id="config">
+				<span>设置</span>
+				<div id="config_list">
+					<div>&nbsp</div>
+					<ul>
 						<li class="config_item">搜索设置</li>
 						<li class="config_item">高级搜索</li>
 						<li class="config_item">关闭预测</li>
 						<li class="config_item">搜索历史</li>
 					</ul>
-				</li>
-				<li>
-					<a href="" id="hd_morelink">
-						<span id="hd_moretext">更多产品</span>
-					</a>
-					<div id="more">
-						<div id="nav_more_title">
-							<span>更多产品</span>
-						</div>
-						<div id="nav_more">
-							<ul>
-								<li>
-									<a href="">
-										<div class="icon3"></div>
-										<span>音乐</span>
-									</a>
-								</li>
-								<li>
-									<a href="">
-										<div class="icon4"></div>
-										<span>图片</span>
-									</a>
-								</li>
-								<li>
-									<a href="">
-										<div class="icon2"></div>
-										<span>知道</span>
-									</a>
-								</li>
-								<li>
-									<a href="">
-										<div class="icon5"></div>
-										<span>文库</span>
-									</a>
-								</li>
-								<li>
-									<a href="">
-										<div class="icon6"></div>
-										<span>风云榜</span>
-									</a>
-								</li>
-								<li>
-									<a href="">
-										<div class="icon7"></div>
-										<span>百度推广</span>
-									</a>
-								</li>
-								<li>
-									<a href="">
-										<span>全部产品>></span>
-									</a>
-								</li>
-							</ul>
-						</div>
+				</div>
+
+			</li>
+			<li>
+				<a href="" id="hd_morelink">
+					<span id="hd_moretext">更多产品</span>
+				</a>
+				<div id="more">
+					<div id="nav_more_title">
+						<span>更多产品</span>
 					</div>
-				</li>
-			</ul>
-		</div>
+					<div id="nav_more">
+						<ul>
+							<li>
+								<a href="">
+									<div class="icon3"></div>
+									<span>音乐</span>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<div class="icon4"></div>
+									<span>图片</span>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<div class="icon2"></div>
+									<span>知道</span>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<div class="icon5"></div>
+									<span>文库</span>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<div class="icon6"></div>
+									<span>风云榜</span>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<div class="icon7"></div>
+									<span>百度推广</span>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<span id="allproduct_link">全部产品>></span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</li>
+		</ul>
+		
 
 		<!--最下方的footer部分-->
 		<div class="footer">

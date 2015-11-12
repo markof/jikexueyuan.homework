@@ -5,6 +5,7 @@
 3. 简化和优化了部分代码，避免使用复杂布局。
 4. IE6，IE7在默认情况下会出现垂直滚动条，因此在容器上对IE6和IE7做了单独的纵向滚动条的适配。
 5. IE8，IE9，IE10,IE11四个版本浏览器100%宽度计算问题导致的水平滚动条问题。
+6. IE6, IE7, IE8， 对CSS的shadow不支持，只能采用滤镜方式。但是IE7对滤镜的实现貌似也存在问题。如果要根本解决，个人觉得最好还是图片方式做边框。
 5. 
 【疑问】各家浏览器对于input的对齐逻辑这块始终不太明白。目前解决的方式是采用两个DIV分别包裹两个input。
 【疑问】IE6和IE7貌似是把HTML根也作为一个容器来处理？
@@ -30,12 +31,15 @@ html,body{
 #wrapper{
 	/*overflow:主要是适配IE8，IE9，IE10,IE11的100%计算错误的问题。
 	实际验证发现上述三个浏览器，100%宽度会超出3个像素，因此会导致水平存在滚动条。*/
-	overflow:hidden\0;
+	display: block;
+	overflow:hidden\0\9;
 	position: absolute;
 	height: 100%;
 	width: 100%;
 	min-height: 600px;
 	min-width: 810px;
+	/*IE8在height=100%的情况下会随着窗口飘，这里是适配IE8*/
+	height: auto\0;
 }
 
 /*CSS精灵图像，用于DIV显示icon，icon从1~7*/
@@ -98,6 +102,7 @@ html,body{
 #nav_more span{
 	display: block;
 	margin: 6px 0;
+	text-align: center;
 }
 
 /*更多产品中，icon下方的文字的链接样式*/
@@ -106,15 +111,16 @@ html,body{
 	text-align: center;
 	border-top: 1px solid #EEE;
 	width: 64px;
-	padding-top: 10px;
+	padding-top: 9px;
 	padding-bottom: 6px;
 	background-color: #F7F7F7;
 	text-decoration:none;
-	color: #111;
+	color: #666;
 }
 
 /*更多产品，整个容器*/
 #more{
+	box-sizing: border-box;
 	display: none;
 	position: absolute;
 	z-index: 999;
@@ -133,34 +139,39 @@ html,body{
 	display: block;
 }
 
+/*更多产品中，用于包含所有带有icon产品列表的容器*/
+#nav_more ul {
+	text-align: center;
+}
+
 /*更多产品，每个icon是使用列表列出，这里修改列表的样式*/
 #nav_more ul li{
 	list-style: none;
 	line-height: 100%;
+	margin-left: 0px;
 }
 
 /*更多产品，在整个更多产品头部的“更多产品”文字的样式*/
 #nav_more_title{
-	height: 60px;
+	height: 53px;
 	line-height: 60px;
 	display: block;
 	text-align: center;
 }
 
-/*整个顶部导航部分的容器*/
-.header{
-	position: absolute;
-	padding: 19px 0px 5px 0;
-	width: 100%;
+#nav_more #allproduct_link{
+	font-size: 12px;
 }
 
-/*顶部导航，让所有导航向右边对齐，实现靠右布局*/
-.header ul{
+/*整个顶部导航部分的容器*/
+.header{
+	padding: 19px 0px 5px 0;
+	width: 100%;
 	text-align: right;
 }
 
 /*顶部导航，让所有导航向右边对齐，实现靠右布局*/
-.header ul li{
+.header li{
 	display: inline;
 	margin-left: 15px;
 	font-size: 13px;
@@ -168,7 +179,7 @@ html,body{
 }
 
 /*顶部导航，全部使用列表，这里设置列表字体颜色*/
-.header ul li a{
+.header li a{
 	color: #000;
 }
 
@@ -194,19 +205,32 @@ html,body{
 /*顶部导航，“设置”的属性，这里设置为其内内容布局的容器*/
 .header #config{
 	position: relative;
+	z-index: 999;
+}
+
+/*顶部导航，“设置”下方的二级导航*/
+.header #config .config_item{
+	display: block;
 }
 
 /*顶部导航，“设置”下方的二级导航*/
 .header #config #config_list{
 	position: absolute;
 	display: none;
-	top:5px;
-	left: -42px;
-	float: left;
-	border: 1px solid #888;
+	top:0px;
+	left: -22px;
 	text-align: center;
 	padding: 0px;
-	margin: 20px;
+}
+
+/*顶部导航，“设置”下方的二级导航*/
+.header #config_list ul{
+	display: block;
+	height: auto;
+	width: auto;
+	background-color: #FFFFFF;
+	box-shadow: 0px 0px 2px 2px #E0E0E0;
+	filter:progid:DXImageTransform.Microsoft.DropShadow(OffX='2', OffY='2', Color='#E0E0E0', Positive='true')
 }
 
 /*顶部导航，“设置”，设置当鼠标悬停时，显示二级导航*/
@@ -231,10 +255,12 @@ html,body{
 	position: absolute;
 	top: 38.2%;
 	/*为了IE6不支持max-height,min-height做出的外观的妥协。
-	我看百度官方网页对IE7也采用和IE6一样的策略，我这里选择只对IE6做出妥协，因为IE7是支持min-height属性的。这样IE7与其他版本和浏览器在高分辨率显示器下显示更加接近。*/
+	我看百度官方网页对IE7也采用和IE6一样的策略，我这里选择只对IE6做出妥协，
+	因为IE7是支持min-height属性的。这样IE7与其他版本和浏览器在高分辨率显示器下显示更加接近。*/
 	_top:260px;
 	margin-top: -191px;
 	width: 100%;
+	z-index: 998;
 }
 
 /*搜索框，整个表单容器*/
@@ -284,22 +310,6 @@ html,body{
 .search_form #sf_input:focus{
 	border:1px solid #358fFE;
 	border-right: 0px;
-}
-
-/*搜索框中的mic小图标*/
-/*to批改老师：我这个本来可以用字体的方式实现变色的，但是我手上没有这个图标的资源，因此找了一个图片，这样就没有实现悬停变色*/
-.search_form #mic{
-	background-image: url(../img/mic.png);
-	width: 12px;
-	height: 18px;
-	position: absolute;
-	left: 486px;
-	top: 8px;
-	/*opacity: 0.5;*/
-}
-
-.search_form #mic:hover{
-	opacity: 0.8;
 }
 
 /*百度一下按钮的容器*/
