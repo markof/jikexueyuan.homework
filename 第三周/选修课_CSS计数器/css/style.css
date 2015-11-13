@@ -1,0 +1,13 @@
+.artical{
+	counter-reset: rec;
+}
+
+.section{
+	/*也可以在这里进行计数器递增*/
+	/*counter-increment: rec;*/
+}
+
+.section:after{
+	counter-increment: rec;
+	content: "这里是计数器显示的内容-" counter(rec) "，包括这里";
+}
