@@ -1,0 +1,1145 @@
+﻿/**
+ * @file:      Neat.css V1.1.0
+ * @author:    一丝
+ * @update:    2013-11-22 14:55:29;
+ * @copyright: 基于 normalize.css | MIT License     
+ * @doc:      
+*/
+
+/**
+ * Neat.css 解决的问题
+ * 基于业务需要兼容的浏览器做到以下几点：
+ * 1.解决BUG，特别是低级浏览器的常见BUG；
+ * 2.统一效果，但不盲目追求重置为0；
+ * 3.向后兼容；
+ * 4.考虑响应式；
+ * 5.考虑移动设备。
+ */
+
+/* ==========================================================================
+   有即是无，无即是有
+   ========================================================================== */
+body, dl, dd, /* dt, 默认没边距 */
+ul, ol, /*li, 默认没边距 */
+h1, h2, h3, h4, h5, h6, pre, /* code, 默认没边距 */
+form, fieldset, legend, input, textarea, optgroup,
+p, blockquote, figure, hr, menu, dir,
+thead, tbody, tfoot, th, td /* th, td 默认 padding:1px */
+{
+    margin:0;
+    padding:0;
+}
+
+/**
+ * 非大面积文字排版网站通常不需要列表项，如果需要可单独设置
+ */
+ul, ol {
+    list-style-type: none;
+    list-style-image: none;
+}
+
+
+/* ==========================================================================
+   链接
+   ========================================================================== */
+
+/**
+ * 去除链接默认的下划线，提高文字可读性
+ */
+a {
+    text-decoration: none;
+    color: #F45755
+}
+
+/**
+* 去掉 IE 10+ 点击链接时的灰色背景
+*/
+a:active {
+    background-color: transparent;
+}
+
+/**
+ * 去掉点击时的焦点框，同时保证使用键盘可以显示焦点框
+ */
+a:active,
+a:hover {
+    outline: 0 none;
+}
+
+/**
+ * 统一 Chrome 和 Safari 的焦点框样式
+ * Chrome 中 thin 关键字放大页面后焦点框不会放大 http://jsbin.com/ehakom/1
+ * Firefox 中 box-shadow 会导致焦点框位置偏移，需用「outline-offset」修正
+ * 
+ */
+a:focus {
+    outline: 1px dotted;
+}
+
+/* ==========================================================================
+   字体和基础排版
+   ========================================================================== */
+
+/**
+ * 1.防止 iOS 横屏字号放大，同时保证在PC上 zoom 功能正常
+ */
+html {
+    -ms-text-size-adjust: 100%; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 1 */
+    text-size-adjust: 100%;
+    font-size: 62.5%; /* 10/16=62.5% */
+    min-height: 1180px;
+}
+
+body {
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 1180px;
+}
+
+
+/**
+ * 所有 font-family 小写，存在空格的字体名加单引号
+ * @default-font: 'helvetica neue', tahoma, \5B8B\4F53, sans-serif;
+ * @heading-font: 'helvetica neue', tahoma, 'hiragino sans gb', stheiti, 
+    \5FAE\8F6F\96C5\9ED1, \5B8B\4F53, 'wenquanyi micro hei', sans-serif;
+ * @code-font: monaco, menlo, consolas, monospace;
+ */
+
+/**
+ * 中文优先使用冬青黑体简体(OS X)、微软雅黑(Windows)和文泉驿微米黑(Linux)
+ * 西文使用 tahoma
+ * 1. 防止元素中「font-family」不能继承
+ * 2. 西文字体和 OS X 字体写在前面
+ * 3. Opera 12.1 之前版本不支持中文字体的英文名称
+ * 4. 微软雅黑「\5FAE\8F6F\96C5\9ED1」,中易宋体「\5B8B\4F53」
+ */
+body,
+button, /* 1 */
+input, /* 1 */
+select, /* 1 */
+textarea  /* 1 */
+{
+    font-family:MuseoSans,MuseoSansRounded-300,MuseoSansRounded-700,Oswald,\5FAE\8F6F\96C5\9ED1,\5B8B\4F53,sans-serif;
+    -ms-text-autospace: ideograph-alpha ideograph-numeric ideograph-parenthesis; /* 5 */
+    text-autospace: ideograph-alpha ideograph-numeric ideograph-parenthesis; /* 5 */
+}
+
+/**
+[mark by markof]这里增加了字体的定义，因为发现网页采用的字体，大部分系统都没有。
+*/
+@font-face{
+    font-family:Oswald;
+    src:url(../font/Oswald-Bold.otf);
+}
+
+@font-face{
+    font-family:MuseoSansRounded-300;
+    src:url(../font/MuseoSansRounded-300.otf);
+}
+
+@font-face{
+    font-family:MuseoSansRounded-700;
+    src:url(../font/MuseoSansRounded-700.otf);
+}
+
+@font-face{
+    font-family:MuseoSans;
+    src:url(../font/MuseoSans_500.otf);
+}
+
+/**
+ * 中文小于 12px 可读性很差
+ * 1. 统一 IE 6-7 中字体大小
+ * 2. 统一 Firefox 4+，Safari 5 和 Chrome 中「section」和「article」内的字体大小
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+} 
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+h4 {
+    font-size: 18px;
+}
+
+h5 {
+    font-size: 14px;
+}
+
+h6 {
+    font-size: 12px;
+}
+
+/**
+ * 修正「abbr」元素在 Firefox 外其他浏览器没有下划线的问题
+ * 添加问号光标，明确语义
+ */
+abbr,
+acronym {
+    border-bottom: 1px dotted; /* 1 */
+    cursor:help; /* 2 */
+}
+
+/**
+ * Firefox3+，Safari4/5 和 Chrome 中统一设置为粗体
+ [mark by markof]这里有区别于原始neat设置的粗体，这里统一修改为红色字体。
+ */
+b,
+strong {
+    color: #F45755;
+}
+
+/**
+ * 修正 Safari5 和 Chrome 中没有样式的问题
+ */
+dfn {
+    font-style: italic;
+}
+
+/**
+ * 修正 Firefox 和其他浏览器之间的差异
+ */
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+
+/**
+ * 网页标记，荧光笔
+ * 修正 IE6-11 中没有样式的问题
+ */
+mark {
+    background-color: #D2E5FF;
+    color: #000;
+}
+
+/**
+ * 统一代码的字体设置
+ * 字体要能明确区分数字 0 和字母 o
+ * Mac 优先使用 Monaco，Windows 优先使用 Consolas
+ * XP自带 Courier New
+ * Windows 7开始自带的 Consolas
+ * Mac上自带的Monaco，Osaka-Mono
+ */
+code,
+kbd,
+pre,
+samp {
+    font-family: monaco, menlo, consolas, 'courier new', courier, monospace;
+}
+
+/**
+ * 增强所有浏览器中 pre 标签中文本的可读性
+ * 1. IE 6-7 不支持 pre-wrap
+ * 2. pre 标签应当包含滚溢出
+ */
+pre {
+    white-space: pre; 
+    white-space: pre-wrap; /* 1 */
+    word-wrap: break-word;
+    overflow: auto;
+}
+
+/**
+ * 行内引用
+ * IE 6-7 不支持 quotes 属性
+ * 现代浏览器去除 quotes 内容
+ */
+q {
+    quotes: none;
+}
+
+/**
+ * Safari 4 不支持<q>标签
+ */
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+
+/**
+ * 中文网页<small>元素字号小于 12px 不易阅读
+ */
+small {
+    font-size: 85.7%; /* 12/14=0.8571428571 */
+}
+
+/**
+ * 防止所有浏览器中的<sub>和<sup>影响行高
+ * http://jsbin.com/usoyal/1/edit
+ */
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+/* ==========================================================================
+   表格
+   ========================================================================== */
+
+/**
+ * 合并单元格边框
+ */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/**
+ * 修复 IE 中 th 不能继承 text-align 的问题并统一左对齐
+ * http://jsbin.com/evoxif/2/edit
+ */
+th {
+    text-align: left;
+}
+
+/**
+ * 单元格添加边框
+ */
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 8px 10px;
+}
+
+/**
+ * 表头底部边框
+ */
+table th {
+    font-weight: inherit;
+    border-bottom-width: 2px;
+    border-bottom-color: #ccc;
+}
+
+/* ==========================================================================
+   嵌入元素
+   ========================================================================== */
+
+/**
+ * 1. 去除 IE6-9 和 Firefox 3 中 a 内部 img 元素默认的边框
+ * 2. 修正 IE8 图片消失bug
+ * 3. 防止 img 指定「height」时图片高度不能按照宽度等比缩放，导致图片变形
+      http://jsbin.com/aJoTUca/2
+ * 4. 让图片支持响应式
+ * 5. 去除现代浏览器图片底部的空隙
+ * 6. 修复 IE7 图片缩放失真
+ */
+img {
+    border: 0 none; /* 1 */
+    width: auto\9; /* 2 */
+    height: auto; /* 3 */
+    max-width: 100%; /* 4 */
+    vertical-align: top;/* 5 */
+    -ms-interpolation-mode: bicubic; /* 6 */
+}
+
+/**
+ * 修复 IE9 中的「overflow」的怪异表现
+ */
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   表单
+   ========================================================================== */
+
+/**
+ * 定义一致的边框、外边距和内边距
+ */
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. 修正 IE 6-9 中颜色不能继承的问题
+ * 2. 修正 Firefox3 中文字不换行的问题
+ * 3. 修正 IE6-7 中怪异的对齐方式
+ */
+legend {
+    border: 0 none; /* 1 */
+    white-space: normal; /* 2 */
+    *margin-left: -7px; /* 3 */
+}
+
+/**
+ * 1. 修正所有浏览器中字体不继承的问题
+ * 2. 修正所有浏览器中字号不继承的问题
+ * 3. 修正 Firefox 3+， Safari5 和 Chrome 中外边距不同的问题
+ * 4. 改善在所有浏览器下的垂直对齐方式
+ */
+button,
+input,
+select,
+textarea {
+    font-family: inherit; /* 1 */
+    font-size: 100%; /* 2 */
+    margin: 0; /* 3 */
+    vertical-align: baseline; /* 4 */
+    *vertical-align: middle; /* 4 */
+}
+
+/**
+ * 修正 IE7 随着字数增加边距不断增加的问题
+ */
+input,
+button {
+    *overflow: visible;
+}
+
+/**
+ * 统一各浏览器「text-transform」不会继承的问题
+ * http://jsbin.com/iqecic/1/edit
+ * http://tjvantoll.com/2012/07/10/default-browser-handling-of-the-css-text-transform-property/
+ */
+button,
+select {
+    text-transform: none;
+}
+
+/**
+ * 1. 避免 Android 4.0.* 中的 WebKit bug ，该bug会破坏原生的
+   「audio」 和「video」的控制器
+ * 2. 更正 iOS 中无法设置可点击的「input」的问题
+ * 3. 统一其他类型的「input」的光标样式
+ */
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button; /* 2 */
+    cursor: pointer; /* 3 */
+}
+
+/**
+ * 重置按钮禁用时光标样式
+ */
+button[disabled],
+input[disabled] {
+    cursor: default;
+}
+
+/**
+ * 1. 修正 IE 8/9 box-sizing 被设置为「content-box」的问题
+ * 2. 移除 IE 8/9 中多余的内边距
+ * 3. 移除 IE7 中多余的内边距(IE6 中任然存在)
+ */
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+    *height: 13px; /* 3 */
+    *width: 13px; /* 3 */
+}
+
+/**
+ * 1. 修正 Safari 5 和 Chrome 中「appearance」被设置为「searchfield」的问题
+ * 2. 修正 Safari 5 和 Chrome 中「box-sizing」被设置为 「border-box」的问题
+ */    
+input[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+}
+    
+/**
+ * 1.移除 OS X 中 Safari5 和 Chrome 搜索框内侧的左边距
+ * 2.如果需要隐藏清除按钮需要加上
+   input[type="search"]::-webkit-search-cancel-button
+ */
+input[type="search"]::-webkit-search-decoration /* 1 */
+{
+    -webkit-appearance: none;
+}
+    
+/**
+ * 移除 Firefox 3+ 的内边距
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/**
+ * 修正 Chrome 中 input [type="number"] 在特定高度和 font-size 时,
+ * 下面一个箭头光标变成「cursor: text」
+ * @demo: http://jsfiddle.net/FFXEc/
+ * 动画演示：http://gtms04.alicdn.com/tps/i4/T18kd8FCtaXXc_FhcF-330-350.gif
+ */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+/**
+ * 1. 移除 IE6-11 中默认的垂直滚动条
+ * 2. 禁止水平拖动，防止破坏布局
+ */
+textarea {
+    overflow: auto; /* 1 */
+    resize: vertical; /* 2 */
+}
+
+/**
+ * 修正 Chrome 30- option 中文字无法显示的问题
+ * http://jsbin.com/avujas/1/edit 
+ */
+select:disabled option:checked,
+option:disabled:checked {
+    color: #D2D2D2;
+}
+
+/**
+ * 修正 Safari 3+, Chrome 1+ Placeholder 居中问题
+ */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    input {
+        line-height: normal !important;
+    }
+}
+
+/**
+ * 修正 Firefox 19+ Placeholder 设置了opacity 的问题
+ */
+input::-moz-placeholder, textarea::-moz-placeholder {
+    color: darkGray;
+    opacity: 1;
+}
+
+/**
+ * label 元素给予手型，暗示此处可点击
+ */
+label {
+    cursor: pointer;
+}
+
+/**
+ * 统一 select 样式, Firefox 中有 padding:1px 0
+ * http://jsbin.com/avujas/1/edit
+ */
+select[size],
+select[multiple],
+select[size][multiple] {
+    border: 1px solid #AAA;
+    padding:0;
+}
+
+/* ==========================================================================
+   HTML5 元素
+   ========================================================================== */
+
+/**
+ * 修正未定义为「block」的元素
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+/**
+ * 1. 修正未定义为「inline-block」的元素
+ * 2. 修正 Chrome、Firefox、Opera 中 「progress」元素 vertical-align 默认值不一致
+ */
+audio,
+canvas,
+video,
+progress {
+    display: inline-block; /* 1 */
+    vertical-align: baseline; /* 2 */
+}
+
+/**
+ * 1.防止现代浏览器将没有「controls」属性的 「audio」元素显示出来
+ * 2.去掉 iOS 5 中多余的高度
+ */
+audio:not([controls]) {
+    display: none; /* 1 */
+    height: 0; /* 2 */
+}
+
+/**
+ * 修复 IE 7/8/9，Firefox 3 和 Safari 4 中 「hidden」属性不起作用的问题
+ * 在IE、Safari、Firefox 22- 中隐藏「template」元素
+ */
+[hidden], template {
+    display: none;
+}
+
+/**
+ * 为可拖动元素添加拖动的光标
+ * http://jsbin.com/apavod/1/edit
+ */
+[draggable] {
+    cursor: move;
+}
+
+/**
+ * 居中 HTML5 dialog 元素
+ * Chrome 31 支持，需开启 chrome://flags/#enable-experimental-web-platform-features
+ * Chrome 28 之前、Firefox 中不支持 height:fit-content; 
+   https://src.chromium.org/viewvc/blink?revision=148314&view=revision
+ * ::backdrop 定义遮罩样式
+ * @demo: http://jsbin.com/iPACab/1
+ */
+dialog {
+    border: 1px solid;
+    padding: 0;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+    width: fit-content;
+    height: -moz-fit-content;
+    height: -webkit-fit-content;
+    height: fit-content;
+}
+
+dialog::backdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+/* ==========================================================================
+   页面CSS代码从这里开始，以上均为neat的reset的代码
+   ========================================================================== */
+
+#upperheader{
+    height: 40px;
+    width: 1180px;
+    margin: 0px auto;
+    overflow: hidden;
+}
+
+#header{
+    height: 163px;
+    text-align: center;
+    background-color: #F5F5F1;
+}
+
+#header #logo{
+    float: left;
+    margin-left: -100%;
+    margin-top: 55px;
+}
+
+#header .container{
+    width: 1180px;
+    margin: 0px auto;
+}
+
+#header #nav{
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+
+#header #nav li{
+    font-family:MuseoSans;
+    font-size: 1.8rem;
+    display: inline-block;
+    line-height: 163px;
+}
+
+#header #nav ul{
+    text-align: center;
+}
+
+#header #nav .navitem{
+    color: #000000;
+    margin: 0px 16px;
+}
+
+#header #nav .slider{
+    color: #F45755;
+}
+
+#header .caritemcount{
+    font-family:MuseoSansRounded-300;
+    font-size: 1.8rem;
+    color: #757575;
+}
+
+#header .cartprice{
+    color: #463F3A;
+    font-size: 1.8rem;
+    font-family:MuseoSansRounded-300; 
+}
+
+#header .cartimg{
+    float: left;
+    margin-top: 12px;   
+}
+
+#header .cartsummary {
+    float: left;
+    padding: 0px 5px;
+}
+
+#header #cart{
+    float: right;
+    margin-left: -100%;
+    margin-top: 54px;
+}
+
+#slidshow{
+    width: 1180px;
+    margin: 40px auto;
+}
+
+#slidshow img{
+    width: 100%;
+}
+
+#featured{
+    margin: 40px auto; 
+    width: 1180px;
+    overflow: auto;
+}
+
+#featured .featuredbox{
+    width: 370px;
+    height: 120px;
+    display: inline-block;
+    float: left;
+    background-color: #F5F6F1;
+    vertical-align: middle;
+}
+
+#featured .featuredbox:nth-child(2){
+    margin: 0px 35px;
+}
+
+#featured .featuredbox .featuretitle{
+    font-family: Oswald;
+    font-size: 3rem;
+    text-align: center;
+    margin:14px 0px 5px 0px;
+}
+
+#featured .featuredbox .featureintro{
+    font-family: MuseoSansRounded-300;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+#content .contenttitle{
+    width: 1180px;
+    margin: 0px auto; 
+}
+
+#content .contenttitle .titletext{
+    display: table-cell;
+    font-family: Oswald;
+    font-size: 3rem;
+    white-space:nowrap;
+    padding:0px 15px;
+    color: #2D2828;
+}
+
+#content .contenttitle .titleleft,#content .contenttitle .titleright{
+    display: table-cell;
+    background-image: url("../img/ctitle_bg.png");
+    background-repeat: repeat-x;
+    width: 50%;
+    background-position: 50% 50%;
+}
+
+#categories{
+    border-top: 1px solid #EBEBEB;
+    border-bottom: 1px solid #EBEBEB;
+    background-color: #F8F8F8;
+    overflow: hidden;
+}
+
+#categories .container{
+    width: 1180px;
+    margin: 25px auto 40px auto; 
+}
+
+#categories .catbox{
+    float: left;
+    margin: 25px 0px 40px 0px;
+    background-color: #FFFFFF;
+}
+
+#categories .catbox:nth-child(3){
+    margin: 24px 19px 40px 19px;
+}
+
+#categories .catbox img{
+    width: 100%;
+}
+
+#categories .catbox .cattitle{
+    font-family: Oswald;
+    font-size: 3rem;
+    color: #463F3A;
+    margin: 7px 16px 3px 16px;
+}
+
+#categories .catbox .catinfo{
+    font-family: MuseoSans;
+    font-size: 1.6rem;
+    font-style: italic;
+    color: #463F3A;
+    width: 346px;
+    word-break: break-all; 
+    word-wrap:break-word;
+    margin: 3px 16px 5px 16px;
+    line-height: 24px;
+}
+
+#categories .catbox .viewcat{
+    color: #F45755;
+    font-size: 2rem;
+    font-family: MuseoSans;
+    margin: 5px 16px 11px 16px;
+}
+
+#newarrivals{
+    background-color: #FDFDFD;
+    overflow: hidden;
+}
+
+#newarrivals .container{
+    width: 1180px;
+    margin: 25px auto 40px auto; 
+}
+
+#featuredproduct{
+    border-top: 1px solid #EBEBEB;
+    border-bottom: 1px solid #EBEBEB;
+    background-color: #F8F8F8;
+    overflow: hidden;
+}
+
+#featuredproduct .container{
+    width: 1180px;
+    margin: 25px auto 40px auto; 
+}
+
+#content .productbox{
+    float: left;
+    margin: 25px 0px 40px 0px;
+}
+
+#content .productbox{
+    margin: 24px 0px 40px 19px;
+}
+
+#content .productbox:nth-child(2){
+    margin: 24px 0px 40px 0px;
+}
+
+#content .productbox img{
+    width: 100%;
+}
+
+#content .productbox .productname{
+    font-size: 1.8rem;
+    font-family: MuseoSansRounded-300;
+    margin-top: 14px;
+}
+
+#content .productbox .productprice{
+    font-size: 2rem;
+    font-family: MuseoSansRounded-700;
+}
+
+ #content .new{
+     position: relative;
+}
+
+ #content .new:after{
+     content: url("../img/tag_new.png");
+     position: absolute;
+     top: 0px;
+     left: 0px;
+}
+
+#content .productbox .addtocart{
+    display: inline-block;
+    width: 280px;
+    height: 40px;
+    font-size: 2rem;
+    font-family: Oswald;
+    background-color: #463F3A;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 15px 0px 0px 0px;
+    padding-top:8px;
+}
+
+#blog{
+    overflow: hidden;
+}
+
+#blog .container{
+    width: 1180px;
+    margin: 25px auto 40px auto; 
+}
+
+#blog .blogbox{
+    width: 373px;
+    float: left;
+    margin: 25px 0px 40px 0px;
+}
+
+#blog .blogbox:nth-child(3){
+    margin: 25px 29px 40px 29px;
+}
+
+#blog .blogtitle{
+    font-family: MuseoSansRounded-700;
+    font-size: 1.8rem;
+    margin-top: 20px;
+}
+
+#blog .bloginfo{
+    word-break: break-all; 
+    word-wrap:break-word;
+    font-family :MuseoSans;
+    font-size: 1.5rem;
+    line-height: 2.0rem;
+}
+
+#blog .readmore{
+    font-family :MuseoSans;
+    font-size: 1.6rem;
+    margin-top: 8px;
+}
+
+#footer #qoute{
+    min-width: 1180px;
+    height: 120px;
+    background-color: #F2F2F0;
+    padding-top: 40px;
+}
+
+#footer #qoute .qoutetitle{
+    font-family: Oswald;
+    font-size: 3.6rem;
+    text-align: center;
+}
+
+#footer #qoute .qouteinfo{
+    font-family: MuseoSansRounded-300;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+#footer #foot{
+    background-color: #463F3A;
+    height: 224px;
+}
+
+#footer #foot .container{
+    width: 1180px;
+    margin: 0px auto;
+}
+
+#footer #social{
+    height: 50px;
+    width: 1180px;
+    margin: 0px auto;
+    /*overflow: hidden;*/
+}
+
+#footer #social #sociallink{
+    word-spacing: 10px;
+    float: left;
+    margin-top: 14px;
+}
+
+#footer #social #designby{
+    line-height: 50px;
+    text-align: right;
+    float: right;
+}
+
+.social_1{
+    display: inline-block;
+    height: 23px;
+    width: 23px;
+    background-image: url("../img/social.png");
+    background-position: 0px 0px;
+}
+
+.social_2{
+    display: inline-block;
+    height: 23px;
+    width: 23px;
+    background-image: url("../img/social.png");
+    background-position: 23px 0px;
+}
+
+.social_3{
+    display: inline-block;
+    height: 23px;
+    width: 23px;
+    background-image: url("../img/social.png");
+    background-position: 46px 0px;
+}
+
+.social_4{
+    display: inline-block;
+    height: 23px;
+    width: 23px;
+    background-image: url("../img/social.png");
+    background-position: 69px 0px;
+}
+
+.social_5{
+    display: inline-block;
+    height: 23px;
+    width: 23px;
+    background-image: url("../img/social.png");
+    background-position: 92px 0px;
+}
+
+#foot{
+    overflow: hidden;
+}
+
+#foot .navandcp .nav{
+    padding: 78px 0px 34px 0px;
+}
+
+#foot .navandcp .nav li{
+    font-family:MuseoSans;
+    font-size: 1.8rem;
+    display: inline-block;
+}
+
+#foot .navandcp .nav ul{
+    text-align: center;
+}
+
+#foot .navandcp .navitem{
+    color: #FFFFFF;
+    margin: 0px 16px;
+}
+
+#foot .navandcp .slider{
+    color: #F45755;
+}
+
+#foot .navandcp .cp{
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 1.4rem;
+    font-family:  "Adobe 黑体 Std";
+}
+
+#foot .navandcp{
+    float: left;
+    width: 100%;
+}
+
+#foot .logo{
+    float: left;
+    margin-left: -100%;
+    line-height: 224px;
+    margin-top: 85px;
+}
+
+#foot .gotop{
+    float:right;
+    margin-left: -100%;
+    margin-top: 87px;
+}
+
+#upperheader #contact{
+    font-size: 1.2rem;
+    float: left;
+}
+
+#upperheader #contact div{
+    float: left;
+}
+
+.icon_tel{
+    width: 16px;
+    height: 13px;
+    background-image: url("../img/icons.png");
+    background-position: 0px 0px;
+    margin: 13px 5px 13px 0px;;
+}
+
+.telnumber{
+    line-height: 40px;
+}
+
+.email{
+    line-height: 40px;
+}
+
+.icon_mail{
+    width: 16px;
+    height: 13px;
+    background-image: url("../img/icons.png");
+    background-position: 16px 0px;
+    margin: 13px 5px 13px 15px;
+}
+
+#upperheader #info ul{
+    text-align: right;
+}
+
+#upperheader #info ul li{
+    display: inline;
+    margin-left: 24px; 
+}
+
+#upperheader #info{
+    float: right;
+    line-height: 40px;
+}

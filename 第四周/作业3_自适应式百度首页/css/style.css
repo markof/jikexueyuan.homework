@@ -1,0 +1,1016 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+html,body{
+	display: block;
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif, 黑体-简;
+	height: 100%;
+	width: 100%;
+	/*貌似IE6和IE7把html根元素也作为一个容器来进行处理。*/
+	/*适配了IE6和IE7下默认存在的滚动条问题。*/
+	*overflow-y:auto;
+}
+
+a, a:hover, a:active{
+	color: #000;
+	text-decoration: none;
+}
+
+/*页面图标使用的font文件*/
+@font-face {
+      font-family: 'icons';
+      src: url('../font/iconfont.eot');
+      src: url('../font/iconfont.eot') format('embedded-opentype'),
+           url('../font/iconfont.woff') format('woff'),
+           url('../font/iconfont.ttf') format('truetype'),
+           url('../font/iconfont.svg') format('svg');
+}
+
+/*在这里统一进行媒体查询，做响应式适配*/
+/*-------------------------------------------------------------------------------------------*/
+/*宽度大于PC端最小宽度时*/
+@media (min-width:811px)
+{
+	/*移动端在大分辨率下不显示的模块*/
+	#mobile_header, #mobile_nav, #mobile_management, #mobile_service, #mobile_favoriteSite{
+		display: none;
+	}
+	
+	/*PC端在大分辨率下要显示的模块*/
+	#header, #footer{
+		display: block;
+	}
+	
+	/*整个页面的容器，主要是统一页面100%高的行为。*/
+	#wrapper{
+		/*overflow:主要是适配IE8，IE9，IE10,IE11的100%计算错误的问题。
+		实际验证发现上述三个浏览器，100%宽度会超出3个像素，因此会导致水平存在滚动条。*/
+		display: block;
+		overflow:hidden\0\9;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		min-height: 600px;
+		min-width: 810px;
+		/*IE8在height=100%的情况下会随着窗口飘，这里是适配IE8*/
+		height: auto\0;
+	}
+	
+	#search_form #logo{
+		width: 270px;
+	}
+	
+	/*整个中间搜索框部分，包含logo*/
+	#search_form {
+		position: absolute;
+		top: 38.2%;
+		/*为了IE6不支持max-height,min-height做出的外观的妥协。
+		我看百度官方网页对IE7也采用和IE6一样的策略，我这里选择只对IE6做出妥协，
+		因为IE7是支持min-height属性的。这样IE7与其他版本和浏览器在高分辨率显示器下显示更加接近。*/
+		_top:260px;
+		margin-top: -191px;
+		width: 100%;
+		z-index: 998;
+	}
+
+	/*搜索表单中的文本输入框的样式*/
+	#search_form #sf_input{
+		box-sizing: border-box;
+		height: 36px;
+		*height: 34px;/*这里IE6表现的很神奇*/
+		width: 540px;
+		border: 1px solid #DDD;
+		border-right: 0px;
+		outline: none;
+		font-size: 16px;
+		line-height: 34px;
+		padding-left: 5px;
+	}
+
+	/*搜索表单中的搜索按钮的样式*/
+	#search_form #sf_btn{
+		box-sizing: border-box;
+		height: 36px;
+		width: 100px;
+		border: 1px solid #358fFE;
+		background-color: #358fFE;
+		font-size: 14px;
+		color: #fff;
+		text-align: center;
+		outline: none;
+	}
+	
+	/*搜索表单中的文本输入框的容器*/
+	#search_form #input_holder{
+		display: inline-block; /*各个浏览器对于input的对齐简直无法理解*/
+		*display: inline;
+		vertical-align: middle;
+	}
+
+	/*百度一下按钮的容器*/
+	#search_form #button_holder{
+		display: inline-block;
+		*display: inline;
+		vertical-align: middle;
+	}
+	
+	/*整个表单的容器不包含logo*/
+	#search_form #form_holder{
+		text-align: center;
+		margin-top: 25px;
+	}
+
+}
+
+/*------------------------------------------------------------------------------*/
+/*宽度小于PC端最小宽度时*/
+@media (max-width:810px){
+	/*移动端在小分辨率下不显示的模块*/
+	#mobile_header, #mobile_nav, #mobile_management, #mobile_service, #mobile_favoriteSite{
+		display: block;
+	}
+	
+	/*PC端在小分辨率下要隐藏的模块*/
+	#header, #footer{
+		display: none;
+	}
+
+	/*重置整个容器为普通容器*/
+	#wrapper{
+		display: block;
+	}
+	
+	#search_form #logo{
+		width: 225px;
+	}
+	
+	/*整个中间搜索框部分，包含logo*/
+	#search_form {
+		width: 100%;
+		overflow: hidden;
+	}
+	
+	/*整个表单的容器不包含logo*/
+	#search_form #form_holder{
+		box-sizing: border-box;
+		width: 100%;
+		padding: 0px 10px;
+	}
+	
+	/*搜索表单中的文本输入框的容器*/
+	#search_form #input_holder{
+		box-sizing: border-box;
+		width: 100%;
+		float: left;
+		padding-right: 78px;
+	}
+	
+	/*搜索表单中的文本输入框的样式*/
+	#search_form #sf_input{
+		-webkit-appearance: none;
+		border: 1px solid #DDD;
+		box-sizing: border-box;
+		height: 42px;
+		line-height: 42px;
+		width: 100%;
+		padding-left: 5px;
+		font-size: 16px;
+		border-radius: 0px;
+		box-shadow: none;
+	}
+	
+	/*百度一下按钮的容器*/
+	#search_form #button_holder{
+		float: right;
+		margin-left: -100%;
+	}
+
+	/*搜索表单中的搜索按钮的样式*/
+	#search_form #sf_btn{
+		-webkit-appearance: none;
+		border: 1px solid #358fFE;
+		background-color: #358fFE;
+		box-sizing: border-box;
+		height: 42px;
+		width: 79px;
+		font-size: 14px;
+		text-align: center;
+		border-radius: 0px;
+		color: #FFF;
+	}
+}
+
+/*------------------------------------------nav_more----------------------------------------------*/
+/*更多产品中，icon下方的文字*/
+#nav_more span{
+	display: block;
+	margin: 6px 0;
+	text-align: center;
+}
+
+/*更多产品中，icon下方的文字的链接样式*/
+#nav_more a {
+	display: inline-block;
+	text-align: center;
+	border-top: 1px solid #EEE;
+	width: 64px;
+	padding-top: 9px;
+	padding-bottom: 6px;
+	background-color: #F7F7F7;
+	text-decoration:none;
+	color: #666;
+}
+
+/*更多产品，整个容器*/
+#more{
+	box-sizing: border-box;
+	display: none;
+	position: absolute;
+	z-index: 999;
+	top:0px;
+	right: 0px;
+	height: 100%;
+	width: 84px;
+	background-color: #F7F7F7;
+	border: 1px solid #EEE;
+	border-top: 0px;
+}
+
+/*更多产品中，用于包含所有带有icon产品列表的容器*/
+#nav_more {
+	font-size: 12px;
+	display: block;
+}
+
+/*更多产品中，用于包含所有带有icon产品列表的容器*/
+#nav_more ul {
+	text-align: center;
+}
+
+/*更多产品，每个icon是使用列表列出，这里修改列表的样式*/
+#nav_more ul li{
+	list-style: none;
+	line-height: 100%;
+	margin-left: 0px;
+}
+
+/*更多产品，在整个更多产品头部的“更多产品”文字的样式*/
+#nav_more_title{
+	height: 53px;
+	line-height: 60px;
+	display: block;
+	text-align: center;
+}
+
+#nav_more #allproduct_link{
+	font-size: 12px;
+}
+
+/*--------------------------------------------header----------------------------------------------*/
+/*整个顶部导航部分的容器*/
+#header{
+	padding: 19px 0px 5px 0;
+	width: 100%;
+	text-align: right;
+}
+
+/*顶部导航，让所有导航向右边对齐，实现靠右布局*/
+#header li{
+	display: inline;
+	margin-left: 15px;
+	font-size: 13px;
+	line-height: 24px;
+}
+
+/*顶部导航，全部使用列表，这里设置列表字体颜色*/
+#header li a{
+	color: #000;
+}
+
+/*顶部导航，最右侧的“更多产品”的样式*/
+#header #hd_moretext{
+	background-color: #358fFE;
+	margin-right: 12px;
+	text-align: center;
+	padding: 6px 4px;
+	color: #fff;
+}
+
+/*顶部导航，单独设置“更多产品”的A链接样式，不带下划线*/
+#header #hd_morelink{
+	text-decoration: none;
+}
+
+/*顶部导航，通过设置“更多产品”的hover属性，实现侧边更多产品导航的显示*/
+#header #hd_morelink:hover ~ #more, #more:hover{
+	display: block;
+}
+
+/*顶部导航，“设置”的属性，这里设置为其内内容布局的容器*/
+#header #config{
+	position: relative;
+	z-index: 999;
+}
+
+/*顶部导航，“设置”下方的二级导航*/
+#header #config .config_item{
+	display: block;
+}
+
+/*顶部导航，“设置”下方的二级导航*/
+#header #config #config_list{
+	position: absolute;
+	display: none;
+	top:0px;
+	left: -22px;
+	text-align: center;
+	padding: 0px;
+}
+
+/*顶部导航，“设置”下方的二级导航*/
+#header #config_list ul{
+	display: block;
+	height: auto;
+	width: auto;
+	background-color: #FFFFFF;
+	box-shadow: 0px 0px 2px 2px #E0E0E0;
+	filter:progid:DXImageTransform.Microsoft.DropShadow(OffX='2', OffY='2', Color='#E0E0E0', Positive='true')
+}
+
+/*顶部导航，“设置”，设置当鼠标悬停时，显示二级导航*/
+#header #config:hover #config_list, #header #config #config_list:hover{
+	display: block;
+}
+
+/*顶部导航，“设置”的二级导航的样式*/
+#header #config #config_list .config_item{
+	width: 80px;
+	margin: 0px;
+}
+
+/*顶部导航，“设置”的二级导航的鼠标悬停样式*/
+#header #config #config_list .config_item:hover{
+	background-color: #358fFE;
+	color: #FFF;
+}
+
+/*-----------------------------------------search_form------------------------------------------------*/
+/*搜索框，整个表单容器*/
+#search_form #logo_holder{
+	text-align: center;
+}
+
+/*设置搜索框的鼠标悬停，用于改变搜索框的颜色*/
+#search_form #sf_input:hover{
+	border: 1px solid #BBB;
+	border-right: 0px;
+}
+
+/*设置搜索框的获得焦点事件，用于改变搜索框的颜色*/
+#search_form #sf_input:focus{
+	border:1px solid #358fFE;
+	border-right: 0px;
+}
+
+/*搜索表单中的搜索按钮的样式*/
+#search_form #sf_btn:hover{
+	border: 1px solid #2580FF;
+	background-color: #2580FF;
+}
+
+/*---------------------------------------mobile_header-----------------------------------------------*/
+/*手机端最上方的内容*/
+#mobile_header{
+	overflow: hidden;
+	padding: 0px 10px;
+}
+
+/*对于天气的描述的容器*/
+#mobile_header #weather{
+	float: left;
+}
+
+/*温度*/
+#mobile_header #weather .temperature{
+	color: #818388;
+	font-size: 30px;
+	font-family: Arial, Helvetica, sans-serif;
+	float: left;
+	line-height: 42px;
+}
+
+/*天气的描述图标*/
+#mobile_header #weather .icon_cloudy{
+	float: left;
+	margin-top: 10px;
+}
+
+/*天气的描述图标*/
+#mobile_header #weather .icon_cloudy:before{
+	content: "\e812";
+	font:  28px icons;
+	color: #B7BABE;
+}
+
+/*用于切换地区的下拉图标*/
+#mobile_header #weather .icon_down{
+	float: left;
+	margin-top: 17px;
+}
+
+/*用于切换地区的下拉图标*/
+#mobile_header #weather .icon_down:before{
+	content: "\e801";
+	font: 16px/16px icons;
+	color: #b6b7ba;
+}
+
+/*用于容纳地理位置和空气质量的容器*/
+#mobile_header #weather .weather{
+	float: left;
+	font-size: smaller;
+	margin: 5px 8px;
+	border-left: 1px solid #d2d6dd;
+	padding-left: 3px;
+	color: #818388;
+}
+
+/*右上方的登陆图标*/
+#mobile_header #login{
+	float: right;
+}
+
+/*右上方的登陆图标*/
+#mobile_header #login .icon_login:before{
+	content: "\e802";
+	font: 28px/28px icons;
+	color: #b6b7ba;
+}
+
+/*---------------------------------------mobile_nav-----------------------------------------------*/
+/*移动端的导航部分*/
+#mobile_nav {
+	margin: 17px 0px 14px 0px;
+	overflow: hidden;
+}
+
+/*每个移动端的导航的项*/
+#mobile_nav ul li {
+	display: inline-block;
+	width: 16%;
+	float: left;
+}
+
+/*第一个项离左边框的边距*/
+#mobile_nav ul li:first-child {
+	margin-left: 2%;
+}
+
+/*最后一个元素项离右边框的边距*/
+#mobile_nav ul li:last-child {
+	margin-right: 2%;
+}
+
+/*-------------------------------------------mobile_favoriteSite----------------------------------------------*/
+/*常用网址*/
+#mobile_favoriteSite{
+	padding: 5px 10px;
+}
+
+/*常用网址的容器用于显示边框*/
+#mobile_favoriteSite .container{
+	border: 1px solid #d9dde2;
+	box-sizing: border-box;
+}
+
+/*常用网址的题头*/
+#mobile_favoriteSite .title{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0px 14px;
+	overflow: hidden;
+}
+
+/*常用网址的题头的文字*/
+#mobile_favoriteSite .title .title_text{
+	color: #aaa;
+	line-height: 40px;
+	float: left;
+}
+
+/*常用网址的题头的图标*/
+#mobile_favoriteSite .title .icon_nav{
+	float: left;
+	margin-top: 3px;
+}
+
+/*常用网址的中的更多图标，即竖着的三个点的图标*/
+#mobile_favoriteSite .title .icon_more{
+	float: right;
+	margin-top: 4px;
+}
+
+/*常用网址的中的更多图标，即竖着的三个点的图标*/
+#mobile_favoriteSite .icon_nav:before{
+	content: "\e822";
+	font: 18px/34px icons;
+	color:#6fb5e9;
+}
+
+/*常用网址单个网址项*/
+#mobile_favoriteSite .Items .siteItem{
+	width: 25%;
+	float: left;
+	text-align: center;
+	height: 42px;
+	line-height: 42px;
+	font-size: 14px;
+}
+
+/*常用网址整个的容器*/
+#mobile_favoriteSite .Items{
+	overflow: hidden;
+}
+
+/*常用网址中，增加网址的按钮图标*/
+#mobile_favoriteSite .Items .icon_addMore{
+	padding-top: 4px;
+}
+
+/*常用网址中，增加网址的按钮图标*/
+#mobile_favoriteSite .icon_addMore:before{
+	content: "\e80f";
+	font: 24px/34px icons;
+	color: #aaa;
+}
+
+/*-------------------------------------mobile_management---------------------------------------*/
+/*管理我的首页元素*/
+#mobile_management{
+	padding: 5px 10px;
+}
+
+/*管理我的首页的容器*/
+#mobile_management .container{
+	border: 1px solid #d9dde2;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+/*管理我的首页的图标，即齿轮图标*/
+#mobile_management .icon_management{
+	height: 18px;
+	display: inline-block;
+}
+
+/*管理我的首页的图标，即齿轮图标*/
+#mobile_management .icon_management:before{
+    content: "\e804";
+    font: 18px/24px icons;
+    color: #0985C4;
+    margin-right: 4px;
+}
+
+/*管理我的首页的文字*/
+#mobile_management .manageMyPagetxt{
+	font-size: 15px;
+	padding: 0;
+    line-height: 45px;
+    height: 45px;
+    color: #0058d2;
+    text-indent: -8px;
+}
+
+/*-------------------------------------mobile_service--------------------------------------*/
+/*生活服务*/
+#mobile_service{
+	padding:5px 10px;
+	
+}
+
+/*生活服务的容器*/
+#mobile_service .container{
+	border: 1px solid #d9dde2;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+/*生活服务所有项目的容器*/
+#mobile_service .Items{
+	overflow: hidden;
+	
+}
+
+/*生活服务单个项目*/
+#mobile_service .serviceItem{
+	float: left;
+	width: 25%;
+	line-height: 24px;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+/*生活服务的标题栏*/
+#mobile_service .title{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0px 14px;
+	overflow: hidden;
+}
+
+/*生活服务的标题栏的文字*/
+#mobile_service .title .title_text{
+	color: #aaa;
+	line-height: 40px;
+	float: left;
+}
+
+/*生活服务的标题栏的文字*/
+#mobile_service .title .icon_service{
+	float: left;
+	margin-top: 4px;
+}
+
+/*生活服务标题栏中的更多图标，即竖着的三个点的图标*/
+#mobile_service .title .icon_more{
+	float: right;
+	margin-top: 4px;
+}
+
+/*生活服务标题栏中的更多图标，即竖着的三个点的图标*/
+#mobile_service .icon_service:before{
+	content: "\e827";
+	font: 18px/34px icons;
+	color:#6fb5e9;
+}
+
+/*生活服务中，点击定位的部分*/
+#mobile_service .location{
+	padding: 8px 14px;
+	display:  inline-table;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+/*生活服务中，点击定位按钮的容器*/
+#mobile_service .location .btn_holder{
+	display: table-cell;
+	vertical-align: middle;
+	width: 70px;
+}
+
+/*生活服务中，点击定位的状态信息*/
+#mobile_service .location .location_text{
+	display: table-cell;
+	vertical-align: middle;
+}
+
+/*生活服务中，点击定位按钮*/
+#mobile_service .location .location_btn{
+	display: inline-block;
+	border: 1px solid #d2d6dd;
+	border-radius: 2px;
+	height: 30px;
+	width: 70px;
+	overflow: hidden;
+}
+
+/*生活服务中，点击定位按钮中的文字*/
+#mobile_service .location .btn_text{
+	float: left;
+	line-height: 30px;
+}
+
+/*生活服务中，点击定位按钮中的图标*/
+#mobile_service .icon_location{
+	margin:6px 5px 0px 6px;
+	float: left;
+}
+
+/*生活服务中，点击定位按钮中的图标*/
+#mobile_service .icon_location:before{
+	content: "\e821";
+	font: 20px/20px icons;
+	color: #aaa;
+}
+
+/*生活服务中，最下方，显示全部的按钮*/
+#mobile_service .showall{
+	display: block;
+	border-top: 1px solid #d2d6dd;
+	box-sizing: border-box;
+	width: 100%;
+	height: 47px;
+	text-align: center;
+}
+/*生活服务中，最下方，显示全部中的文字*/
+#mobile_service .showall_text{
+	line-height: 47px;
+}
+
+/*生活服务中，最下方，显示全部的向下的图标*/
+#mobile_service .icon_down:before{
+	content: "\e801";
+	font: 16px/16px icons;
+	color: #b6b7ba;
+}
+
+/*------------------------------------------footer--------------------------------------*/
+/*页面底部的容器*/
+#footer{
+	position: absolute;
+	bottom: 80px;
+	font-size: 12px;
+	width: 100%;
+	min-width: 810px;
+}
+
+/*页面底部的两条DIV样式，用于设置DIV内文字居中对齐*/
+#footer div{
+	display: block;
+	text-align: center;
+	margin: 10px auto;
+	color: #888;
+}
+
+/*页面底部，导航部分的样式*/
+#footer ul li{
+	list-style: none;
+	display: inline;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+/*页面底部，版权说明部分的样式*/
+#footer #copyright a{
+	color: #888
+}
+
+/*设置底部的链接的样式*/
+#footer a:hover{
+	color: #888;
+}
+
+/*icons 定义的部分*/
+/*//////////////////////////////////////*/
+/*PC端的icons                           */
+/*//////////////////////////////////////*/
+/*CSS精灵图像，用于DIV显示icon，icon从1~7*/
+#nav_more .icon1{
+	display: inline-block;
+	height:px; 
+	width:36px; 
+	background:url(../img/icons.png) no-repeat
+}
+
+/*icon2*/
+#nav_more .icon2{
+	display: inline-block; 
+	height:36px; 
+	width:36px; 
+	background:url(../img/icons.png) -36px 0px no-repeat
+}
+
+/*icon3*/
+#nav_more .icon3{
+	display: inline-block; 
+	height:36px; 
+	width:40px; 
+	background:url(../img/icons.png) -72px 0px no-repeat
+}
+
+/*icon4*/
+#nav_more .icon4{
+	display: inline-block; 
+	height:36px; 
+	width:34px; 
+	background:url(../img/icons.png) -112px 0px no-repeat
+}
+
+/*icon5*/
+#nav_more .icon5{
+	display:inline-block; 
+	height:36px; 
+	width:30px; 
+	background:url(../img/icons.png) -150px 0px no-repeat
+}
+
+/*icon6*/
+#nav_more .icon6{
+	display:inline-block; 
+	height:36px; 
+	width:36px; 
+	background:url(../img/icons.png) -184px 0px no-repeat
+}
+
+/*icon7*/
+#nav_more .icon7{
+	display:inline-block; 
+	height:36px; 
+	width:36px; 
+	background:url(../img/icons.png) -220px 0px no-repeat
+}
+
+/*//////////////////////////////////////*/
+/*移动端的icons                          */
+/*//////////////////////////////////////*/
+
+/*页面图标使用的font文件
+新闻：e80e  小说：e811  视频：0xe80c
+生活+：0xe813  地图：E66C  更多：向下展开：E80A  向上收起：E80B
+贴吧：E807  图片：E66E  网址：E805  推广：E804
+更多：E80E  向下：展示全部E80F  换一个：E810  定位：E60A
+天气：雷电E601 晴 E806 多云E606  设置，管理我的首页：E628  向右：查看更多E813
+购物：E803  hot：E626  周边：生活服务E60F  实时热点：E610  添加：E611
+电影：E786 团购：E814 外卖：E815 打车：E816 酒店：E78A
+美食：E817 KTV：E784  银行：E818  飞机票：E819 火车票：E81A
+汽车票：E78E 公交站：E81B 旅行：E78C 挂号：E81C 登陆：E81D
+*/
+/*新闻*/
+#mobile_nav ul li{
+	font-size: 13px;
+	text-align: center;
+}
+
+#mobile_nav .icon_news:before{
+	content: '\e80e';
+	font: 24px icons;
+	color: rgb(38, 38, 38);
+}
+
+/*小说*/
+#mobile_nav  .icon_novel:before{
+	content: "\e811";
+	font: 24px icons;
+	color: rgb(38, 38, 38);
+}
+
+/*视频*/
+#mobile_nav .icon_video:before{
+	content: "\e80c";
+	font: 24px icons;
+	color: rgb(38, 38, 38);
+}
+
+/*生活+*/
+#mobile_nav .icon_lifeplus:before{
+	content: "\e813";
+	font: 24px icons;
+	color: rgb(38, 38, 38);
+}
+
+/*地图*/
+#mobile_nav .icon_map:before{
+	content: "\e80a";
+	font: 24px icons;
+	color: rgb(38, 38, 38);
+}
+
+/*更多_展开*/
+#mobile_nav .icon_more_unfold:before{
+	content: "\e824";
+	font: 24px icons;
+	color: rgb(38, 38, 38);
+}
+
+/*更多_收起*/
+#mobile_nav .icon_more_fold:before{
+	content: "\e823";
+	font: 24px icons;
+	color: rgb(38, 38, 38);
+}
+
+/*常用网址 title部分的导航icon*/
+.icon_more:before{
+	content: "\e808";
+	font: 20px/34px icons;
+	color: #aaa;
+}
+
+/*文字右上角的小圆点*/
+.note:after{
+	content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    position: absolute;
+    top: -4px;
+    right: -5px;
+    border-radius: 3px;
+    background-color: #f74747;
+}
+
+/*文字右上角的小圆点*/
+.note{
+	position: relative;
+}
+
+
+/*生活服务的图标外框，设置为圆形*/
+*[class^="rndicon_"]{
+	display: block;
+	height: 42px;
+	width: 42px;
+	margin: 0px auto;
+	border-radius: 21px;
+	text-align: center;
+}
+
+/*电影*/
+.rndicon_movie{
+	background-color: #b493db;
+}
+
+/*团购*/
+.rndicon_nuomi{
+	background-color: #ff6fbf;
+}
+
+/*外卖*/
+.rndicon_takeaway{
+	background-color: #ff6b70;
+}
+
+/*打的*/
+.rndicon_uber{
+	background-color: #93a4b3;
+}
+
+/*酒店*/
+.rndicon_hotel{
+	background-color: #6f99de;
+}
+
+/*美食*/
+.rndicon_food{
+	background-color: #ffa868;
+}
+
+/*KTV*/
+.rndicon_ktv{
+	background-color: #b493db;
+}
+
+/*银行*/
+.rndicon_bank{
+	background-color: #70d0a1;
+}
+
+/*电影*/
+.rndicon_movie:before{
+	content: "\e815";
+	font: 26px/42px icons;
+	color: #FFF;
+}
+
+/*团购*/
+.rndicon_nuomi:before{
+		content: "\e81d";
+	font: 26px/42px icons;
+	color: #FFF;
+}
+
+/*外卖*/
+.rndicon_takeaway:before{
+	content: "\e828";
+	font: 26px/42px icons;
+	color: #FFF;
+}
+
+/*打的*/
+.rndicon_uber:before{
+	content: "\e814";
+	font: 26px/42px icons;
+	color: #FFF;
+}
+
+/*酒店*/
+.rndicon_hotel:before{
+	content: "\e818";
+	font: 26px/42px icons;
+	color: #FFF;
+}
+
+/*美食*/
+.rndicon_food:before{
+	content: "\e81b";
+	font: 26px/42px icons;
+	color: #FFF;
+}
+
+/*KTV*/
+.rndicon_ktv:before{
+	content: "\e81f";
+	font: 26px/42px icons;
+	color: #FFF;
+}
+
+/*银行*/
+.rndicon_bank:before{
+	content: "\e81e";
+	font: 26px/42px icons;
+	color: #FFF;
+}
