@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Bootstrap开发后台--管理首页</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/site.index.css">
+	<script src="js/Chart.min.js"></script>
+</head>
+<!--参考模板
+	http://themes.getbootstrap.com/products/dashboard#
+	1.参考上述链接的后台样式，并自己做了一些添加，比如顶部的导航。
+	2.overwrite了部分bootstrap的样式，相关重写都在site.index.css文件中了。
+	3.所有自定义的页面模块都有ID作为其名称。
+	4.增加了部分样式，以便实现预期的效果。
+	5.引入了chart.js。
+	【已知问题】页面引入了chart.js，并使用了Canvas，由于页面是自适应的，Canvas需要在调整大小后重画，这块需要JS支持，暂时没有做这块，所以在缩放后不是很好看。
+-->
+
+<body>
+	<div id="header" class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">
+					<div class="glyphicon glyphicon-leaf"></div><span> LEAF</span>
+				</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#"><span class="glyphicon glyphicon-th-list"></span> Dashboard</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Mail <span class="label label-primary">3</span></a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-time"></span> Todo <span class="label label-primary">1</span></a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-cog"></span> Setup</a></li>
+					<li><a href="login.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!--the whole page body-->
+	<div id="body" class="container">
+		<div id="body" class="row">
+			<!--side navigate bar-->
+			<div id="sideNav" class="col-md-2 col-sm-3 col-xm-12">
+				<div id="searchbar">
+					<input type="text" class="form-control withicon" placeholder="Search...">
+					<span id="searchbaricon" class="glyphicon glyphicon-search"></span>
+				</div>
+				<ul id="navbar" class="nav nav-pills nav-stacked">
+					<li class="navtitle">Dashboards</li>
+					<li class="active"><a href="#">Overview</a></li>
+					<li><a href="#">Order history</a></li>
+					<li><a href="#">Fluid layout</a></li>
+					<li><a href="#">Icon nav</a></li>
+					<li class="navtitle">More</li>
+					<li><a href="#">Toolkit docs</a></li>
+					<li><a href="#">Bootstrap docs</a></li>
+					<li><a href="#">Light UI</a></li>
+					<li><a href="#">Example modal</a>
+					</li>
+				</ul>
+			</div>
+
+			<!--page body content-->
+			<div id="content" class="col-md-10 col-sm-9 col-xm-12">
+				<!--overview part-->
+				<div id="overview">
+					<div id="Overviewtitle" class="row">
+						<div class="col-sm-12">
+							<h1>Overview</h1>
+							<hr class="">
+						</div>
+					</div>
+					<div id="OverviewChart" class="row">
+						<div class="col-md-4 col-sm-12">
+							<p class="chartitem text-center">
+								<canvas id="myChart_1"></canvas>
+								<p class="text-center charttitle">Traffic</p>
+								<p class="text-center chartsbutitle">New vs Returning</p>
+							</p>
+						</div>
+						<div class="col-md-4 col-sm-12">
+							<p class="chartitem text-center">
+								<canvas id="myChart_2"></canvas>
+								<p class="text-center charttitle">Revenue</p>
+								<p class="text-center chartsbutitle">New vs Returning</p>
+						</div>
+						<div class="col-md-4 col-sm-12">
+							<p class="chartitem text-center">
+								<canvas id="myChart_3"></canvas>
+								<p class="text-center charttitle">Traffic</p>
+								<p class="text-center chartsbutitle">Direct vs Referrals</p>
+						</div>
+					</div>
+				</div>
+
+				<!--quick view part-->
+				<div id="quickview">
+					<div id="quickviewtitle" class="row">
+						<div class="col-sm-12">
+							<div class="slashTitle">
+								<span class="slashTitle-text">quick view</span>
+							</div>
+						</div>
+					</div>
+					<div id="planeitems" class="row">
+						<div class="col-md-3 col-xs-6">
+							<div class="planeitem plane-red">
+								<div class="planetitle">PAGE VIEWS</div>
+								<div class="planevalue">12,938</div>
+								<div class="planeshift shiftup">5%</div>
+							</div>
+						</div>
+						<div class="col-md-3 col-xs-6">
+							<div class="planeitem plane-green">
+								<div class="planetitle">DOWNLOADS</div>
+								<div class="planevalue">758</div>
+								<div class="planeshift shiftup">1.3%</div>
+							</div>
+						</div>
+						<div class="col-md-3 col-xs-6">
+							<div class="planeitem plane-purple">
+								<div class="planetitle">SIGN-UPS</div>
+								<div class="planevalue">1,293</div>
+								<div class="planeshift shiftdown">6.75%</div>
+							</div>
+						</div>
+						<div class="col-md-3 col-xs-6">
+							<div class="planeitem plane-yellow">
+								<div class="planetitle">DOWNLOADS</div>
+								<div class="planevalue">758</div>
+								<div class="planeshift shiftup">1.3%</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!--most view part-->
+				<div id="mostview">
+					<div id="mostviewtitle" class="row">
+						<div class="col-sm-12">
+							<div class="slashTitle">
+								<span class="slashTitle-text">most view</span>
+							</div>
+						</div>
+					</div>
+					<!--most viewer from country-->
+					<div id="mostcounty" class="row">
+						<div class="col-sm-6">
+							<div class="list-group">
+								<div class="list-group-item list-group-title">
+									Countries
+								</div>
+								<a href="#" class="list-group-item">
+									<div class="list-item-percentage" style="width:62.4%;"></div>
+									<div class="list-item-value-text">62.4%</div>
+									China
+								</a>
+								<a href="#" class="list-group-item">
+									<div class="list-item-percentage" style="width:15.0%;"></div>
+									<div class="list-item-value-text">15.0%</div>
+									Inida</a>
+								<a href="#" class="list-group-item">
+									<div class="list-item-percentage" style="width:5%;"></div>
+									<div class="list-item-value-text">5.0%</div>
+									United Kingdom</a>
+								<a href="#" class="list-group-item">
+									<div class="list-item-percentage" style="width:5%;"></div>
+									<div class="list-item-value-text">5.0%</div>
+									Canada</a>
+								<a href="#" class="list-group-item">
+									<div class="list-item-percentage" style="width:4.5%;"></div>
+									<div class="list-item-value-text">4.5%</div>
+									Russia</a>
+								<a href="#" class="list-group-item">
+									<div class="list-item-percentage" style="width:2.3%;"></div>
+									<div class="list-item-value-text">2.3%</div>
+									Maxico</a>
+								<a href="#" class="list-group-item">
+									<div class="list-item-percentage" style="width:1.7%;"></div>
+									<div class="list-item-value-text">1.7%</div>
+									Spain</a>
+								<a href="#" class="list-group-item">
+									<div class="list-item-percentage" style="width:1.5%;"></div>
+									<div class="list-item-value-text">1.5%</div>
+									France</a>
+								<a href="#" class="list-group-item">
+									<div class="list-item-percentage" style="width:1.4%;"></div>
+									<div class="list-item-value-text">1.4%</div>
+									South Africa</a>
+								<a href="#" class="list-group-item">
+									<div class="list-item-percentage" style="width:1.2%;"></div>
+									<div class="list-item-value-text">1.2%</div>
+									Japan</a>
+							</div>
+						</div>
+						
+						<!--most viewed pages-->
+						<div id="mostpage" class="col-sm-6">
+							<div class="list-group">
+								<div class="list-group-item list-group-title">
+									Most viewed page
+								</div>
+								<a href="#" class="list-group-item">
+									<div class="list-item-value-text">3,929,481</div>
+									/index.html
+								</a>
+								<a href="#" class="list-group-item">
+									<div class="list-item-value-text">1,143,393</div>
+									/login.html</a>
+								<a href="#" class="list-group-item">
+									<div class="list-item-value-text">938,287</div>
+									/tour/something</a>
+								<a href="#" class="list-group-item">
+									<div class="list-item-value-text">749,393</div>
+									/setup</a>
+								<a href="#" class="list-group-item">
+									<div class="list-item-value-text">695,912</div>
+									/shopinglist</a>
+								<a href="#" class="list-group-item">
+									<div class="list-item-value-text">501,938</div>
+									/something/addcomment</a>
+								<a href="#" class="list-group-item">
+									<div class="list-item-value-text">392,842</div>
+									/setup/pagesetup/pagemodify.html</a>
+								<a href="#" class="list-group-item">
+									<div class="list-item-value-text">298,183</div>
+									shopping/shoopingmap/us</a>
+								<a href="#" class="list-group-item">
+									<div class="list-item-value-text">193,129</div>
+									countries/us/shopping</a>
+								<a href="#" class="list-group-item">
+									<div class="list-item-value-text">93,382</div>
+									something/deletecomment</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!--sales data-->
+				<div id="SalesData">
+					<div id="SalesDatatitle" class="row">
+						<div class="col-sm-12">
+							<div class="slashTitle">
+								<span class="slashTitle-text">Sales Data</span>
+							</div>
+						</div>
+					</div>
+					<div id="SalesDataChart" class="row">
+						<div class="col-sm-12">
+							<canvas id="myChart_4" width="970" height="300"></canvas>
+						</div>
+					</div>
+					<div id="SalesDataTable" class="row">
+						<div class="col-sm-12">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<td>
+											<input type="checkbox">
+										</td>
+										<td>#</td>
+										<td>month</td>
+										<td>sales</td>
+										<td>percentage</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<input type="checkbox">
+										</td>
+										<td>001</td>
+										<td>January</td>
+										<td>1,212,412</td>
+										<td>10%</td>
+									</tr>
+									<tr>
+										<td>
+											<input type="checkbox">
+										</td>
+										<td>002</td>
+										<td>February</td>
+										<td>3,245,412</td>
+										<td>6.7%</td>
+									</tr>
+									<tr>
+										<td>
+											<input type="checkbox">
+										</td>
+										<td>003</td>
+										<td>March</td>
+										<td>23,212,412</td>
+										<td>15.0%</td>
+									</tr>
+									<tr>
+										<td>
+											<input type="checkbox">
+										</td>
+										<td>004</td>
+										<td>April</td>
+										<td>23,212,412</td>
+										<td>7.3%</td>
+									</tr>
+									<tr>
+										<td>
+											<input type="checkbox">
+										</td>
+										<td>005</td>
+										<td>January</td>
+										<td>23,212,412</td>
+										<td>9.8%</td>
+									</tr>
+									<tr>
+										<td>
+											<input type="checkbox">
+										</td>
+										<td>006</td>
+										<td>May</td>
+										<td>23,212,412</td>
+										<td>13.4%</td>
+									</tr>
+									<tr>
+										<td>
+											<input type="checkbox">
+										</td>
+										<td>007</td>
+										<td>June</td>
+										<td>23,432,643</td>
+										<td>12.1%</td>
+									</tr>
+									<tr>
+										<td>
+											<input type="checkbox">
+										</td>
+										<td>008</td>
+										<td>July</td>
+										<td>123,314,712</td>
+										<td>20.5%</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--Chart.js defination and data file-->
+	<script src="js/myChart.js"></script>
+</body>
+
+</html>

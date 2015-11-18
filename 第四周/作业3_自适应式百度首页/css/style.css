@@ -373,12 +373,14 @@ a, a:hover, a:active{
 #search_form #sf_input:focus{
 	border:1px solid #358fFE;
 	border-right: 0px;
+	outline: none;
 }
 
 /*搜索表单中的搜索按钮的样式*/
 #search_form #sf_btn:hover{
 	border: 1px solid #2580FF;
 	background-color: #2580FF;
+	outline: none;
 }
 
 /*---------------------------------------mobile_header-----------------------------------------------*/
