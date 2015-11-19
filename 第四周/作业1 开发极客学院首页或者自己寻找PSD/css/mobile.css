@@ -1,0 +1,295 @@
+
+/*字体定义部分*/
+@font-face{font-family:Oswald;src:url(../font/Oswald-Bold.otf);}
+@font-face{font-family:MuseoSansRounded-300;src:url(../font/MuseoSansRounded-300.otf);}
+@font-face{font-family:MuseoSansRounded-700;src:url(../font/MuseoSansRounded-700.otf);}
+@font-face{font-family:MuseoSans;src:url(../font/MuseoSans_500.otf);}
+
+/*必要的reset*/
+html,body{
+	padding: 0px;
+	margin: 0px;
+	-webkit-text-size-adjust: none;
+}
+
+strong{
+	color: #F45755;
+}
+
+/*整个顶部的部分，包含logo和导航*/
+#header{
+	position: fixed;
+	width: 100%;
+	padding: 10px 15px;
+	top: 0px;
+	background-color: #F5F5F5;
+	overflow: hidden;
+	z-index: 999;
+	box-sizing: border-box;
+}
+
+/*顶部导航部分的容器*/
+#header #header-nav{
+	width: 20px;
+	height: 20px;
+	float: right;
+	margin-top: 5px;
+}
+
+/*顶部logo*/
+#header #header-nav>img{
+	height: 100%;
+}
+
+/*顶部logo的容器*/
+#header #header-logo{
+	float: left;
+}
+
+#header #header-logo>img{
+	height: 30px;
+}
+
+/*页面的大图幻灯片部分*/
+#slider{
+	margin-top: 50px;
+}
+
+/*统一设置所有模块的间距*/
+#categories, #newarrivals, #featured, #blog{
+	margin-top: 20px;
+	position: relative;
+	overflow: hidden;
+}
+
+/*幻灯片元素*/
+#slider .slider-item{
+	position: relative;
+}
+
+/*幻灯片元素的图像*/
+#slider .slider-item>.slider-item-img>img{
+	width: 100%;
+}
+
+/*幻灯片元素的标题*/
+#slider .slider-item>.slider-item-title{
+	position: absolute;
+	top: 20%;
+	left: 20px;
+	color: #FFF;
+	font: 2rem Oswald;
+	text-transform: uppercase;
+}
+
+/*幻灯片元素的附标题*/
+#slider .slider-item>.slider-item-info{
+	position: absolute;
+	top: 20%;
+	left: 20px;
+	color: #FFF;
+	font: 0.9rem 'MuseoSansRounded-300';
+	text-transform: uppercase;
+	margin-top: 2.5rem;
+}
+
+/*带有横线的标题的右侧和左侧横线*/
+.slash-title-left, .slash-title-right{
+    display: table-cell;
+    background-image: url("../img/ctitle_bg.png");
+    background-repeat: repeat-x;
+    width: 50%;
+    background-position: 50% 50%;
+}
+
+/*带有横线的标题的文字*/
+.slash-title-text{
+    display: table-cell;
+    font:1rem Oswald;
+    white-space:nowrap;
+    padding:0px 15px;
+    color: #2D2828;
+}
+
+/*商品类别项*/
+.categories-item{
+	height: 60px;
+	width: 100%;
+	box-sizing: border-box;
+	overflow: hidden;
+	display: block;
+	position: relative;
+	margin: 1px 0px;
+}
+
+/*商品类别项的标题*/
+.categories-item .categories-item-title{
+	position: absolute;
+	top: 15%;
+	font:1.5rem Oswald;
+	width: 100%;
+	text-align: center;
+	text-transform: uppercase;
+	color: #fff;
+}
+
+/*商品类别项的图片*/
+.categories-item .categories-item-img>img{
+	width: 100%;
+	position: relative;
+}
+
+/*商品展示项*/
+.product-item{
+	float: left;
+	width: 50%;
+	margin-bottom: 10px;
+	box-sizing: border-box;
+}
+
+/*商品展示项之间的空隙设置*/
+.product-item:nth-child(2n+1){
+	padding-left: 2px;
+	padding-right: 4px;
+}
+
+/*商品展示项之间的空隙设置*/
+.product-item:nth-child(2n){
+	padding-right: 2px;
+	padding-left: 4px;
+}
+
+/*商品展示项的图片*/
+.product-item .product-item-img >img {
+	width: 100%;
+}
+
+/*商品展示项的标题*/
+.product-item .product-item-title{
+	height: 45px;
+	font: 1rem 'MuseoSansRounded-300';
+	overflow: hidden; 
+	text-overflow: ellipsis; 
+	display: -webkit-box; 
+	-webkit-line-clamp: 2; 
+	-webkit-box-orient: vertical;
+}
+
+/*商品展示项的价格*/
+.product-item .product-item-price{
+	font: 1rem 'MuseoSansRounded-700';
+}
+
+/*商品展示项的操作按钮*/
+.product-item .product-item-action{
+	display: block;
+	width: 100%;
+	height: 20px;
+	background-color: #463F3A;
+	font: 0.8rem 'Oswald';
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 20px;
+	color: #FFF;
+}
+
+/*blog单个项*/
+.blog-item{
+	border-bottom: 1px solid #F5F5F5;
+	padding: 4px;
+	overflow: hidden;
+}
+
+/*blog单个项的图片*/
+.blog-item .blog-item-img{
+	width: 80px;
+	height: 60px;
+	overflow: hidden;
+	float: left;
+	padding-top: 0px;
+}
+
+.blog-item .blog-item-img img{
+	height: 100%;
+}
+
+/*blog单个项内容，这里是容器，包含标题和内容*/
+.blog-item .blog-item-content{
+	float: right;
+	width: 100%;
+	margin-left: -100%;
+	padding-left: 84px;
+	box-sizing: border-box;
+}
+
+/*blog单个项的标题*/
+.blog-item .blog-item-title{
+	font: 0.8rem 'MuseoSansRounded-700';
+	box-sizing: border-box;
+	overflow: hidden; 
+	text-overflow: ellipsis; 
+	display: -webkit-box; 
+	-webkit-line-clamp: 1; 
+	-webkit-box-orient: vertical;
+	margin-bottom: 4px;
+}
+
+/*blog单个项的内容摘要*/
+.blog-item .blog-item-info{
+	font: 0.6rem 'MuseoSans';
+	overflow: hidden; 
+	text-overflow: ellipsis; 
+	display: -webkit-box; 
+	-webkit-line-clamp: 3; 
+	-webkit-box-orient: vertical;
+}
+
+/*底部的口号部分*/
+#qoute{
+	height: 50px;
+	padding: 20px 0px;
+}
+
+/*底部的口号内容*/
+#qoute .qoutetitle{
+    font-family: Oswald;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/*口号下方的政策说明*/
+#qoute .qouteinfo{
+    font-family: MuseoSansRounded-300;
+    font-size: 0.6rem;
+    text-align: center;
+}
+
+/*底部*/
+#foot{
+	background-color: #463F3A;
+	padding: 10px 15px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+/*底部的logo*/
+#foot #foot-logo{
+	float: left;
+}
+/*底部的logo图片*/
+#foot #foot-logo>img{
+	height: 30px;
+}
+
+/*底部的返回头部*/
+#foot #gotopbtn{
+	float: right;
+	height: 20px;
+	width: 20px;
+	margin-top: 10px;
+}
+
+/*底部的返回头部的按钮*/
+#foot #gotopbtn>img{
+	width: 100%;
+}
