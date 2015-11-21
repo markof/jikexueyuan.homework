@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>作业3 找到数组出现最多的字母/元素</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/randomArray.js"></script>
+	<script src="js/arrangeArray.js"></script>
+	<script src="js/page.index.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<!--用于输入数组-->
+		<div class="row" style="margin-top:40px;">
+			<div class="col-md-8">
+				<!--数组输入框-->
+				<div class="col-xs-12">
+					<div id="formGroup" class="form-group">
+						<label class="control-label">请输入要处理的数组</label>
+						<input type="text" class="form-control" id="input" onchange="processInput()">
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-8 col-md-9 ">
+					<div class="alert alert-success" role="alert">请在上方输入您要处理的数组，每个元素以","逗号为间隔，每个元素可以不限为1个字符。您也可以点击右侧的随机数组以生成一个随机的以单个字母为元素，包含10~100个元素的数组。</div>
+				</div>
+				<!--随机数组按钮-->
+				<div class="col-xs-12 col-sm-4 col-md-3 ">
+					<input type="button" onclick="crateRandomArray('input')" class="btn btn-block btn-info" id="random" value="随机数组">
+				</div>
+
+				<!--用于显示用户输入数组的位置和内容-->
+				<div class="col-xs-12" style="margin-top:20px;">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							您输入的数组：
+						</div>
+						<div class="panel-body" id="output">您输入的内容将在这里显示</div>
+					</div>
+				</div>
+
+				<!--用于显示用户输入数组中出现频率最高的元素的出现次数和位置-->
+				<div class="col-xs-12 ">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+							出现频率最高的元素的信息：
+						</div>
+						<div class="panel-body" id="themost">这里将显示出现频率最高的元素的信息</div>
+					</div>
+				</div>
+			</div>
+
+			<!--用于使用表格统计用户输入的所有数组元素的信息，包括位置-->
+			<div class="col-md-4">
+				<div class="col-xs-12">
+					<table class="table table-hover">
+						<thead>
+							<tr class="info">
+								<td>元素</td>
+								<td>数量</td>
+								<td>位置</td>
+							</tr>
+						</thead>
+						<tbody id="statistics">
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

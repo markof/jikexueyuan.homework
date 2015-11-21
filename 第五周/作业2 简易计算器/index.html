@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业2 简易计算器</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<script src="js/calculator.js"></script>
+	<script type="text/javascript">
+		//创建一个计算器对象 
+		// var calc = new calculator();
+		
+		// 对计算器的输出对象进行初始化
+		// calc.stack = document.getElementById("calc-stack");
+		// calc.current = document.getElementById("calc-current");
+		// calc.result = document.getElementById("calc-result");
+		
+		// 收集用户操作，统一传递给计算器对象
+		function enter(inputValue){
+			// calc.enter(inputValue);
+			var cur = document.getElementById("calc-current");
+			cur.innerHTML=cur.innerHTML+inputValue;
+		};
+	</script>
+</head>
+<body>
+	<div class="calculator">
+		<div class="calc-display-panel">
+			<div id="calc-stack" class="calc-display-panel-stack"></div>
+			<div id="calc-current" class="calc-display-panel-current"></div>
+			<div id="calc-result" class="calc-display-panel-result"></div>
+		</div>
+		<div class="calc-operate-panel">
+			<div onclick="enter('c')" class="calc-operate-panel-item col-1 number">C</div>
+			<div onclick="enter('~')" class="calc-operate-panel-item col-1 number">+/-</div>
+			<div onclick="enter('%')" class="calc-operate-panel-item col-1 number">%</div>
+			<div onclick="enter('/')" class="calc-operate-panel-item col-1 operator">/</div>
+			<div onclick="enter('7')" class="calc-operate-panel-item col-1 number">7</div>
+			<div onclick="enter('8')" class="calc-operate-panel-item col-1 number">8</div>
+			<div onclick="enter('9')" class="calc-operate-panel-item col-1 number">9</div>
+			<div onclick="enter('*')" class="calc-operate-panel-item col-1 operator">*</div>
+			<div onclick="enter('4')" class="calc-operate-panel-item col-1 number">4</div>
+			<div onclick="enter('5')" class="calc-operate-panel-item col-1 number">5</div>
+			<div onclick="enter('6')" class="calc-operate-panel-item col-1 number">6</div>
+			<div onclick="enter('-')" class="calc-operate-panel-item col-1 operator">-</div>
+			<div onclick="enter('1')" class="calc-operate-panel-item col-1 number">1</div>
+			<div onclick="enter('2')" class="calc-operate-panel-item col-1 number">2</div>
+			<div onclick="enter('3')" class="calc-operate-panel-item col-1 number">3</div>
+			<div onclick="enter('+')" class="calc-operate-panel-item col-1 operator">+</div>
+			<div onclick="enter('0')" class="calc-operate-panel-item col-2 number">0</div>
+			<div onclick="enter('.')" class="calc-operate-panel-item col-1 number">.</div>
+			<div onclick="enter('=')" class="calc-operate-panel-item col-1 operator">=</div>
+		</div>
+	</div>
+</body>
+</html>

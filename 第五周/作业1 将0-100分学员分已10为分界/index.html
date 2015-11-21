@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>作业1 将1-100分学院分以10为分界</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/grade.js"></script>
+
+	<!--
+		1. 分别用了传统的多条if，简化的switch case，for循环查表法三个方法来实现
+		2. 貌似三个方法都很快，在我的机器上基本都在0.5ms内解决，所以时间判断不出性能的差别。
+		【疑问】NaN值貌似不能用 object == NaN 来进行判断？
+	-->
+	
+	<script type="text/javascript">
+		// 对输入值进行判断,
+		function inputValidation(){
+			var input = document.getElementById("input");
+			var warningMessage = document.getElementById("warningMessage");
+			
+			// 这里使用了Number严格数值转换，parseInt条件比较宽松。
+			var inputValue = Number(input.value);
+			
+			// 判断是否输入的是数值
+			if (isNaN(inputValue)){
+				showValidationResult(false);
+				warningMessage.innerHTML = "(⊙o⊙)…，你输入的我不认识哦？请输入0~100的数字。"
+				warningMessage.hidden = false;
+				return;
+			}
+			
+			// 判断是否有输入内容
+			if (input.value.length == 0){
+				showValidationResult(false);
+				warningMessage.innerHTML = "<(￣3￣)> ，你啥都没写，请赐予小的数值吧！！请输入0~100的数字。"
+				warningMessage.hidden = false;
+				return;
+			}
+			
+			// 判断数值是否在0-100之间，包含0和100
+			if (inputValue>=0 && inputValue<=100){
+				showValidationResult(true);
+				updateFunc(gradeFunc_1,inputValue,"func_1_name","func_1_time","func_1_result");
+				updateFunc(gradeFunc_2,inputValue,"func_2_name","func_2_time","func_2_result");
+				updateFunc(gradeFunc_3,inputValue,"func_3_name","func_3_time","func_3_result");
+				warningMessage.hidden = true;
+			}
+			else{
+				showValidationResult(false);
+				warningMessage.innerHTML = "——__——！，你输入的数值超出范围了！！请输入0~100的数字。"
+				warningMessage.hidden = false;
+			}
+		}
+		
+		// 用于显示判断输入值的验证结果，对DOM进行操作
+		function showValidationResult(result) {
+			// 获取DOM对象，用于修改样式，用于表达验证正确与否
+			var formGroup = document.getElementById('formGroup');
+		
+			// 如果输入值是true，表示成功；输入值是false，表示失败。
+			if (result == true) {
+				formGroup.className = "form-group has-success";
+			}
+			else {
+				formGroup.className = "form-group has-error";
+			}
+		}
+		
+		// 用于更新方法的输出结果到界面中。
+		function updateFunc(func,inputValue, output_name, output_time, output_result){
+			var func_name = document.getElementById(output_name);
+			var func_time = document.getElementById(output_time);
+			var func_result = document.getElementById(output_result);
+			var returnValue = calcTimeConsumption(func,inputValue);
+			func_name.innerHTML = "函数名：" + func.name;
+			func_time.innerHTML = "用时："+ returnValue[0] + " ms";
+			func_result.innerHTML = "学生等级：" + returnValue[1];
+		}
+	</script>
+</head>
+
+<body>
+	<div class="container">
+		<!--用于输入学生分数的输入框部分，包含判断显示框-->
+		<div class="row" style="margin-top:100px;">
+			<!--分数输入框-->
+			<div class="col-xs-12 col-md-offset-2 col-md-8">
+				<div id="formGroup" class="form-group">
+					<label for="Score" class="col-sm-2 control-label">学生分数</label>
+					<input type="text" class="form-control" id="input" onchange="inputValidation()">
+				</div>
+			</div>
+			<!--结果判断结果-->
+			<div class="col-xs-12 col-md-offset-2 col-md-8">
+				<div id="warningMessage" class="alert alert-danger" hidden="hidden"></div>
+			</div>
+		</div>
+
+		<div class="row">
+			<!--方法1的输出-->
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="list-group">
+					<a href="#" class="list-group-item active">方法1：IF ELSE大法</a>
+					<a href="#" id="func_1_name" class="list-group-item">函数名：</a>
+					<a href="#" id="func_1_time" class="list-group-item">用时：</a>
+					<a href="#" id="func_1_result" class="list-group-item">学生等级：</a>
+				</div>
+			</div>
+
+			<!--方法2的输出-->
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="list-group">
+					<a href="#" class="list-group-item active">方法1：SWITCH CASE神技</a>
+					<a href="#" id="func_2_name" class="list-group-item">函数名：</a>
+					<a href="#" id="func_2_time" class="list-group-item">用时：</a>
+					<a href="#" id="func_2_result" class="list-group-item">学生等级：</a>
+				</div>
+			</div>
+
+			<!--方法3的输出-->
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="list-group">
+					<a href="#" class="list-group-item active">方法3：FOR循环查水表法</a>
+					<a href="#" id="func_3_name" class="list-group-item">函数名：</a>
+					<a href="#" id="func_3_time" class="list-group-item">用时：</a>
+					<a href="#" id="func_3_result" class="list-group-item">学生等级：</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
