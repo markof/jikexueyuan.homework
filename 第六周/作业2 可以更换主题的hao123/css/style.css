@@ -1,0 +1,665 @@
+
+body{
+	background-image: none;
+	background-color: #FFF;
+	background-attachment:fixed;
+	background-position: 50% 50%;
+	background-size:  cover;
+	transition: background-image 0.5s ease-in;
+	-webkit-transition: background-image 0.5s ease-in;
+	min-width: 1190px;
+}
+
+/*全局a标签的颜色*/
+body,a{
+	color: #666;
+}
+
+/*全局a标签悬停*/
+a:hover{
+	color:rgb(252,60,7);
+}
+
+/*主题色的文字*/
+.themecolor-text{
+	color: #090;
+	transition: color 0.5s ease-in;
+	-webkit-transition: color 0.5s ease-in;
+}
+
+/*主题色的背景*/
+.themecolor-bg{
+	background-color: #090;
+	transition: background 0.5s ease-in;
+	-webkit-transition: background 0.5s ease-in;
+}
+
+/*醒目色的问题*/
+.altercolor-text{
+	color:rgb(252,60,7);
+	transition: color 0.5s ease-in;
+	-webkit-transition: color 0.5s ease-in;
+}
+
+/*醒目色的背景*/
+.altercolor-bg{
+	background-color: rgb(252,60,7);
+	transition: background 0.5s ease-in;
+	-webkit-transition: background 0.5s ease-in;
+}
+
+/*顶端导航条*/
+.top-bar{
+	border-bottom: 1px solid #EBEBEB;
+	overflow: hidden; 
+	font-size: 12px;
+	background-color: rgba(255,255,255,0.8);
+}
+
+.top-bar a{
+	color:#999;
+}
+
+/*top-bar的容器，定义宽高和位置*/
+.top-bar .container{
+	width: 1190px;
+	height: 60px;
+	margin: 0px auto;
+	position: relative;
+}
+
+/*顶端的logo*/
+.top-bar .logo{
+	float: left;
+}
+
+/*顶端的设为首页*/
+.top-bar .set-defaul-tpage{
+	float: left;
+	width: 60px;
+	height: 40px;
+	margin-right: 20px;
+	background: url("../img/index_widthlg.png") no-repeat -20px -172px;
+	margin-top: 20px;
+	font-size: 12px;
+	text-align: center;
+}
+
+/*设置首页文字的颜色*/
+.top-bar .set-defaul-tpage a{
+	color: #FFF;
+}
+
+/*地理信息及天气*/
+.top-bar .temperature{
+	float: left;
+	line-height: 60px;
+	padding: 0px 10px;
+	cursor: pointer;
+}
+
+/*天气的hover*/
+.top-bar .top-bar-hover:hover{
+	background-color: rgba(200,200,200,0.2);
+}
+
+/*顶端topbar地理信息旁边向下的小箭头*/
+.top-bar .loc-more{
+	display: inline-block;
+	height: 6px;
+	width: 12px;
+	background:url("../img/index_widthlg.png") no-repeat -52px -97px;
+}
+
+/*顶端topbar的天气*/
+.top-bar .weather{
+	background: url("../img/a2.png") no-repeat;
+	display: inline-block;
+	height: 26px;
+	width: 26px;
+	position: relative;
+	top: 6px;
+}
+
+/*日期*/
+.top-bar .date{
+	float: left;
+	padding: 0px 10px;
+}
+
+/*日期的小日历的图标*/
+.top-bar .date .date-icon{
+	background: url("../img/index_widthlg.png") no-repeat -20px -62px;
+	line-height: 60px;
+	width: 24px;
+	display: inline-block;
+	text-align: center;
+}
+
+/*顶端topbar右侧的工具导航部分*/
+.top-bar .top-bar-nav{
+	float: right;
+}
+
+/*顶端topbar最右端的广告*/
+.top-bar .ad{
+	float: right;
+}
+
+/*顶端topbar右侧的工具导航部分的导航元素的统一定义*/
+.top-bar .top-bar-nav .top-bar-nav-item{
+	line-height: 60px;
+	display: inline-block;
+	padding: 0px 5px 0px 32px;
+}
+
+/*顶端topbar右侧的工具导航部分的导航元素上的特有内容，如icon*/
+.top-bar .top-bar-nav .login{
+	background-image: url("../img/index_widthlg.png");
+	background-repeat: no-repeat; 
+ 	background-position: -30px -110px;;
+}
+
+/*顶端topbar右侧的工具导航部分的导航元素上的特有内容，如icon*/
+.top-bar .top-bar-nav .mail{
+	background-image: url("../img/index_widthlg.png");
+    background-repeat: no-repeat;
+    background-position: -96px -108px;
+}
+
+/*顶端topbar右侧的工具导航部分的导航元素上的特有内容，如icon*/
+.top-bar .top-bar-nav .browser{
+	background-image: url("../img/index_widthlg.png");
+    background-repeat: no-repeat;
+    background-position: -162px -109px;
+}
+
+/*顶端topbar右侧的工具导航部分的导航元素上的特有内容，如icon*/
+.top-bar .top-bar-nav .theme{
+	background-image: url("../img/index_widthlg.png");
+    background-repeat: no-repeat;
+    background-position:-244px -108px;
+	margin-right: 20px;
+}
+
+/*头部的容器，主要容纳的搜索框部分的内容*/
+.header{
+	width: 1190px;
+	margin: 0px auto;
+}
+
+/*头部的搜索框的部分*/
+.header .searchbar {
+	float: left;
+	display: inline-block;
+	position: relative;
+	margin-top:42px;
+	margin-left: 20px;
+}
+
+/*头部的搜索框的前缀，主要是搜索类别切换*/
+.header .searchbar .prefix{
+	position: absolute;
+	left: 10px;
+	top: 12px;
+	font-size: 12px;
+	overflow: hidden;
+	color:#999;
+}
+
+/*对搜索框中的所有元素做一个布局设置*/
+.header .searchbar div{
+	display: inline-block;
+	float: left;
+}
+
+/*搜索框中的input输入框的样式*/
+.header .searchbar .input input{
+	box-sizing: border-box;
+	width: 539px;
+	height: 40px;
+	border: 1px solid #8a8a8a;
+	border-right: 0px;
+	outline:  none;
+	padding-left: 40px;
+	font-size: 16px;
+	box-shadow: 1px 1px 2px 1px rgba(50,50,50,0.1) inset;
+}
+
+/*搜索框中的“百度一下”的按钮*/
+.header .searchbar .btn{
+	background: url("../img/index_widthlg.png") no-repeat -20px 0px;
+	height: 40px;
+	width: 120px;
+}
+
+/*头部的搜索框的后缀，就是红色的提示信息*/
+.header .searchbar .suffix{
+	position: absolute;
+	height: 16px;
+	width: 18px;
+	border-radius: 2px;
+	left: 513px;
+	top: 12px;
+	color: #FFF;
+	cursor: pointer;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 18px;
+}
+/*头部搜索框左侧的百度logo，实际上百度logo为了和搜索框齐平，是向下移动了5个像素*/
+.header .baidulogo {
+	height: 41px;
+	padding: 42px 0px 0px 166px;
+	float: left;
+	display: inline-block;
+	position: relative;
+	top: 5px;
+}
+
+/*头部的主题更换区的样式*/
+.header .theme {
+	float: left;
+	display: inline-block;
+	padding-top: 38px;
+	padding-left: 50px;
+	width:144px;
+}
+
+/*对每个主题更换做样式*/
+.header .theme-item{
+	display: inline-block;
+	height: 14px;
+	width: 14px;
+	margin: 4px 10px;
+	border:1px solid #999;
+	float: left;
+	cursor: pointer;
+}
+
+/*对主题恢复默认的样式舍hi*/
+.theme-clear{
+	background-color: #FFF;
+	width: 50px;
+	height: 14px;
+	font-size:12px;
+	line-height: 14px;
+	display: inline-block;
+	margin: 4px 10px;
+	border:1px solid #999;
+	float: left;
+	cursor: pointer;
+	text-align: center;
+}
+
+.theme-active{
+	border-color: #F00;
+}
+
+.theme-red{
+	background-color: #EBC1CB;
+}
+
+.theme-blue{
+	background-color: #00F;
+	
+}
+
+.theme-green{
+	background-color: #0D131E;	
+}
+
+.theme-yellow{
+	background-color: #FF8080;
+	
+}
+
+.theme-black{
+	background-color: #597307;
+	
+}
+
+.theme-white{
+	background-color: #FFF;
+	
+}
+
+/*搜索框下方的热搜的部分*/
+.header .hotsearch{
+	clear: both;
+	position: relative;
+	top:2px;
+	margin: 0px 0px 26px 290px; 
+}
+
+/*热搜列表项的定义*/
+.header .hotsearch ul li{
+	display: inline-block;
+	margin-right: 16px;
+	font-size: 12px;
+}
+
+/*热搜列表项的第一个元素的位置定义*/
+.header .hotsearch ul li:nth-child(1){
+	margin-right: 0px;
+}
+
+/*热搜最最后的“更多”元素*/
+.header .hotsearch .hotsearch-more{
+	position: absolute;
+	font-size: 12px;
+	top: 3px;
+	left: 510px;
+}
+
+/*网站导航条*/
+.site-nav{
+	height: 38px;
+	width: 1190px;
+	margin: 7px auto;
+	border-bottom: 1px solid rgb(240,240,240);
+	padding-top: 2px;
+
+}
+
+/*网站导航条的元素定义*/
+.site-nav ul li{
+	display: inline-block;
+	float: left;
+	height: 38px;
+	background-color: #FFF;
+	text-align: center;
+	transition: background 0.5s ease-in;
+	-webkit-transition: background 0.5s ease-in;
+}
+
+/*网站导航条的元素的a标签样式定义*/
+.site-nav ul li a{
+	margin-top: 5px;
+	display: inline-block;
+	font-size: 16px;
+	border-left: 1px solid rgba(204, 204, 204,0.2);
+	width: 110px;
+	color: #666;
+}
+
+/*网站导航条的元素的a标签的悬停样式定义*/
+.site-nav ul li a:hover{
+	color: #090;
+}
+
+/*网站导航条的元素的激活样式*/
+.site-nav .active{
+	background: none!important;
+}
+
+/*网站导航条的文字链接样式*/
+.site-nav .active a{
+	color: #FFF;
+}
+
+/*网站导航条的文字链接悬停样式*/
+.site-nav .active a:hover{
+	color: #FFF;
+}
+
+/*对第一个元素单独做样式*/
+.site-nav ul li:nth-child(1) a{
+	border-left: 0px;
+	width: 80px;
+}
+
+/*内容部分区块*/
+.body{
+	width: 1190px;
+	margin: 0px auto;
+}
+
+/*内容区块中，对侧边进行定位*/
+.body .side{
+	width: 280px;
+	float: left;
+	margin-right: 10px;
+}
+
+/*内容区块中，对右边定位*/
+.body .main{
+	float: left;
+	width: 900px;
+}
+
+/*常用站点的样式*/
+.main-famous-site{
+	border: 1px solid rgb(155,216,172);
+	overflow: hidden;
+	padding: 14px 20px 5px 20px;
+	background-color: #FFF;
+	transition: background 0.5s ease-in;
+	-webkit-transition: background 0.5s ease-in;
+}
+
+.main-famous-site a{
+	color: #444;
+}
+
+.main-famous-site a:hover{
+	color: rgb(252,60,7);
+}
+
+.famous-site-with-logo{
+	overflow: hidden;
+}
+
+/*常用站点中，带有logo的站点的样式*/
+.famous-site-with-logo ul li{
+	float: left;
+	width: 131px;
+	display: inline-block;
+	margin: 0px 0px 5px 0px;
+	padding-left: 12px;
+}
+
+/*常用站点中，不带有logo的站点的样式*/
+.famous-site-without-logo ul li{
+	float: left;
+	width: 129px;
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 14px;
+}
+
+.main-famous-site hr {
+	display: block;
+	width:838px;
+	height: 1px;
+	border: 0;
+	background-color: #EBEBEB;
+	margin:7px auto 4px auto;
+}
+
+.famous-site-with-logo ul li a[class^="icon-"]{
+	display: inline-block;
+	height: 20px;
+	padding-left: 25px;
+	line-height: 18px;
+}
+
+.icon-baidu{
+	background: url(../img/defaultIcon1229.png) no-repeat 2px -198px;
+}
+
+.icon-sina{
+	background: url(../img/defaultIcon1229.png) no-repeat 2px -278px;
+}
+
+.icon-sohu{
+	background: url(../img/defaultIcon1229.png) no-repeat 2px -318px;
+}
+
+.icon-tencent{
+	background: url(../img/defaultIcon1229.png) no-repeat 2px -38px;
+}
+
+.icon-163{
+	background: url(../img/defaultIcon1229.png) no-repeat 2px -157px;
+}
+
+.icon-aiqiyi{
+	background: url(../img/defaultIcon1229.png) no-repeat 2px -198px;
+}
+
+.icon-tmall{
+	background: url(../img/tmall.gif) no-repeat -3px -5px;
+}
+
+.icon-ifeng{
+	background: url(../img/defaultIcon1229.png) no-repeat 2px -238px;
+}
+
+.icon-taobao{
+	background: url(../img/defaultIcon1229.png) no-repeat 2px -358px;
+}
+
+.icon-freegame{
+	background: url(../img/freegame.png) no-repeat 0px 2px;
+}
+
+.icon-4399{
+	background: url(../img/defaultIcon1229.png) no-repeat 2px 2px;
+}
+
+.icon-xinhua{
+	background: url(../img/xinhua.png) no-repeat 2px 2px;
+}
+
+.icon-jd{
+	background: url(../img/jd.png) no-repeat 2px 2px;
+}
+
+.icon-jutaobao{
+	background: url(../img/jutaobao.png) no-repeat 2px 2px;
+}
+
+.icon-tejia{
+	background: url(../img/tejia.png) no-repeat 2px 2px;
+}
+
+.icon-vhao123{
+	background: url(../img/vhao123.png) no-repeat 2px 2px;
+}
+
+.icon-autohome{
+	background: url(../img/defaultIcon1229.png) no-repeat 2px -518px;
+}
+
+.icon-qunar{
+	background: url(../img/qunar.png) no-repeat 2px 2px;
+}
+
+/*侧栏边的幻灯片的样式*/
+.side-bar-top-banner{
+	width: 278px;
+	height: 140px;
+	border: 1px solid #EBEBEB;
+	overflow: hidden;
+	margin-bottom: 10px;
+	background-color: #FFF;
+	transition: background 0.5s ease-in;
+	-webkit-transition: background 0.5s ease-in;
+}
+
+.side-bar-top-links{
+	padding: 7px 10px;
+	width: 100%;
+}
+
+.side-bar-top-links a{
+	line-height: 28px;
+	float: left;
+	margin-right: 10px;
+	color: #444;
+}
+
+.side-bar-top-links a:hover{
+	color: rgb(252,60,7);
+}
+
+/*侧边栏的开始导航的演示*/
+.side-bar-star-bar{
+	border: 1px solid #EBEBEB;
+	padding: 12px 0px 8px 18px;
+	overflow: hidden;
+	background-color: #FFF;
+	transition: background 0.5s ease-in;
+	-webkit-transition: background 0.5s ease-in;
+}
+
+.side-bar-star-bar a{
+	color: #444;
+}
+
+.side-bar-star-bar a:hover{
+	color: rgb(252,60,7);
+}
+
+.side-bar-star-item{
+	background-image: url(../img/index_menus_widthlg.png);
+	background-repeat: no-repeat;
+	padding-left: 24px;
+	height: 20px;
+	line-height: 20px;
+	width: 104px;
+	float: left;
+	margin-bottom: 8px;
+	font-size: 14px;
+}
+
+.starbar-icon-tv{
+	background-position: -20px -81px;
+}
+
+.starbar-icon-movie{
+	background-position: -20px -160px;
+}
+
+.starbar-icon-military{
+	background-position: -20px -100px;
+}
+
+.starbar-icon-stock{
+	background-position: -20px -21px;
+}
+
+.starbar-icon-shopping{
+	background-position: -20px -281px;
+}
+
+.starbar-icon-weather{
+	background-position: -20px -221px;
+}
+
+.starbar-icon-game{
+	background-position: -19px -301px;	
+}
+
+.starbar-icon-anime{
+	background-position: -20px -381px;
+}
+
+.starbar-icon-travle{
+	background-position: -20px -261px;
+}
+
+.starbar-icon-funny{
+	background-position: -20px -121px;
+}
+
+.starbar-icon-study{
+	background-position: -20px -362px;
+}
+
+.starbar-icon-food{
+	background-position: -19px -42px;
+}

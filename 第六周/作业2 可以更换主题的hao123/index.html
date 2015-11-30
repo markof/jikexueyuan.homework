@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>作业2 可以更换主题的hao123</title>
+	<!--Neat，阿里Cube的页面reset的部分-->
+	<link rel="stylesheet" href="css/neat.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/changeTheme.js"></script>
+</head>
+
+<body>
+	<!--顶部的工具条，包含logo-->
+	<div class="top-bar">
+		<div class="container">
+			<!--logo-->
+			<div class="logo"><img src="img/logo.png" alt="hao123"></div>
+			<!--设为首页-->
+			<div class="set-defaul-tpage"><a href="">设为首页</a></div>
+			<!--地理和天气-->
+			<div class="temperature top-bar-hover">
+				<a href="" class="location">成都</a>
+				<a href="" class="loc-more"></a>
+				<a href="" class="weather"></a>
+				<a href="" class="weather-text">阴 15 ~ 9 ℃</a>
+			</div>
+			<!--日期-->
+			<div class="date top-bar-hover">
+				<a href="" class="date-icon">26</a>
+				<a href="" class="date-text">11月26日 星期四</a>
+			</div>
+
+			<!--顶部广告-->
+			<div class="ad"><img src="img/AD1.jpg" alt=""></div>
+
+			<!--顶部工具导航-->
+			<div class="top-bar-nav">
+				<a href="" class="login top-bar-hover top-bar-nav-item">登录</a>
+				<a href="" class="mail top-bar-hover top-bar-nav-item">邮箱</a>
+				<a href="" class="browser top-bar-nav-item top-bar-hover">浏览器</a>
+				<a href="" class="theme top-bar-nav-item top-bar-hover">换肤</a>
+			</div>
+		</div>
+	</div>
+
+	<!--页面头部搜索及其他功能区域-->
+	<div class="header">
+		<!--logo-->
+		<div class="baidulogo"><img src="img/webv2.png" alt=""></div>
+		<!--搜索框前的分类-->
+		<div class="searchbar">
+			<div class="prefix">
+				<span>网页</span>
+			</div>
+			<!--搜索框-->
+			<div class="input">
+				<input type="text">
+			</div>
+			<!--搜索框的提醒标志-->
+			<div class="suffix altercolor-bg">5</div>
+			<!--搜索框按钮-->
+			<div class="btn"></div>
+		</div>
+		<!--主题更换区-->
+		<div class="theme">
+			<div id="theme1" data-theme="theme1" class="theme-item theme-red theme-active"></div>
+			<div id="theme2" data-theme="theme2" class="theme-item theme-blue"></div>
+			<div id="theme3" data-theme="theme3" class="theme-item theme-green"></div>
+			<div id="theme4" data-theme="theme4" class="theme-item theme-yellow"></div>
+			<div id="theme5" data-theme="theme5" class="theme-item theme-black"></div>
+			<div id="theme6" data-theme="theme6" class="theme-item theme-white"></div>
+			<div id="themeClear" data-theme="theme6" class="theme-clear">恢复默认</div>
+		</div>
+		<!--最热搜索词-->
+		<div class="hotsearch themecolor-text">
+			<ul>
+				<li>热搜：</li>
+				<li><a href="">成都天气</a></li>
+				<li><a href="">NBA</a></li>
+				<li><a href="">言承旭新恋情</a></li>
+				<li><a href="">郑凯发飙</a></li>
+				<li><a href="">黄渤战跑男</a></li>
+				<li><a href="">钟汉良结婚</a></li>
+			</ul>
+			<a class="hotsearch-more themecolor-text" href="">更多</a>
+		</div>
+	</div>
+
+	<!--头部搜索框下的全局导航-->
+	<div class="site-nav themecolor-bg">
+		<ul>
+			<li class="active"><a href="">首页</a></li>
+			<li><a href="">电视剧</a></li>
+			<li><a href="">最新电影</a></li>
+			<li><a href="">新闻头条</a></li>
+			<li><a href="">八卦娱乐</a></li>
+			<li><a href="">军事热点</a></li>
+			<li><a href="">热门游戏</a></li>
+			<li><a href="">小 游 戏</a></li>
+			<li><a href="">今日特价</a></li>
+			<li><a href="">特价旅游</a></li>
+			<li><a href="">生活服务</a></li>
+		</ul>
+	</div>
+
+	<!--主内容区-->
+	<div class="body">
+		<!--侧边栏-->
+		<div class="side">
+			<!--侧边栏幻灯片-->
+			<div class="side-bar-top-banner">
+				<div class="side-bar-top-banner-img"><img src="img/top-banner.jpg" alt=""></div>
+				<div class="side-bar-top-links">
+					<a href="">这里竟是吃货必去的地方</a>
+					<a href="">机票白菜价</a>
+					<a href="">游泰国赏十大绝美人妖皇后</a>
+					<a href="">热卖签证</a>
+				</div>
+			</div>
+			<!--侧边栏导航-->
+			<div class="side-bar-star-bar">
+				<div class="side-bar-star-item starbar-icon-tv">
+					<a href="">电视剧</a> | <a href="">综艺</a>
+				</div>
+				<div class="side-bar-star-item starbar-icon-game">
+					<a href="">游戏</a> | <a href="">小游戏</a>
+				</div>
+				<div class="side-bar-star-item starbar-icon-movie">
+					<a href="">电影</a> | <a href="">直播</a>
+				</div>
+				<div class="side-bar-star-item starbar-icon-anime">
+					<a href="">动画</a> | <a href="">漫画</a>
+				</div>
+				<div class="side-bar-star-item starbar-icon-military">
+					<a href="">头条</a> | <a href="">军事</a>
+				</div>
+				<div class="side-bar-star-item starbar-icon-travle">
+					<a href="">旅游</a> | <a href="">门票</a>
+				</div>
+				<div class="side-bar-star-item starbar-icon-stock">
+					<a href="">彩票</a> | <a href="">股票</a>
+				</div>
+				<div class="side-bar-star-item starbar-icon-funny">
+					<a href="">搞笑</a> | <a href="">小说</a>
+				</div>
+				<div class="side-bar-star-item starbar-icon-shopping">
+					<a href="">特价</a> | <a href="">海淘</a>
+				</div>
+				<div class="side-bar-star-item starbar-icon-study">
+					<a href="">教育</a> | <a href="">理财</a>
+				</div>
+				<div class="side-bar-star-item starbar-icon-weather">
+					<a href="">生活</a> | <a href="">天气</a>
+				</div>
+				<div class="side-bar-star-item starbar-icon-food">
+					<a href="">美食</a> | <a href="">音乐</a>
+				</div>
+			</div>
+		</div>
+		<!--主内容区-->
+		<div class="main">
+			<div class="main-famous-site">
+				<div class="famous-site-with-logo">
+					<ul>
+						<li class="famouse-site-item"><a class="icon-baidu" href="">百度</a> • <a href="">贴吧</a></li>
+						<li class="famouse-site-item"><a class="icon-sina" href="">新浪</a> • <a href="">微博</a></li>
+						<li class="famouse-site-item"><a class="icon-sohu" href="">搜狐</a> • <a href="">热点</a></li>
+						<li class="famouse-site-item"><a class="icon-tencent" href="">腾&nbsp;&nbsp;&nbsp;&nbsp;讯</a></li>
+						<li class="famouse-site-item"><a class="icon-163" href="">网&nbsp;&nbsp;&nbsp;&nbsp;易</a></li>
+						<li class="famouse-site-item"><a class="icon-aiqiyi" href="">爱奇艺高清</a></li>
+						<li class="famouse-site-item"><a class="icon-tmall" href="">天&nbsp;&nbsp;&nbsp;&nbsp;猫</a></li>
+						<li class="famouse-site-item"><a class="icon-ifeng" href="">凤 凰 网</a></li>
+						<li class="famouse-site-item"><a class="icon-taobao" href="">淘 宝 网</a></li>
+						<li class="famouse-site-item"><a class="icon-freegame" href="">免费游戏</a></li>
+						<li class="famouse-site-item"><a class="icon-4399" href="">4399游戏</a></li>
+						<li class="famouse-site-item"><a class="icon-xinhua" href="">新华</a> • <a href="">人民</a></li>
+						<li class="famouse-site-item"><a class="icon-jd" href="">京东商城</a></li>
+						<li class="famouse-site-item"><a class="icon-jutaobao" href="">聚 划 算</a></li>
+						<li class="famouse-site-item"><a class="icon-tejia" href="">今日特价</a></li>
+						<li class="famouse-site-item"><a class="icon-vhao123" href="">hao123影视</a></li>
+						<li class="famouse-site-item"><a class="icon-autohome" href="">汽车之家</a></li>
+						<li class="famouse-site-item"><a class="icon-qunar" href="">去 哪 儿</a></li>
+					</ul>
+				</div>
+				<hr>
+				<div class="famous-site-without-logo">
+					<ul>
+						<li class="famouse-site-item"><a href="">东方财富</a> • <a href="">理财</a></li>
+						<li class="famouse-site-item"><a href="">58 同 城</a></li>
+						<li class="famouse-site-item"><a href="">搜 房 网</a></li>
+						<li class="famouse-site-item"><a href="">携程旅行网</a></li>
+						<li class="famouse-site-item"><a href="">PPTV聚力</a></li>
+						<li class="famouse-site-item"><a href="">旅游</a> • <a href="">12306</a></li>
+						<li class="famouse-site-item"><a href="">聚美优品</a></li>
+						<li class="famouse-site-item"><a href="">赶 集 网</a></li>
+						<li class="famouse-site-item"><a href="">易 车 网</a></li>
+						<li class="famouse-site-item"><a href="">彩票开奖</a></li>
+						<li class="famouse-site-item"><a href="">爱卡汽车</a></li>
+						<li class="famouse-site-item"><a href="">美&nbsp;&nbsp;&nbsp;&nbsp;拍</a></li>
+						<li class="famouse-site-item"><a href="">唯 品 会</a></li>
+						<li class="famouse-site-item"><a href="">同程旅游</a></li>
+						<li class="famouse-site-item"><a href="">途牛旅游网</a></li>
+						<li class="famouse-site-item"><a href="">百度浏览器</a></li>
+						<li class="famouse-site-item"><a href="">太平洋汽车</a></li>
+						<li class="famouse-site-item"><a href="">艺 龙 网</a></li>
+						<li class="famouse-site-item"><a href="">百度糯米</a></li>
+						<li class="famouse-site-item"><a href="">蘑 菇 街</a></li>
+						<li class="famouse-site-item"><a href="">hao到家</a> • <a href="">学习</a></li>
+						<li class="famouse-site-item"><a href="">陆金所理财</a></li>
+						<li class="famouse-site-item"><a href="">萌主页</a> • <a href="">动漫</a></li>
+						<li class="famouse-site-item"><a href="">购物</a> • <a href="">手机</a></li>
+						<li class="famouse-site-item"><a href="">苏宁易购</a></li>
+						<li class="famouse-site-item"><a href="">国美在线</a></li>
+						<li class="famouse-site-item"><a href="">什么值得买</a></li>
+						<li class="famouse-site-item"><a href="">1 号 店</a></li>
+						<li class="famouse-site-item"><a href="">爱 淘 宝</a></li>
+						<li class="famouse-site-item"><a href="">携程机票</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
