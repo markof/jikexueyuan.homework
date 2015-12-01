@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>作业1 完善计算器</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<script src="js/calculator.js"></script>
+</head>
+
+<body>
+	<div class="calculator">
+		<!--结果显示面板-->
+		<div class="calc-display-panel">
+			<div id="calc-stack" class="calc-display-panel-stack"></div>
+			<div class="calc-display-panel-current"><span id="calc-tag-minus"></span><span id="calc-current"></span><span id="calc-tag-percentage"></span></div>
+		</div>
+
+		<!--扩展操作面板-->
+		<div class="calc-operate-extend-panel">
+			<div onclick="enter('power2')" class="calc-operate-panel-item col-1 number">x<span class="power">2</span></div>
+			<div onclick="enter('sin')" class="calc-operate-panel-item col-1 number">sin</div>
+			<div onclick="enter('cos')" class="calc-operate-panel-item col-1 number">cos</div>
+			<div onclick="enter('tan')" class="calc-operate-panel-item col-1 number">tan</div>
+			
+			<div onclick="enter('radical')" class="calc-operate-panel-item col-1 number">√</div>
+			<div onclick="enter('log')" class="calc-operate-panel-item col-1 number">log</div>
+			<div onclick="enter('10powerX')" class="calc-operate-panel-item col-1 number">10<span class="power">x</span></div>
+			<div onclick="enter('pi')" class="calc-operate-panel-item col-1 number">π</div>
+		</div>
+
+		<!--基本操作面板-->
+		<div class="calc-operate-panel">
+			<div onclick="enter('c')" class="calc-operate-panel-item col-1 number">C</div>
+			<div onclick="enter('bk')" class="calc-operate-panel-item col-1 number">bk</div>
+			<div onclick="enter('~')" class="calc-operate-panel-item col-1 number">+/-</div>
+			<div onclick="enter('/')" class="calc-operate-panel-item col-1 operator">/</div>
+
+			<div onclick="enter('7')" class="calc-operate-panel-item col-1 number">7</div>
+			<div onclick="enter('8')" class="calc-operate-panel-item col-1 number">8</div>
+			<div onclick="enter('9')" class="calc-operate-panel-item col-1 number">9</div>
+			<div onclick="enter('*')" class="calc-operate-panel-item col-1 operator">*</div>
+
+			<div onclick="enter('4')" class="calc-operate-panel-item col-1 number">4</div>
+			<div onclick="enter('5')" class="calc-operate-panel-item col-1 number">5</div>
+			<div onclick="enter('6')" class="calc-operate-panel-item col-1 number">6</div>
+			<div onclick="enter('-')" class="calc-operate-panel-item col-1 operator">-</div>
+
+			<div onclick="enter('1')" class="calc-operate-panel-item col-1 number">1</div>
+			<div onclick="enter('2')" class="calc-operate-panel-item col-1 number">2</div>
+			<div onclick="enter('3')" class="calc-operate-panel-item col-1 number">3</div>
+			<div onclick="enter('+')" class="calc-operate-panel-item col-1 operator">+</div>
+
+			<div onclick="enter('0')" class="calc-operate-panel-item col-2 number">0</div>
+			<div onclick="enter('.')" class="calc-operate-panel-item col-1 number">.</div>
+			<div onclick="enter('=')" class="calc-operate-panel-item col-1 operator">=</div>
+		</div>
+	</div>
+</body>
+
+</html>
