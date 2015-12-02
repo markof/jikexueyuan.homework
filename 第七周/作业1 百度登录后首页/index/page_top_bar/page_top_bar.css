@@ -1,0 +1,64 @@
+/*
+author:zhanglei
+CSS for page_top_bar
+require:reset
+*/
+
+#page_top_bar {
+	color: #FFF;
+}
+
+#page_top_bar a{
+	color: #FFF;
+	text-decoration: underline;
+}
+
+/*全局容器*/
+#page_top_bar .container{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	min-width: 1000px;
+	height: 32px;
+	background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(15,25,50,.3)),to(rgba(15,25,50,.3)));
+    background-image: -moz-linear-gradient(rgba(15,25,50,.3) 0,rgba(15,25,50,.3) 100%);
+    background-image: -ms-linear-gradient(rgba(15,25,50,.3) 0,rgba(15,25,50,.3) 100%);
+    background-image: -o-linear-gradient(rgba(15,25,50,.3) 0,rgba(15,25,50,.3) 100%);
+    background-image: linear-gradient(rgba(15,25,50,.3) 0,rgba(15,25,50,.3) 100%);
+}
+
+/*工具栏部分*/
+#page_top_bar .tools .tool-item{
+	overflow: hidden;
+	float: left;
+	line-height: 32px;
+	margin-right: 19px;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+/*导航部分*/
+#page_top_bar .nav .nav-item{
+	float: left;
+	display: inline-block;
+	line-height: 32px;
+	font-weight: bold;
+	margin-right: 19px;
+}
+
+#page_top_bar .nav{
+	float: right;
+	font-size: 14px;
+}
+
+/*更多产品部分*/
+#page_top_bar .nav-more{
+	float: right;
+	width: 86px;
+	font-weight: bold;
+	line-height: 32px;
+	text-align: center;
+	background-color: #398bfb;
+	cursor: pointer;
+}
