@@ -1,20 +1,24 @@
 /*
-author:zhanglei
-CSS for page_top_bar
-require:reset
+* author:zhanglei
+* CSS for page_top_bar
+* require:reset
 */
 
-#page_top_bar {
+#page_top_bar .top-bar{
 	color: #FFF;
 }
 
-#page_top_bar a{
+#page_top_bar .nav a, #page_top_bar .tools a{
 	color: #FFF;
 	text-decoration: underline;
 }
 
+#page_top_bar .side-bar a{
+	color: #222;
+}
+
 /*全局容器*/
-#page_top_bar .container{
+#page_top_bar .top-bar{
 	position: absolute;
 	top: 0px;
 	left: 0px;
@@ -43,22 +47,105 @@ require:reset
 	float: left;
 	display: inline-block;
 	line-height: 32px;
+	margin-right: 20px;
+}
+
+#page_top_bar .nav .bold{
 	font-weight: bold;
-	margin-right: 19px;
 }
 
 #page_top_bar .nav{
 	float: right;
-	font-size: 14px;
+	font-size: 13px;
 }
 
 /*更多产品部分*/
 #page_top_bar .nav-more{
 	float: right;
 	width: 86px;
-	font-weight: bold;
 	line-height: 32px;
 	text-align: center;
 	background-color: #398bfb;
 	cursor: pointer;
+}
+
+/*侧边显示的“更多”导航部分*/
+#page_top_bar .side-bar{
+	position: absolute;
+	right: 0px;
+	height: 100%;
+	background-color: #F9F9F9;
+	width: 86px;
+	text-align: center;
+	display: none;
+}
+
+#page_top_bar .side-more-text{
+	width: 86px;
+	line-height: 32px;
+	text-align: center;
+	cursor: pointer;
+}
+
+#page_top_bar .side-more .side-more-item{
+	display: inline-block;
+	width: 66px;
+	border-top:1px solid #F2F2F2;
+	height: 66px;
+	padding-top: 10px;
+}
+
+#page_top_bar .side-more-item-icon{
+	display: inline-block;
+	width: 40px;
+	height: 36px;
+}
+
+#page_top_bar .side-more-item-text{
+	font-size: 12px;
+	line-height: 14px;
+}
+
+#page_top_bar .smaller{
+	font-size: smaller;
+}
+
+#page_top_bar .icon_music{
+	background-image: url(sideMoreIcon.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+}
+
+#page_top_bar .icon_picture{
+	background-image: url(sideMoreIcon.png);
+	background-repeat: no-repeat;
+	background-position: 0px -36px;
+}
+
+#page_top_bar .icon_zhidao{
+	background-image: url(sideMoreIcon.png);
+	background-repeat: no-repeat;
+	background-position: 0px -72px;
+}
+
+#page_top_bar .icon_wenku{
+	background-image: url(sideMoreIcon.png);
+	background-repeat: no-repeat;
+	background-position: 0px -108px;
+}
+
+#page_top_bar .icon_top{
+	background-image: url(sideMoreIcon.png);
+	background-repeat: no-repeat;
+	background-position: 0px -144px;
+}
+
+#page_top_bar .icon_e{
+	background-image: url(sideMoreIcon.png);
+	background-repeat: no-repeat;
+	background-position: 0px -180px;
+}
+
+#page_top_bar .theme-bar{
+	
 }
