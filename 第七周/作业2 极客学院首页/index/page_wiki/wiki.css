@@ -1,0 +1,121 @@
+#wiki{
+	width: 1000px;
+	margin: 40px auto;
+}
+
+
+#wiki>.title{
+	font-size: 18px;
+	display: inline-block;
+	line-height: 25px;
+	font-weight: 500;
+	margin: 20px 0px;
+}
+
+#wiki .more{
+	float: right;
+	margin-left: -100%;
+	font-size: 12px;
+	color: #333;
+	cursor: pointer;
+	line-height: 25px;
+	margin: 20px 0px;
+}
+
+#wiki .more:hover{
+	color: #35b558;
+}
+
+#wiki .container:after{
+	display: block;
+	content: ' ';
+	visibility: hidden;
+	clear: both;
+}
+
+#wiki .container .wiki-group{
+	border: 1px solid #F3F3F3;
+	width: 302px;
+	float: left;
+	margin-left: -1px;
+	position: relative;
+	padding: 15px;
+}
+
+#wiki .container .wiki-group:hover{
+	border: 1px solid #35b558;
+	z-index: 999;
+}
+
+#wiki .container .wiki-group:nth-child(3){
+	/*border-right: 0px;*/
+}
+
+#wiki .wiki-group>.title{
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+
+#wiki .wiki-group .books{
+	overflow: hidden;
+	margin-bottom: 15px;
+}
+
+#wiki .wiki-group .book-item{
+	float: left;
+}
+
+#wiki .wiki-group .book-item:nth-child(1){
+	margin-right: 15px;
+}
+
+#wiki .wiki-group .book-item .image img{
+	width: 142px;
+	height: 200px;
+	border-radius: 5px;
+	transform: scaleX(1);
+	transform-origin: 0px 0px;
+	transition: transform 0.3s ease-out;
+}
+
+#wiki .wiki-group .book-item .image{
+	width: 142px;
+	height: 200px;
+	background-color: #999;
+	border-radius: 5px;
+	
+}
+
+#wiki .wiki-group .book-item:hover .image img{
+	transform: scaleX(0.95);
+	transform-origin: 0px 0px;
+	transition: transform 0.3s ease-out;
+}
+
+#wiki .wiki-group .book-item .title{
+	font-size: 13px;
+	margin: 10px auto;
+	text-align: center;
+}
+
+#wiki .wiki-group .book-item .intro{
+	color: #999;
+	font-size: 12px;
+	line-height: 12px;
+	text-align: center;
+}
+
+#wiki .wiki-group .book-more{
+	font-size: 12px;
+	color: #999;
+	overflow: hidden;
+}
+
+#wiki .wiki-group .book-more .more-item{
+	display: inline-block;
+	float: left;
+}
+#wiki .wiki-group .book-more .more-item-info{
+	display: inline-block;
+	float: right;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="./js/jquery-2.1.4.js"></script>
+	<style>
+		.container{
+			width: 100%;
+			position: relative;
+		}
+	</style>
+	
+</head>
+<body>
+	<div class="container">
+		
+	</div>
+	
+	<div id="results"></div>
+</body>
+
+	<script type="text/javascript">
+	
+	// 瀑布流的设置
+	var columns={
+		colWidth:200,
+		count:0,
+		colHeight:[]
+	};
+	
+	// 图像缓存
+	var images={
+		count:0,
+		urls:[]
+	};
+	
+	$(document).ready(function(){
+		getImage(function(){
+			console.log(images);
+		});
+	});
+	
+	$(window).resize(
+			
+	);
+	
+	function locateImages(){
+		
+	}
+	
+	function minColumnIndex(){
+		var tempColumns = columns.colHeight;
+		var minColumn = 0;
+		if (tempColumns.length>1){
+			for(var index=1; index<tempColumns.length; index++){
+				minColumn = tempColumns[index]>tempColumns[minColumn]?minColumn:index;
+			}
+		}
+		else{
+			return minColumn;
+		}
+	}
+	
+	function initColumn(){
+		var containerWidth = $(".container").width();
+		columns.count = Math.floor(containerWidth / columns.colWidth);
+	}
+	
+	function arrangeAllImage(){
+		
+	}
+	
+	function addImage(images){
+		
+	}
+	
+	function getImage(callback){
+		$.getJSON("./getImage.html",function(obj){
+			for(var index=0; index<obj.length; index++){
+				images.urls[images.count] = obj[index].url;
+				images.count++;
+			}
+			callback();
+		});
+	}
+	
+	</script>
+
+</html>

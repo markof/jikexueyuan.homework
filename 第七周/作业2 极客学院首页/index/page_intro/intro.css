@@ -1,0 +1,174 @@
+#intro{
+	position: relative;
+	z-index: 100;
+}
+
+#intro .public,
+#intro .company,
+#intro .collage{
+	width:1000px;
+	margin: 40px auto;
+}
+
+#intro .public .public-slider,
+#intro .company .company-slider{
+	width: 1000px;
+	box-sizing: border-box;
+	border: 1px solid #f3f3f3;
+	position: relative;
+	padding: 20px 26px;
+	margin-top:16px;
+}
+
+#intro .collage .collage-slider{
+	width: 1000px;
+	box-sizing: border-box;
+	border: 1px solid #f3f3f3;
+	position: relative;
+	padding: 20px 9px;
+	margin-top:16px;
+}
+
+#intro .public .public-slider .slider-container,
+#intro .company .company-slider .slider-container{
+	width: 948px;
+	height: 52px;
+	overflow: hidden;
+}
+
+#intro .public .public-slider .slider-wrapper,
+#intro .company .company-slider .slider-wrapper{
+	width: 1106px;
+	height: 52px;
+	overflow: hidden;
+}
+
+#intro .public .public-slider .slider-item,
+#intro .company .company-slider .slider-item{
+	display: inline-block;
+	float: left;
+	width: 152px;
+	height: 52px;
+	box-sizing: border-box;
+	border:1px solid #f3f3f3;
+	margin: 0px 3px;
+	overflow: hidden;
+}
+
+#intro .public .public-slider  .slider-left,
+#intro .company .company-slider  .slider-left{
+	height:50px;
+	width: 40px;
+	background-image: url(./img/left-arrow.png);
+	background-repeat: no-repeat;
+	background-position: -10px -5px;
+	background-size: 60px 120px;
+	position: absolute;
+	top:21px;
+	left: 0px;
+	cursor: pointer;
+	display: none;
+}
+
+#intro .public .public-slider .slider-left:hover,
+#intro .company .company-slider .slider-left:hover,
+#intro .collage .collage-slider .slider-left:hover{
+	background-position: -10px -65px;	
+}
+
+#intro .public .public-slider  .slider-right,
+#intro .company .company-slider  .slider-right{
+	height:50px;
+	width: 40px;
+	background-image: url(./img/right-arrow.png);
+	background-repeat: no-repeat;
+	background-position: -10px -5px;
+	background-size: 60px 120px;
+	position: absolute;
+	top:21px;
+	right: 0px;
+	cursor: pointer;
+	display: none;
+}
+
+#intro .public .public-slider .slider-right:hover,
+#intro .company .company-slider .slider-right:hover,
+#intro .collage .collage-slider .slider-right{
+	background-position: -10px -65px;	
+}
+
+#intro .collage .collage-slider .slider-container{
+	width: 980px;
+	height: 110px;
+	overflow: hidden;
+}
+
+#intro .collage .collage-slider .slider-wrapper{
+	width: 1806px;
+	height: 110px;
+	overflow: hidden;
+}
+
+#intro .collage .collage-slider .slider-item{
+	display: inline-block;
+	float: left;
+	width: 110px;
+	height: 110px;
+	box-sizing: border-box;
+	margin: 0px 15px;
+	overflow: hidden;
+}
+
+#intro .collage .collage-slider .slider-left{
+	height:50px;
+	width: 40px;
+	background-image: url(./img/left-arrow.png);
+	background-repeat: no-repeat;
+	background-position: -10px -5px;
+	background-size: 60px 120px;
+	position: absolute;
+	top:51px;
+	left: 0px;
+	cursor: pointer;
+	display: none;
+}
+
+#intro .collage .collage-slider .slider-right{
+	height:50px;
+	width: 40px;
+	background-image: url(./img/right-arrow.png);
+	background-repeat: no-repeat;
+	background-position: -10px -5px;
+	background-size: 60px 120px;
+	position: absolute;
+	top:51px;
+	right: 0px;
+	cursor: pointer;
+	display: none;
+}
+
+#intro .company .title,
+#intro .collage .title,
+#intro .public .title{
+	font-size: 18px;
+	display: inline-block;
+	line-height: 25px;
+	font-weight: 500;
+}
+
+#intro .company .more,
+#intro .collage .more,
+#intro .public .more{
+	float: right;
+	margin-left: -100%;
+	font-size: 12px;
+	color: #333;
+	cursor: pointer;
+	line-height: 25px;
+}
+
+#intro .company .more:hover,
+#intro .collage .more:hover,
+#intro .public .more:hover{
+	color: #35b558;
+}
