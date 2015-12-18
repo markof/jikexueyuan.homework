@@ -1,0 +1,10 @@
+#page_footer{
+	font-size: 12px;
+	width: 100%;
+	min-width: 1000px;
+	margin: 15px auto;
+}
+
+#page_footer .copy_right{
+	text-align: center;
+}

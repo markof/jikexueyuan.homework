@@ -19,6 +19,9 @@
 ##CSS部分
 
 ##JS部分
+通常的没有什么特别的要说明的，只是有一个比较坑爹的效果实现，是需要用到mouseWheel事件，而这个见鬼的东西目前在IE和webkit，firefox之间的兼容性不好，具体可以参考下面这个链接：
+http://www.zhangxinxu.com/wordpress/2013/04/js-mousewheel-dommousescroll-event/  
+目前实现暂时不参考兼容性。
 
 ##Ajax部分
 ###天气部分

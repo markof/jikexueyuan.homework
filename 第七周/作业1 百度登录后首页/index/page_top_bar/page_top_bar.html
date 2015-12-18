@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<!--<link rel="stylesheet" href="./reset.css">
-	<link rel="stylesheet" href="./page_top_bar.css">
-	<meta charset="UTF-8">-->
 </head>
 <body id="page_top_bar">
 	<!--顶端工具条-->
-	<div class="top-bar">
+	<div class="top-bar theme-white">
 		<ul class="tools">
-			<li class="tool-item"><a id = "page_top_bar_weather" href=""></a></li>
+			<li class="tool-item">
+				<a id = "page_top_bar_weather" href=""></a>
+				<div class="weather-brocast">
+					<div class="arrow"></div>
+				</div>
+			</li>
 			<li class="tool-item">|</li>
 			<li class="tool-item"><a href="">宝箱</a></li>
 			<li class="tool-item"><a id="change_theme" href="#">换肤</a></li>
@@ -23,8 +25,29 @@
 			<li class="nav-item bold"><a href="">地图</a></li>
 			<li class="nav-item bold"><a href="">视频</a></li>
 			<li class="nav-item bold"><a href="">贴吧</a></li>
-			<li class="nav-item"><a href="">markof</a></li>
-			<li class="nav-item"><a href="">设置</a></li>
+			<li class="nav-item"><a href="">markof</a>
+			<div class="nav-item-expand">
+				<div class="arrow"></div>
+				<ul class="expand-list">
+					<li class="list-item">我的VIP</li>
+					<li class="list-item">个人中心</li>
+					<li class="list-item">账号设置</li>
+					<li class="list-item">意见反馈</li>
+					<li class="list-item">退出</li>
+				</ul>
+			</div>
+			</li>
+			<li class="nav-item"><a href="">设置</a>
+						<div class="nav-item-expand">
+				<div class="arrow"></div>
+				<ul class="expand-list">
+					<li class="list-item">搜索设置</li>
+					<li class="list-item">高级搜索</li>
+					<li class="list-item">关闭搜索</li>
+					<li class="list-item">搜索历史</li>
+				</ul>
+			</div>
+			</li>
 		</ul>
 	</div>
 	
