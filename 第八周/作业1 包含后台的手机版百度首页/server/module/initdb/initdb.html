@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<body>
+    <div class="panel panel-default">
+        <div class="panel-heading">数据库初始化</div>
+        <div class="panel-body">
+            <form class="form-horizontal">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4">服务器名称/IP地址</label>
+                        <div class="col-sm-7">
+                            <input id="initdbserver" type="text" class="form-control" value="127.0.0.1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4" >mysql服务器端口</label>
+                        <div class="col-sm-7">
+                            <input id="initdbport" type="text" class="form-control" value="3306">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label col-sm-5">请输入用户名</label>
+                        <div class="col-sm-7">
+                            <input id="initdbuser" type="text" value="testuser" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-5">请输入数据库密码</label>
+                        <div class="col-sm-7">
+                            <input id="initdbpwd" type="password" value="1234567" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="col-sm-2 col-sm-offset-10">
+                <input id="initdbbtn" type="button" class="btn btn-primary btn-block" value="数据库初始化">
+            </div>
+        </div>
+        <div id="messageHolder" class="panel-footer"></div>
+    </div>
+
+</body>
+
+</html>
