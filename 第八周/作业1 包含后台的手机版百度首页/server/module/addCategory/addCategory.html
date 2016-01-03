@@ -6,25 +6,25 @@
 </head>
 
 <body>
-    <div id="addcategorymodal" class="modal fade bs-example-modal-lg" tabindex="-1">
+    <div class="modal fade bs-example-modal-lg addcategorymodal" tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-                    <h4 id="action_title" class="modal-title" id="myModalLabel"></h4>
+                    <h4 class="modal-title action_title" id="myModalLabel"></h4>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
                         <label>类目标题</label>
-                        <input id="category_title" type="text" class="form-control" placeholder="类目标题">
+                        <input type="text" class="form-control category_title" placeholder="类目标题">
                     </div>
                     <label>已有类目：</label>
                     <div class="category-list"></div>
                 </div>
                 <div class="modal-footer">
-                    <div id="category_message" class="alert" role="alert"></div>
+                    <div class="alert category_message" role="alert"></div>
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                    <button id="category_submit_btn" type="button" class="btn btn-primary">保存</button>
+                    <button type="button" class="btn btn-primary category_submit_btn">保存</button>
                 </div>
             </div>
         </div>

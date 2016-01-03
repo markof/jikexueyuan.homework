@@ -22,8 +22,23 @@ switch ($action) {
 
 function deleteCategory(){
     global $json_result;
-    $json_result["status"] = constant("JSONERROR");
-    $json_result["errorcode"] = "删除类目，操作暂未实现。";
+    $category_id = $_POST["id"];
+    $db = new database();
+    
+    if (is_null($category_id) or $category_id==""){
+        $json_result["status"] = constant("JSONERROR");
+        $json_result["errorcode"] = "修改新闻，参数不全。";
+    }
+    else{
+        if($db->deleteCategory($category_id)){
+            $json_result["status"] = constant("JSONSUCCESS");
+            $json_result["errorcode"] = "";
+        }
+        else{
+            $json_result["status"] = constant("JSONERROR");
+            $json_result["errorcode"] = "未知错误";
+        }
+    }
 }
 
 function modifyCategory(){
@@ -37,7 +52,7 @@ function modifyCategory(){
         $json_result["errorcode"] = "修改新闻，参数不全。";
     }
     else{
-        $db->modifyNews($category_id,$category_title);
+        $db->modifyCategory($category_id,$category_title);
         $json_result["status"] = constant("JSONSUCCESS");
         $json_result["errorcode"] = "";
     }

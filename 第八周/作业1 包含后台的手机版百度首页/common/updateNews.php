@@ -49,6 +49,7 @@ function modifyNews(){
     $news_cat_id = $_POST["cat_id"];
     $db = new database();
     
+    
     if (is_null($news_id) or is_null($news_title) or is_null($news_content) or is_null($news_cat_id)
         or $news_id =="" or $news_title == "" or $news_content == "" or $news_cat_id == ""){
         $json_result["status"] = constant("JSONERROR");

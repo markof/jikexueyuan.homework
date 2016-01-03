@@ -10,18 +10,18 @@ $dbpwd = $connconfig["password"];
 
 //定义 SQL 执行的字符串
 $sql_create_db = "CREATE DATABASE " . constant("DATABASENAME") . " character set utf8";
-$sql_create_tb_news = "CREATE TABLE news (id INT auto_increment primary key, createdate DATETIME, modifydate DATETIME, cat_id INT, title TINYTEXT, content TEXT)";
+$sql_create_tb_news = "CREATE TABLE news (id INT auto_increment primary key, createdate DATETIME, modifydate DATETIME, cat_id INT, title TINYTEXT, content LONGTEXT)";
 $sql_create_tb_category = "CREATE TABLE category (id INT auto_increment primary key, createdate DATETIME, modifydate DATETIME, title TINYTEXT)";
 $sql_if_exsit_tb="SELECT COUNT(*) FROM information_schema.TABLES WHERE TABLE_NAME='" . constant("DATABASENAME") +"'";
 
 $sql_create_pd_AddArtical = "
-CREATE procedure addNews (in news_title TINYTEXT, in news_content TEXT, in cat_ID int) 
+CREATE procedure addNews (in news_title TINYTEXT, in news_content LONGTEXT, in cat_ID int) 
 begin 
 insert into news (createdate,modifydate,cat_id,title,content) values (now(),now(),cat_ID,news_title,news_content);
 end;";
 
 $sql_create_pd_ModifyArtical = "
-CREATE procedure modifyNews (in news_id int, in news_title TINYTEXT, in news_content TEXT, in cat_ID int) 
+CREATE procedure modifyNews (in news_id int, in news_title TINYTEXT, in news_content LONGTEXT, in cat_ID int) 
 begin 
 update news set modifydate=now(), cat_id=cat_ID, title=news_title, content=news_content WHERE id=news_id;
 end;";

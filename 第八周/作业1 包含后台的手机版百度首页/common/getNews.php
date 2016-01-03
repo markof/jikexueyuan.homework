@@ -21,7 +21,7 @@ if($action == "category"){
     $cat_id = $_GET["cat_id"];
     $pageNumber = $_GET["pageNumber"];
     $db = new database();
-    $result = $db->getNewsByID($cat_id,$pageNumber);
+    $result = $db->getNewsByCat($cat_id,$pageNumber);
     echo json_encode($result);
 }
 

@@ -1,13 +1,16 @@
 define(function (require, exports, module) {
     var html = require("./addcategory.html");
     var currentNews = {};
+    var container;
     
     // 初始化提交的数据。
     var postData = { "action": "", "id": "", "title": ""};
 
     module.exports = {
-        renderNew: function (container) {
+        renderNew: function (target) {
+            container = target;
             container.html(html);
+            postData.action = "new";
             // 初始化分类列表
             $.ajax({
                 url: "/common/getAllCategory.php",
@@ -16,26 +19,19 @@ define(function (require, exports, module) {
                 success: renderCatList
             });
 
-            $("#action_title").html("新增类目");
+            $(container.selector+" .action_title").html("新增类目");
             
             // 显示模态框
-            $('#addcategorymodal').modal('show');
-            postData.action = "new";
-            $("#category_submit_btn").on("click", submitNews);
-            $("#category_message").hide();
+            $(container.selector+' .addcategorymodal').modal('show');
+            $(container.selector+" .category_submit_btn").on("click", submitCategory);
+            $(container.selector+" .category_message").hide();
         },
 
-        renderModyfi: function (container, cat_id) {
+        renderModyfi: function (target, cat_id) {
+            container = target;
             container.html(html);
-            // 初始化文章
-            $.ajax({
-                url: "/common/getNews.php",
-                type: "POST",
-                datatype: "json",
-                data: { "cat_id": cat_id },
-                success: renderNews
-            });
-            
+            postData.id = cat_id;
+            postData.action = "modify";
             // 初始化分类列表
             $.ajax({
                 url: "/common/getAllCategory.php",
@@ -44,20 +40,18 @@ define(function (require, exports, module) {
                 success: renderCatList
             });
 
-            $("action_title").html("修改新闻");
+            $(container.selector+" .action_title").html("修改类目");
             
             // 显示模态框
-            $('#addcategorymodal').modal('show');
-            postData.action = "modify";
-            postData.cat_id = "cat_id";
-            $("#category_submit_btn").on("click", submitNews);
-            $("#category_message").hide();
+            $(container.selector+' .addcategorymodal').modal('show');
+            $(container.selector+" .category_submit_btn").on("click", submitCategory);
+            $(container.selector+" .category_message").hide();
         }
     };
 
-    function submitNews() {
-        postData.title = $("#category_title").val();
-        var messagebox = $("#category_message"); 
+    function submitCategory() {
+        postData.title = $(container.selector+" .category_title").val();
+        var messagebox = $(container.selector+" .category_message"); 
         
         $.ajax({
             data: postData,
@@ -91,17 +85,12 @@ define(function (require, exports, module) {
         var catListHtml = "";
         $.each(data, function (index, item) {
             catListHtml +='<span class="label label-primary">'+ item.title +'</span> ';
+            console.log(item.id + "  "  + postData.id);
+            if (item.id == postData.id){
+                console.log("makrof");
+                $(container.selector+" .category_title").val(item.title);
+            }
         });
-        $(".category-list").html(catListHtml);
-    }
-
-    function renderCategory(data) {
-        $.each(data, function (index, item) {
-            $("#news_title").val(item.title);
-            $("#editor").html(item.content);
-            $("#news_cat").html(item.cat_title);
-            postData.news_id = item.id;
-            currentNews = item;
-        });
+        $(container.selector+" .category-list").html(catListHtml);
     }
 });

@@ -17,20 +17,33 @@
                     <div class="row">
                         <div class="col-md-9">
                             <div class="form-group">
-                                <label >新闻标题</label>
-                                <input  type="text" class="form-control news_title" placeholder="请输入新闻标题">
+                                <label>新闻标题</label>
+                                <input type="text" class="form-control news_title" placeholder="请输入新闻标题">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label >新闻分类</label>
+                                <label>新闻分类</label>
                                 <div class="btn-group btn-block">
-                                    <button type="button" class="btn btn-default news_cat"></button>
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <!--<button type="button" class="btn btn-default news_cat"></button>-->
+
+                                    <div class="input-group">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                            <span class="news_cat"></span>
+                                            <span class="caret"></span>
+                                            </button>
+                                        <ul class="dropdown-menu dropdown-menu-right category_list">
+
+                                        </ul>
+                                    </div>
+
+
+
+                                    <!--<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <span class="caret"></span>
                                         <span class="sr-only">下拉菜单</span>
                                     </button>
-                                    <ul class="dropdown-menu category_list"></ul>
+                                    <ul class="dropdown-menu category_list"></ul>-->
                                 </div>
                             </div>
                         </div>
@@ -82,7 +95,7 @@
                                 <i class="icon-picture"></i>
                                 <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
                             </a>
-                            
+
                         </div>
                         <div class="btn-group">
                             <a class="btn btn-default" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="icon-undo"></i></a>

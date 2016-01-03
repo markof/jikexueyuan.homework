@@ -35,6 +35,13 @@ class database{
         return $queryResult;
     }
     
+    // 删除分类，通过文章id
+    public function deleteCategory($cat_id){
+        $sql = "delete from category where category.id = ". $cat_id;
+        $queryResult = mysqli_query($this->conn,$sql);
+        return $queryResult;
+    }
+    
     // 获取新闻，通过新闻id
     public function getNewsByPage($pageNumber){ 
         $sql = "call getNewsByPage(". $pageNumber .",". constant("NEWSPAGESIZE") .",@news_count)";
@@ -102,6 +109,7 @@ class database{
     public function addNews($news_title, $news_content, $news_cat_id){
         $sql = "call addNews('". $news_title ."','".$news_content ."',". $news_cat_id.")";
         $result = mysqli_query($this->conn,$sql);
+        echo mysqli_error($this->conn);
         return $result;
     }
     
