@@ -13,7 +13,7 @@ define(function (require, exports, module) {
             postData.action = "new";
             // 初始化分类列表
             $.ajax({
-                url: "/common/getAllCategory.php",
+                url: "../common/getAllCategory.php",
                 type: "GET",
                 datatype: "json",
                 success: renderCatList
@@ -25,6 +25,11 @@ define(function (require, exports, module) {
             $(container.selector+' .addcategorymodal').modal('show');
             $(container.selector+" .category_submit_btn").on("click", submitCategory);
             $(container.selector+" .category_message").hide();
+            
+            $(container.selector+' .addcategorymodal').on("hide.bs.modal",function(){
+                container.trigger("close");
+            });
+            
         },
 
         renderModyfi: function (target, cat_id) {
@@ -34,7 +39,7 @@ define(function (require, exports, module) {
             postData.action = "modify";
             // 初始化分类列表
             $.ajax({
-                url: "/common/getAllCategory.php",
+                url: "../common/getAllCategory.php",
                 type: "GET",
                 datatype: "json",
                 success: renderCatList
@@ -46,6 +51,9 @@ define(function (require, exports, module) {
             $(container.selector+' .addcategorymodal').modal('show');
             $(container.selector+" .category_submit_btn").on("click", submitCategory);
             $(container.selector+" .category_message").hide();
+            $(container.selector+' .addcategorymodal').on("hide.bs.modal",function(){
+                container.trigger("close");
+            });
         }
     };
 
@@ -57,7 +65,7 @@ define(function (require, exports, module) {
             data: postData,
             type: "POST",
             datatype: "json",
-            url: "/common/updateCategory.php",
+            url: "../common/updateCategory.php",
             success: function (data) {
                 if (data.status == "1") {
                     messagebox.html("出现错误！"+ data.errorcode);

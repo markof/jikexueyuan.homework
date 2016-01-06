@@ -1,17 +1,20 @@
 $(document).ready(function () {
     getCategory();
-    getNewsByCat(1,1);
 });
 
 function getCategory() {
     $.ajax({
-        url: "/common/getAllCategory.php",
+        url: "../common/getAllCategory.php",
         datatype: "json",
         type: "get",
         success: function(data){
             $.each(data,function(index, item){
                 var tempitem = renderCategory(item.id, item.title);
                 $(tempitem).appendTo(".nav");
+                if(index == 0){
+                    getNewsByCat(item.id, 1);
+                    $(".nav-item").first().addClass("active");
+                }
             });
             $(".nav-item").on("click", function () {
                 $(".content").html("");
@@ -35,7 +38,7 @@ function renderCategory(cat_id, title){
 
 function getNewsByCat(cat_id, pageNumber) {
     $.ajax({
-        url: "/common/getNews.php",
+        url: "../common/getNews.php",
         datatype: "json",
         data: { "action": "category", "cat_id": cat_id, "pageNumber": pageNumber},
         type: "GET",

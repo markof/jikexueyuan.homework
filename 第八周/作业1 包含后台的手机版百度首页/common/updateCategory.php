@@ -63,19 +63,32 @@ function addCategory(){
     $category_title = $_POST["title"];
     $db = new database();
     
-    if (is_null($category_title) or $category_title==""){
-        $json_result["status"] = constant("JSONERROR");
-        $json_result["errorcode"] = "新增类目，参数不全。";
-    }
-    else{
-        if ($db->addCategory($category_title)){
-            $json_result["status"] = constant("JSONSUCCESS");
-            $json_result["errorcode"] = "";
+    if ($ifExist = $db->isCategoryExist($category_title)){
+        $row = $ifExist->fetch_assoc();
+        if ($row["ifExist"]=="1"){
+            $json_result["status"] = constant("JSONERROR");
+            $json_result["errorcode"] = "同样的分类已经存在，请勿重复提交。";
         }
         else{
-            $json_result["status"] = constant("JSONERROR");
-            $json_result["errorcode"] = "未知错误";
+            if (is_null($category_title) or $category_title==""){
+                $json_result["status"] = constant("JSONERROR");
+                $json_result["errorcode"] = "新增类目，参数不全。";
+            }
+            else{
+                if ($db->addCategory($category_title)){
+                    $json_result["status"] = constant("JSONSUCCESS");
+                    $json_result["errorcode"] = "";
+                }
+                else{
+                    $json_result["status"] = constant("JSONERROR");
+                    $json_result["errorcode"] = "未知错误";
+                }
+            }  
         }
+    }
+    else{
+        $json_result["status"] = constant("JSONERROR");
+        $json_result["errorcode"] = "未知错误";
     }
 }
 

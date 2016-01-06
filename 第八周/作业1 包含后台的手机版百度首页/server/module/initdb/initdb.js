@@ -17,7 +17,7 @@ define(function (require, exports, module) {
         var pwd = $("#initdbpwd").val();
 
         $.ajax({
-            url: "/common/initdbconn.php",
+            url: "../common/initdbconn.php",
             dataType: "json",
             type: "POST",
             data: {"user": user, "server": server, "port": port,  "password": pwd },
@@ -25,7 +25,7 @@ define(function (require, exports, module) {
                 console.log(data);
                 if (data.status == 0) {
                     $.ajax({
-                        url: "/common/initdbcontent.php",
+                        url: "../common/initdbcontent.php",
                         dataType: "text",
                         type: "GET",
                         success: function (data) {

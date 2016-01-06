@@ -87,6 +87,18 @@ left join (select news.cat_id, count(id) as newsCount from news group by news.ca
 on subTable.cat_id = category.id;
 end;";
 
+$sql_create_pd_isNewsExist = "
+CREATE PROCEDURE isNewsExist(in news_title TINYTEXT, in news_content LONGTEXT, in news_cat_id int)
+begin
+select ifnull(count(id),0) as ifExist from news where title=news_title and content=news_content and cat_id=news_cat_id;
+end;";
+
+$sql_create_pd_isCategoryExist = "
+CREATE PROCEDURE isCategoryExist(in category_title TINYTEXT)
+begin
+select ifnull(count(id),0) as ifExist from category where title=category_title;
+end;";
+
 // 用于向客户端吐出即时数据。
 function FlashMessage($message){
     echo($message);
@@ -226,6 +238,26 @@ else{
         // 创建procedure
         FlashMessage("尝试创建过程[getNewsByPage]...<br>");
         if (!mysqli_query($con,$sql_create_pd_getNewsByPage)){
+            FlashMessage("过程创建失败。<br>");
+            FlashMessage(mysqli_error($con)."<br>");
+        }
+        else{
+            FlashMessage("过程建立成功。<br>");
+        }
+        
+        // 创建procedure
+        FlashMessage("尝试创建过程[isNewsExist]...<br>");
+        if (!mysqli_query($con,$sql_create_pd_isNewsExist)){
+            FlashMessage("过程创建失败。<br>");
+            FlashMessage(mysqli_error($con)."<br>");
+        }
+        else{
+            FlashMessage("过程建立成功。<br>");
+        }
+        
+        // 创建procedure
+        FlashMessage("尝试创建过程[isCategoryExist]...<br>");
+        if (!mysqli_query($con,$sql_create_pd_isCategoryExist)){
             FlashMessage("过程创建失败。<br>");
             FlashMessage(mysqli_error($con)."<br>");
         }

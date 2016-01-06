@@ -45,7 +45,7 @@ define(function (require, exports, module) {
         $.ajax({
             type:"GET",
             datatype:"json",
-            url:"/common/getNews.php",
+            url:"../common/getNews.php",
             data:ajaxdata,
             success:function(data){
                 $(container.selector +" .newslist_allnews").html("");
@@ -70,7 +70,7 @@ define(function (require, exports, module) {
     function delectNews(newsID){
         if (confirm("确认要删除新闻？")){
             $.ajax({
-                url:"/common/updateNews.php",
+                url:"../common/updateNews.php",
                 data:{"action":"delete","news_id":newsID},
                 type:"POST",
                 datatype:"json",

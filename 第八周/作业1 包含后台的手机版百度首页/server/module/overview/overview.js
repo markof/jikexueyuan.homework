@@ -11,6 +11,11 @@ define(function (require, exports, module) {
             $("#overview_addNews").on("click",function(e){
                 moduleNews.renderNew($("#overview_modalView"));
             });
+            
+            $("#overview_modalView").on("close",function(){
+                $("#overview_planeitems").html("");
+                renderPlanes();
+            })
         }
     };
 
@@ -24,10 +29,9 @@ define(function (require, exports, module) {
             '<strong>File upload error</strong> ' + msg + ' </div>').prependTo('#alerts');
     };
 
-
     function renderPlanes() {
         $.ajax({
-            url: "/common/getAllCategory.php",
+            url: "../common/getAllCategory.php",
             datatype: "text",
             type: "get",
             success: parsResult,
@@ -38,7 +42,6 @@ define(function (require, exports, module) {
     }
 
     function parsResult(data) {
-        $("#overview_planeitems").html(data);
         var planeItemString = '<div class="col-md-3 col-xs-6"><div class="planeitem plane-red"><div class="planetitle">[title]</div><div class="planevalue">[newsCount]</div>篇新闻</div></div>';
         $.each(data, function (index, item) {
             var itemString = planeItemString.replace("[title]", "类目:" + item["title"]);

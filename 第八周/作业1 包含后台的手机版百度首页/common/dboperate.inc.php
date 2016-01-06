@@ -35,14 +35,14 @@ class database{
         return $queryResult;
     }
     
-    // 删除分类，通过文章id
+    // 删除分类，通过分类ID
     public function deleteCategory($cat_id){
         $sql = "delete from category where category.id = ". $cat_id;
         $queryResult = mysqli_query($this->conn,$sql);
         return $queryResult;
     }
     
-    // 获取新闻，通过新闻id
+    // 获取新闻，通过页码
     public function getNewsByPage($pageNumber){ 
         $sql = "call getNewsByPage(". $pageNumber .",". constant("NEWSPAGESIZE") .",@news_count)";
         $queryResult = mysqli_query($this->conn,$sql);
@@ -71,7 +71,7 @@ class database{
         return $this->result;
     }
     
-    // 获取新闻，通过类别信息$
+    // 获取新闻，通过类别信息
     public function getNewsByCat($id,$pageNumber){
         $sql = "call getNewsByCat(". $id .",". $pageNumber .",". constant("NEWSPAGESIZE") .",@news_count)";
         $queryResult = mysqli_query($this->conn,$sql);
@@ -90,7 +90,7 @@ class database{
     
     // 获取新闻，通过关键字
     public function getNewsByKeywords($keywords,$pageNumber){
-        $sql = "call searchNews('". $keywords ."',". $pageNumber .",". constant("NEWSPAGESIZE") .",@news_count)";
+        $sql = "call searchNews('". htmlentities($keywords) ."',". $pageNumber .",". constant("NEWSPAGESIZE") .",@news_count)";
         $queryResult = mysqli_query($this->conn,$sql);
         while($row = $queryResult->fetch_assoc()){
             array_push($this->result->queryResult, $row);
@@ -107,7 +107,8 @@ class database{
     
     // 新增新闻
     public function addNews($news_title, $news_content, $news_cat_id){
-        $sql = "call addNews('". $news_title ."','".$news_content ."',". $news_cat_id.")";
+        $this->conn->next_result();
+        $sql = "call addNews('". $news_title ."','". $news_content ."',". $news_cat_id.")";
         $result = mysqli_query($this->conn,$sql);
         echo mysqli_error($this->conn);
         return $result;
@@ -115,13 +116,14 @@ class database{
     
     // 修改新闻
     public function modifyNews($news_id ,$news_title, $news_content, $news_cat_id){
-        $sql = "call modifyNews(". $news_id .",'". $news_title ."','".$news_content ."',". $news_cat_id .")";
+        $sql = "call modifyNews(". $news_id .",'". $news_title ."','". $news_content ."',". $news_cat_id .")";
         $result = mysqli_query($this->conn,$sql);
         return $result;
     }
     
     // 新增分类
     public function addCategory($cat_title){
+        $this->conn->next_result();
         $sql = "call addCategory('". $cat_title ."')";
         $result = mysqli_query($this->conn,$sql);
         return $result;
@@ -130,6 +132,20 @@ class database{
     // 修改分类
     public function modifyCategory($cat_id ,$cat_title){
         $sql = "call modifyCategory(". $cat_id .",'". $cat_title."')";
+        $result = mysqli_query($this->conn,$sql);
+        return $result;
+    }
+    
+    // 判断新闻是否存在
+    public function isNewsExist($news_title , $news_content, $news_cat_id){
+        $sql = "call isNewsExist('". $news_title ."','".$news_content."',".$news_cat_id.")";
+        $result = mysqli_query($this->conn,$sql);
+        return $result;
+    }
+    
+    // 判断分类是否存在
+    public function isCategoryExist($cat_title){
+        $sql = "call isCategoryExist('".$cat_title."')";
         $result = mysqli_query($this->conn,$sql);
         return $result;
     }

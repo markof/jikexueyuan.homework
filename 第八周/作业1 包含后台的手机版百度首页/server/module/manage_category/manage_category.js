@@ -11,12 +11,17 @@ define(function (require, exports, module) {
             $("#manage_category_addbtn").on("click", function (e) {
                 moduleCategory.renderNew($("#category_modalView"));
             });
+            
+            $("#category_modalView").on("close",function(){
+                $("#category_planeitems").html("");
+                renderPlanes($("#category_planeitems"));
+            })
         }
     };
 
     function renderPlanes(container) {
         $.ajax({
-            url: "/common/getAllCategory.php",
+            url: "../common/getAllCategory.php",
             datatype: "text",
             type: "get",
             success: parsResult,
@@ -32,7 +37,7 @@ define(function (require, exports, module) {
         } else {
             if (confirm("确认要删除该类目？")) {
                 $.ajax({
-                    url: "/common/updateCategory.php",
+                    url: "../common/updateCategory.php",
                     datatype: "text",
                     type: "POST",
                     data: { "id": cat_id, "action": "delete" },

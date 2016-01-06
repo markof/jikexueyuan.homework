@@ -5,15 +5,16 @@ define(function (require, exports, module) {
     var mycontainer;
     
     // 初始化提交的数据。
-    var postData = { "action": "", "news_id": "", "title": "", "content": "", "cat_id": "" };
+    var postData;
 
     module.exports = {
         renderNew: function (target) {
             mycontainer = target;
             mycontainer.html(html);
+            postData = { "action": "", "news_id": "", "title": "", "content": "", "cat_id": "" };
             // 初始化分类列表
             $.ajax({
-                url: "/common/getAllCategory.php",
+                url: "../common/getAllCategory.php",
                 type: "GET",
                 datatype: "json",
                 success: renderCatList
@@ -32,14 +33,19 @@ define(function (require, exports, module) {
             postData.action = "new";
             $(mycontainer.selector + " .addnewsmodal .submit_btn").on("click", submitNews);
             $(mycontainer.selector + " .addnewsmodal .news_message").hide();
+            
+            $(mycontainer.selector + ' .addnewsmodal').on("hide.bs.modal",function(){
+                mycontainer.trigger("close");
+            })
         },
 
         renderModify: function (target, news_id) {
             mycontainer = target;
             mycontainer.html(html);
+            postData = { "action": "", "news_id":news_id, "title": "", "content": "", "cat_id": "" };
             // 初始化文章
             $.ajax({
-                url: "/common/getNews.php",
+                url: "../common/getNews.php",
                 type: "GET",
                 datatype: "json",
                 data: { "action": "news_id", "news_id": news_id },
@@ -55,7 +61,7 @@ define(function (require, exports, module) {
             
             // 初始化分类列表
             $.ajax({
-                url: "/common/getAllCategory.php",
+                url: "../common/getAllCategory.php",
                 type: "GET",
                 datatype: "json",
                 success: renderCatList
@@ -73,15 +79,41 @@ define(function (require, exports, module) {
         }
     };
 
+    // 提交新闻
     function submitNews() {
         postData.title = $(mycontainer.selector + " .addnewsmodal .news_title").val();
         postData.content = $(mycontainer.selector + ' .editor').html();
         var messagebox = $(mycontainer.selector + " .addnewsmodal .news_message");
+        // 判断标题
+        if(postData.title == ""){
+            messagebox.html("请填写文章的标题。");
+            messagebox.removeClass("alert-success");
+            messagebox.addClass("alert-danger");
+            messagebox.show();
+            return;
+        }
+        // 判断分类
+        if (postData.cat_id == ""){
+            messagebox.html("请选择新闻的类目。");
+            messagebox.removeClass("alert-success");
+            messagebox.addClass("alert-danger");
+            messagebox.show();
+            return;
+        }
+        // 判断内容
+        if(postData.content == ""){
+            messagebox.html("新闻内容为空。");
+            messagebox.removeClass("alert-success");
+            messagebox.addClass("alert-danger");
+            messagebox.show();
+            return;
+        }
+        // 提交新闻
         $.ajax({
             data: postData,
             type: "POST",
             datatype: "json",
-            url: "/common/updateNews.php",
+            url: "../common/updateNews.php",
             success: function (data) {
                 if (data.status == "1") {
                     messagebox.html("出现错误！" + data.errorcode);
@@ -105,6 +137,7 @@ define(function (require, exports, module) {
         });
     }
 
+    // 初始化分类选项
     function renderCatList(data) {
         var catListHtml = "";
         $.each(data, function (index, item) {
@@ -117,6 +150,7 @@ define(function (require, exports, module) {
         })
     }
 
+    // 初始化新闻内容包括标题和分类
     function renderNews(data) {
         $.each(data.queryResult, function (index, item) {
             $(mycontainer.selector + " .addnewsmodal .news_title").val(item.title);
@@ -128,6 +162,7 @@ define(function (require, exports, module) {
         });
     }
 
+    // 新闻输入控件的工具栏初始化。 
     function initToolbarBootstrapBindings() {
         var fonts = ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier',
             'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Lucida Sans', 'Tahoma', 'Times',

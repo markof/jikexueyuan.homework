@@ -49,7 +49,6 @@ function modifyNews(){
     $news_cat_id = $_POST["cat_id"];
     $db = new database();
     
-    
     if (is_null($news_id) or is_null($news_title) or is_null($news_content) or is_null($news_cat_id)
         or $news_id =="" or $news_title == "" or $news_content == "" or $news_cat_id == ""){
         $json_result["status"] = constant("JSONERROR");
@@ -73,20 +72,33 @@ function addNews(){
     $news_content = $_POST["content"];
     $news_cat_id = $_POST["cat_id"];
     $db = new database();
-    
-    if (is_null($news_title) or is_null($news_content) or is_null($news_cat_id)){
-        $json_result["status"] = constant("JSONERROR");
-        $json_result["errorcode"] = "新增新闻，参数不全。";
-    }
-    else{
-        if ($db->addNews($news_title,$news_content,$news_cat_id)){
-            $json_result["status"] = constant("JSONSUCCESS");
-            $json_result["errorcode"] = "";
+     
+    if ($ifExist = $db->isNewsExist($news_title,$news_content,$news_cat_id)){
+        $row = $ifExist->fetch_assoc();
+        if ($row["ifExist"]=="1"){
+            $json_result["status"] = constant("JSONERROR");
+            $json_result["errorcode"] = "同样的新闻已经存在，请勿重复提交。";
         }
         else{
-            $json_result["status"] = constant("JSONERROR");
-            $json_result["errorcode"] = "未知错误";
+            if (is_null($news_title) or is_null($news_content) or is_null($news_cat_id)){
+                $json_result["status"] = constant("JSONERROR");
+                $json_result["errorcode"] = "新增新闻，参数不全。";
+            }
+            else{
+                if ($db->addNews($news_title,$news_content,$news_cat_id)){
+                    $json_result["status"] = constant("JSONSUCCESS");
+                    $json_result["errorcode"] = "";
+                }
+                else{
+                    $json_result["status"] = constant("JSONERROR");
+                    $json_result["errorcode"] = "未知错误";
+                }
+            }
         }
+    }
+    else{
+        $json_result["status"] = constant("JSONERROR");
+        $json_result["errorcode"] = "未知错误";
     }
 }
 
