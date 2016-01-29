@@ -1,0 +1,157 @@
+#special {
+	width: 1000px;
+	margin: 40px auto;
+	position: relative;
+}
+
+#special:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
+
+#special .special-item{
+	width: 235px;
+	height: 261px;
+	box-sizing: border-box;
+	border: 1px solid #F3F3F3;
+	padding: 16px;
+	float: left;
+	margin-left: 20px;
+	position: relative;
+	transition: border 0.2s ease-out;
+}
+
+#special .special-item:hover{
+	border-color: #35b558;
+	transition: border 0.2s ease-out;
+}
+
+#special .special-item:hover .item-cover{
+	opacity: 1;
+	transition: opacity 0.2s ease-out;
+}
+
+#special .special-item:nth-child(1){
+	margin-left: 0px;
+}
+
+#special .special-item .item-content{
+	margin-bottom: 15px;
+}
+
+#special .special-item .item-content .content-iamge{
+	width: 160px;
+	height: 201px;
+	overflow: hidden;
+}
+
+#special .special-item .item-content .content-title{
+	margin-bottom: 15px;
+	line-height: 15px;
+}
+
+#special .special-item .item-cover {
+	box-sizing: border-box;
+	height: 215px;
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-color: rgba(255,255,255,0.9);
+	padding: 16px;
+	opacity: 0;
+	transition: opacity 0.2s ease-out;
+}
+
+#special .item-cover .cover-portrait .teacher-id{
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+}
+
+#special .item-cover .cover-portrait{
+	margin-bottom: 15px;
+}
+
+#special .item-cover .cover-portrait img{
+	display: block;
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	margin: 0px auto;
+}
+
+#special .item-cover .cover-info{
+	height: 36px;
+	overflow: hidden;
+	font-size: 12px;
+	line-height: 1.5;
+	margin-bottom: 20px;
+}
+
+#special .item-cover .cover-doitnow{
+	width: 100px;
+	border-radius: 3px;
+	background-color: #35b558;
+	color: #FFF;
+	cursor: pointer;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	margin:0px auto;
+}
+
+#special .item-footer .people{
+	display: inline-block;
+	height: 20px;
+	font-size: 12px;
+	color: #333;
+	line-height: 20px;
+	vertical-align: middle;
+}
+
+#special .item-footer {
+	line-height: 1;
+}
+
+#special .item-footer .collect{
+	display: inline-block;
+	float: right;
+	height: 20px;
+	line-height: 20px;
+	width: 56px;
+	background-color: #35b558;
+	color: #FFF;
+	text-align: center;
+	font-size: 12px;
+	cursor: pointer;
+	vertical-align: middle;
+	border-radius: 3px;
+}
+
+
+#special .title{
+	font-size: 18px;
+	display: inline-block;
+	line-height: 25px;
+	font-weight: 500;
+	margin: 20px 0px;
+}
+
+#special .more{
+	float: right;
+	margin-left: -100%;
+	font-size: 12px;
+	color: #333;
+	cursor: pointer;
+	line-height: 25px;
+	margin: 20px 0px;
+}
+
+#special .more:hover{
+	color: #35b558;
+}
+
+
+

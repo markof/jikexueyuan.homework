@@ -1,0 +1,149 @@
+/**
+* author:markof
+* Date:2016-1-22
+* description:
+* 极客学院作业，本文件主要内容是整体的布局定义。
+*/
+
+// width 1000px
+
+
+.width-1000(){
+    .width-x(1000px);
+}
+
+//width 210px 
+.width-210(){
+    .width-x(210px);
+}
+
+.width-560(){
+    .width-x(560px);
+}
+
+// marging left and right auto
+.margin-middle(){
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.float-left(){
+    float: left;
+}
+
+.margin-bottom-40(){
+    margin-bottom: 40px;
+}
+
+.page-block{
+    display: block;
+    .width-1000;
+    .margin-middle;
+}
+
+.header-block:extend(.page-block) {
+    text-align: center;
+    padding: 10px 0px;
+    z-index: 999;
+    
+    &> .logo{
+        float: left;
+        margin-left: -100%;
+    }
+    
+    &> .search-bar{
+        float: left;
+        width: 100%;
+        text-align: center;
+        vertical-align: middle;
+        padding-top: 4px;
+        
+        & > .search-bar-wrapper{
+            .width-x(400px);
+            display: inline-block;
+        }
+    }
+    
+    &> .info{
+        margin-left: -100%;        
+        float: right;
+    }
+    
+    .clearfix;
+}
+
+// 模组：页面块，占一行。
+.nav-block:extend(.page-block , .clearfix all){
+    position:relative;
+    
+    a{
+        color:@theme-gray-darker;
+    }
+
+    & > .left-block{
+        float: left;
+        .width-210;
+    };
+    
+    & > .middle-block{
+        float: left;
+        margin: 0px 10px;
+        .width-560;
+        
+        & > .carousel{
+            margin-bottom: 12px;
+            height: 260px;
+        }
+        
+        & > .slider{
+            height: 100px;
+        }
+    }
+    
+    & > .right-block{
+        float: left;
+        .width-210;
+    }
+    
+    .clearfix;
+}
+
+.margined-block:extend(.page-block, .clearfix all){
+    margin-top: 20px;
+    .clearfix;
+}
+
+.large-margined-block:extend(.page-block, .clearfix all){
+    margin-top: 40px;
+    .clearfix;
+}
+
+
+.header-nav-bar{
+    .width-x(100%);
+    
+    & > .header-nav-bar-wrapper{
+        .width-1000;
+        .margin-middle;
+        position: relative;
+        height: 42px;
+        
+        & > .nav-left{
+            height: 42px;
+            float: left;
+        }
+        
+        & > .nav-right{
+            float:right;
+        }
+        
+        & > .nav-extend-wrapper{
+            position: absolute;
+            top: 42px;
+            padding-left: 46px;
+            .width-1000;
+        }
+    }
+}
+
+

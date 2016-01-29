@@ -1,0 +1,53 @@
+/**
+* author:markof
+* Date:2016-1-22
+* description:
+* 极客学院作业，本文件主要定义页面的基本内容，如颜色。
+* 该文件目标不输出单独的css文件。
+*/
+
+
+// -------------------------------------
+//颜色定义
+@theme-primary-color: #35b558;
+@theme-alert-color:#FB5D20;
+@theme-primary-color-light: lighten(@theme-primary-color, 30%);
+@theme-primary-color-lighter: lighten(@theme-primary-color, 50%);
+
+@theme-gray : rgb(228,228,228);
+@theme-gray-light: rgb(240,240,240);
+@theme-gray-lighter: rgb(250,250,250);
+@theme-gray-dark: rgb(180,180,180);
+@theme-gray-darker: rgb(90,90,90);
+
+@base-path: "./";
+
+
+// ------------------------------------
+// 工具
+
+// clearfix 处理元素坍塌
+.clearfix {
+  display: block;
+  zoom: 1;
+
+  &:after {
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+
+// 绝对向右
+.absolute-right(){
+    position: absolute;
+    right: 0px;
+}
+
+// 绝对向左
+.width-x(@width) when (ispixel(@width)), (ispercentage(@width)){
+    width: @width;
+}

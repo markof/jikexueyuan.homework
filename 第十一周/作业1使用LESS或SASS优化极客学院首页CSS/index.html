@@ -1,0 +1,35 @@
+<!DOCTYPEhtml>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业2-实现极客学院首页所有效果</title>
+    <link rel="stylesheet" href="./css/style.css">
+	<script type="text/javascript" src="./seajs/seajs.js"></script>
+	<script type="text/javascript" src="./seajs/seajs-css.js"></script>
+	<script type="text/javascript" src="./seajs/seajs-text.js"></script>
+</head>
+<body>
+	<div id="header"></div>
+	<div id="nav"></div>
+	<div id="course"></div>
+	<div id="career"></div>
+	<div id="knowledge"></div>
+	<div id="special"></div>
+	<div id="wiki"></div>
+	<div id="intro"></div>
+	<div id="footer"></div>
+	<script type="text/javascript">
+	seajs.config({
+		base: "./",
+		alias: {
+			"jquery": 	"module/jquery",
+			"slider": 	"module/slider",
+			"reset":	"module/reset.css",
+			"carousel":	"module/carousel"
+		}
+  	});
+	seajs.use("./index/index");
+	</script>
+	
+</body>
+</html>

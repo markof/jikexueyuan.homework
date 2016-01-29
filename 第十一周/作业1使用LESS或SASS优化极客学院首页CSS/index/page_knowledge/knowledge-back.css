@@ -1,0 +1,162 @@
+#knowledge {
+	width: 1000px;
+	margin: 40px auto;
+	overflow: hidden;
+	border-right: 1px solid #EBEBEB;
+	border-bottom: 1px solid #EBEBEB;
+}
+
+#knowledge .title{
+	font-size: 18px;
+	display: inline-block;
+	line-height: 25px;
+	font-weight: 500;
+}
+
+#knowledge .way{
+	height: 14px;
+	width: 14px;
+	text-align: center;
+	border-radius: 10px;
+	background: #666;
+	color: #FFF;
+	position: relative;
+	font-size: 12px;
+	display: inline-block;
+	vertical-align: text-top; 
+	line-height: 14px;
+	position: relative;
+}
+#knowledge .way:hover .way-info{
+	/*trans*/
+}
+
+
+#knowledge .way-info{
+	position: absolute;
+	left: 20px;
+	font-size: 12px;
+	box-shadow: 0px 1px 2px #666;
+	display: none;
+}
+
+#knowledge .more{
+	float: right;
+	margin-left: -100%;
+	font-size: 12px;
+	color: #333;
+	cursor: pointer;
+	line-height: 25px;
+}
+
+#knowledge .more:hover{
+	color: #35b558;
+}
+
+#knowledge .container{
+	width: 1002px;
+	overflow: hidden;
+	margin-top: 16px;
+}
+
+#knowledge .container:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+
+#knowledge .knowledge-item:hover .item-wrapper{
+	transition:transform 0.3s ease-out;
+	transform: rotateY(180deg);
+	-webkit-transition: transform 0.3s ease-out;
+	-webkit-transform: rotateY(180deg);
+	-webkit-backface-visibility: hidden;
+}
+
+#knowledge .item-wrapper{
+	position: relative;
+	width: 166px;
+	height: 120px;
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transition:transform 0.3s ease-out;
+	-webkit-transition: transform 0.3s ease-out;
+}
+
+#knowledge .knowledge-item{	
+	display: inline-block;
+	border-left: 1px solid #EBEBEB;
+	border-top:  1px solid #EBEBEB;
+	float: left;
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+}
+
+#knowledge .knowledge-item .front{
+	position: absolute;
+	width: 166px;
+	height: 90px;
+	top: 0px;
+	left: 0px;
+	background-color: #fff;
+	padding: 15px 0px;
+	/*display: none;*/
+	transform: rotateY(0deg);
+	-webkit-transform: rotateY(0deg);
+	backface-visibility:  hidden;
+}
+
+#knowledge .knowledge-item .knowledge-image img{
+	width: 40px;
+	height: 40px;
+	display: block;
+	margin: 0px auto;
+}
+
+#knowledge .knowledge-item .knowledge-intro .name{
+	font-size: 15px;
+	color: #000;
+	text-align: center;
+}
+
+#knowledge .knowledge-item .knowledge-intro .count{
+	font-size: 14px;
+	color: #35b558;
+	text-align: center;
+}
+
+#knowledge .knowledge-item .back{
+	width: 166px;
+	height: 90px;
+	background-color: #f3f3f3;
+	padding: 30px 0px 0px 0px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	transform: rotateY(180deg);
+	-webkit-transform: rotateY(180deg) translateZ(1px);
+	backface-visibility:  hidden;
+}
+
+#knowledge .knowledge-item .back .peoples{
+	color: #000;
+	font-size: 14px;
+	line-height: 14px;
+	height: 30px;
+	text-align: center;
+}
+
+#knowledge .knowledge-item .back .learn{
+	color: #FFF;
+	width: 140px;
+	height: 36px;
+	background-color: #35b558;
+	text-align: center;
+	line-height: 36px;
+	margin: 0px auto;
+}
+
+#knowledge .knowledge-item{
+	perspective: 600px; 
+}

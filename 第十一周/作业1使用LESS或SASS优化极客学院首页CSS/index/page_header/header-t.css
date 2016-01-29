@@ -1,0 +1,251 @@
+#header{
+	z-index: 900;
+	position: relative;
+}
+
+#header .top-bar{
+	width: 1000px;
+	height: 40px;
+	margin: 15px auto;
+	overflow: hidden;
+}
+
+#header .top-bar .logo{
+	display: inline-block;
+	width: 113px;
+	height: 41px;
+	float: left;
+	margin-left: -100%;
+	background-image: url(./img/logo.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+#header .search-bar{
+	width: 100%;
+	float: left;
+	text-align: center;
+	overflow: hidden;
+}
+
+#header .search-input-wrapper{
+	display: inline-block;
+	width: 379px;
+	position: relative;
+}
+
+#header .search-bar .search-input{
+	float: left;
+	width: 320px;
+	outline: none;
+	height: 36px;
+	border: 1px solid #e4e4e4;
+	border-right: 0px;
+	padding: 0px 10px;
+	font-size: 12px;
+}
+
+#header .search-bar .search-button{
+	float: left;
+	width: 38px;
+	height: 38px;
+	border: 1px solid #e4e4e4;
+	background-color: #FFF;
+	background-image: url(./img/topsearch-icon-black.png);
+	background-repeat: no-repeat;
+	background-position: 10px 10px;
+	outline: none;
+}
+
+#header .search-bar .active , 
+#header .search-bar .search-button:hover{
+	float: left;
+	width: 38px;
+	height: 38px;
+	border:1px solid #35b558;
+	background-color: #35b558;
+	background-image: url(./img/topsearch-icon-white.png);
+	background-repeat: no-repeat;
+	background-position: 10px 10px;
+}
+
+#header .top-bar .search-hot{
+	position: absolute;
+	right: 40px;
+	top:9px;
+}
+
+#header .tags .tag-item{
+	display: inline-block;
+	float: left;
+	margin-right: 10px;
+	background-color: #f3f3f3;
+	font-size: 12px;
+	color: gray;
+	cursor: pointer;
+}
+
+#header .tags .tag-item:hover{
+	display: inline-block;
+	float: left;
+	background-color: #dfdfdf;
+	font-size: 12px;
+	color: #333;
+}
+
+#header .top-bar .info{
+	display: inline-block;
+	float: right;
+	margin-left: -100%;
+}
+
+#header .top-bar .info .icon-message{
+	display: inline-block;
+	height: 14px;
+	width: 16px;
+	position: relative;
+	top:4px;
+	background: url(./img/massage-icon.gif) no-repeat 0px 0px;
+	background-size: 100% 100%;
+}
+
+#header .info .info-item{
+	display: inline-block;
+	margin: 0px 7px;
+	line-height: 40px
+}
+
+#header .info .info-item:last-child{
+	margin-right: 0px;
+}
+
+#header .top-bar a{
+	color: #000;
+	font-size: 12px;
+}
+
+#header .nav-top-border{
+	height: 2px;
+	background: linear-gradient(to right, #28A939,#6ABD6B,#1F6CBF);
+	min-width: 1000px;
+}
+
+
+
+
+
+#header .nav-bar{
+	box-shadow: 0px 2px 1px 1px #f0f0f0;
+	height: 43px;
+	min-width: 1000px;
+}
+
+
+#header .nav-bar-wrapper{
+	width: 1000px;
+	margin: 0px auto;
+}
+
+#header .nav-bar .nav-left{
+	float: left;
+	cursor: pointer;
+}
+
+#header .nav-bar .nav-left .nav-left-item{
+	display: inline-block;
+	float: left;
+	width: 120px;
+	padding: 10px 0px 8px 0px;
+	text-align: center;
+}
+
+#header .nav-bar .nav-left .nav-left-item:hover{
+	color: #35b558;
+}
+
+#header .nav-bar .nav-left .nav-left-item:first-child{
+	width: 60px;
+	text-align: left;
+}
+
+#header .nav-bar .nav-right{
+	float:right;
+	font-size: 12px;
+}
+
+#header .nav-bar .nav-right .nav-right-item{
+	float:left;
+	display: inline-block;
+	margin-left: 20px;
+	line-height: 45px;
+}
+
+#header .nav-bar .nav-bar-wrapper{
+	position: relative;
+}
+
+#header .nav-extend{
+	box-sizing: border-box;
+	background-color: rgba(255,255,255,0.98);
+	width: 1000px;
+	margin: 0px auto;
+	padding-left: 59px;
+	border: 1px solid #f3f3f3;
+	font-size: 12px;
+	box-shadow: 0px 2px 2px 1px #f3f3f3;
+	display: none;
+	position: absolute;
+	top: 43px;
+	color: #666;
+}
+
+#header .nav-extend:after{
+	content: " ";
+	clear: both;
+	display: block;
+}
+
+#header .nav-extend .extend-item{
+	box-sizing: border-box;
+	float: left;
+	width: 120px;
+	border-left: 1px solid #f3f3f3;
+	padding: 10px 15px;
+	position: relative;
+}
+
+#header .nav-extend .extend-item:last-child{
+	border-right: 1px solid #f3f3f3;
+}
+
+#header .nav-extend .active,
+#header .nav-extend .extend-item:hover{
+	background-color: #f3f3f3;
+}
+
+#header .nav-extend .active *[class="arrow-top"],
+#header .nav-extend .extend-item:hover *[class="arrow-top"]{
+	display: block;
+}
+
+#header .nav-extend .extend-list-item{
+	line-height: 30px;
+}
+
+#header .nav-extend .extend-list-item:hover{
+	color: #35b558;
+	cursor: pointer;
+}
+
+#header .nav-extend .arrow-top{
+	width: 12px;
+	height: 6px;
+	background-image: url(./img/arrow-icon.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	position: absolute;
+	left: 54px;
+	top: -6px;
+	display: none;
+}
+

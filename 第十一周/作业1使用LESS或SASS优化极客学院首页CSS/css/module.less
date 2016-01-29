@@ -1,0 +1,1701 @@
+/**
+* author:markof
+* Date:2016-1-22
+* description:
+* 极客学院作业，本文件主要是定义各个模组，如输入框组，flickboard，幻灯片等。
+*/
+
+// 导入基本配置
+@import './base.less';
+
+// 绝对布局在父元素的右侧
+.no-outline(){
+    outline: none;
+}
+
+.shadow(){
+    box-shadow: 0px 1px 1px 1px rgba(150,150,150,0.2);
+}
+
+.icon-image(@width, @height, @offset-x, @offset-y, @image){
+    background-image: @image;
+    background-repeat: no-repeat;
+    background-position: @offset-x @offset-y;
+    width: @width;
+    height: @height;
+}
+
+/////////////////////////////////////////////
+// 模组，搜索框，带有keywords，
+// 默认撑满整个父元素，如果要限制长度，请在父元素上限制
+/////////////////////////////////////////////
+.search-tool{
+    // 模组的定义
+    @input-height: @button-height;
+    @input-font-size: 12px;
+    
+    @tag-font-size: 12px;
+    @tag-font-color: gray;
+    @tag-background-color: @theme-gray-light;
+    @tag-background-alter-color: @theme-gray;
+    
+    @button-width: 36px;
+    @button-height: 36px;
+    @button-color: transparent;
+    @button-alter-color: @theme-primary-color;
+    @button-image:url("@{base-path}/index/page_header/img/topsearch-icon-black.png");
+    @button-alter-image:url("@{base-path}/index/page_header/img/topsearch-icon-white.png");
+    
+    @border-color: @theme-gray;  //统一设置input和button边框。
+    
+    // 方法
+    .button-active(){
+        background-color: @button-alter-color;
+        border-color: @button-alter-color;
+        background-image: @button-alter-image;
+    }
+    
+    // 为内部元素服务
+    position: relative;
+    
+    // 子元素input框
+    & > .input{
+        .no-outline;
+        .width-x(100%);
+        float: left;
+        box-sizing: border-box;
+        height: @input-height;
+        border: 1px solid @border-color;
+        padding: 0px @button-width+10px 0px 10px;
+        
+        &:focus ~ .tags{
+            display: none;   
+        }
+        
+        &:focus ~ .button{
+            .button-active;
+        }
+    }
+    
+    // 子元素搜索按钮
+    & > .button{
+        .absolute-right;
+        .no-outline;
+        .icon-image(@button-width,@button-height,center,center,@button-image);
+        border: 1px solid @border-color;
+        background-color: @button-color;
+        
+        &:hover{
+            .button-active;
+        }
+    }
+    
+    // 子元素，搜索热词
+    & > .tags{
+        .absolute-right;
+        margin-right: @button-width;
+        
+        & > .tag{
+            display: inline-block;
+            float: left;
+            margin-top: (@input-height - @tag-font-size*1.5)/2;
+            margin-right: 10px;
+            background-color: @tag-background-color;
+            font-size: @tag-font-size;
+            color: @tag-font-color;
+            cursor: pointer;
+            line-height: @tag-font-size*1.5;
+            padding: 0px 5px;
+            
+            &:hover{
+                background-color: @tag-background-alter-color;
+                color: black;
+            }
+        }
+    }
+
+    .clearfix;
+}
+
+/////////////////////////////////////////////
+//头部的logo组件
+/////////////////////////////////////////////
+.header-logo{
+    @logo-image:url("@{base-path}/index/page_header/img/logo.png");
+    .icon-image(113px, 41px, 0px, 0px, @logo-image);
+    display: block;
+	background-size: 100% 100%;
+}
+
+/////////////////////////////////////////////
+//头部的登录信息
+/////////////////////////////////////////////
+.header-info{
+    @icon-message-image : url("@{base-path}/index/page_header/img/massage-icon.gif");
+    font-size: 12px;
+    
+    a{
+        color: #000;
+        &:hover{
+            color: @theme-primary-color;
+        }
+    }
+    
+    & > .info-item{
+        display: inline-block;
+        margin: 0px 7px;
+        line-height: 40px
+    }
+    
+    & > .icon-message{
+        position: relative;
+        top:4px;
+        background-size: 100% 100%;
+        .icon-image(16px, 14px, 0px, 0px, @icon-message-image);
+    }
+}
+
+/////////////////////////////////////////////
+//单独为主导航条设置阴影
+/////////////////////////////////////////////
+
+.header-nav-bar{
+    .shadow;
+}
+
+/////////////////////////////////////////////
+//主导航
+/////////////////////////////////////////////
+.header-nav{
+    .nav-link{
+        .nav-link-item{
+            font-size: 14px;
+            display: inline-block;
+            float: left;
+            text-align: center;
+            width: 120px;
+            cursor: pointer;
+            line-height: 42px;
+            
+            &:nth-child(1){
+                float: left;
+                text-align: left;
+                width: 48px;
+            }
+            
+            &:hover{
+                color: @theme-primary-color;
+            }
+        }
+    }
+    
+    .nav-info{        
+        & > .nav-info-item{
+            float: left;
+            display: inline-block;
+            margin-left: 20px;
+            line-height: 42px;
+            font-size: 12px;
+        }
+    }
+    
+    .nav-extend{
+        z-index: 990;
+        box-sizing: border-box;
+        background-color: rgba(255,255,255,0.98);
+        border: 1px solid @theme-gray-light;
+        font-size: 12px;
+        .shadow;
+        display: none;
+        color: #666;
+
+        & > .extend-item{
+            box-sizing: border-box;
+            float: left;
+            width: 120px;
+            border-left: 1px solid @theme-gray-light;
+            padding: 10px 15px;
+            position: relative;
+            @arrow-image: url("@{base-path}/index/page_header/img/arrow-icon.png");
+            & > .arrow-top{
+                .icon-image(12px,6px,0px,0px,@arrow-image);
+                background-size: 100% 100%;
+                position: absolute;
+                left: 54px;
+                top: -6px;
+                display: none;
+            }
+                
+            & > .extend-list{
+                line-height: 29px;
+                &:hover{
+                    cursor: pointer;
+                }
+                
+                & > .extend-list-item{
+                     &:hover{
+                        color:@theme-primary-color;
+                    }
+                }
+            }
+            
+            &:hover{
+                background-color: @theme-gray-lighter;
+            }
+        }
+        
+        & > .active{
+            display: block;
+            background-color: @theme-gray-lighter;
+            & > .arrow-top{
+                display: block
+            }
+        }
+    }                
+}
+
+/////////////////////////////////////////////
+//主导航条上方的彩带
+/////////////////////////////////////////////
+.nav-top-border{
+    height: 2px;
+	background: linear-gradient(to right, #28A939,#6ABD6B,#1F6CBF);
+	min-width: 1000px;
+}
+
+/////////////////////////////////////////////
+//主导航下方的课程导航
+/////////////////////////////////////////////
+.nav-list{
+    width: 100%;
+    border-top: 2px solid @theme-primary-color;
+    position: relative;
+    z-index: 900;
+    
+    & > .nav-list-item{
+        box-sizing: border-box;
+        height: 37px;
+        line-height: 37px;
+        font-size: 13px;
+        border: 1px solid @theme-gray-light;
+        border-top: none;
+        padding-left: 15px;
+        
+        &:hover{
+            border-right: none;
+            border-left: 2px solid @theme-primary-color;
+            padding-left: 20px;
+        }
+        
+        &:hover > .nav-list-extend{
+            display: block;
+        }
+    
+        & > .nav-list-extend{
+            .width-x(400px);
+            position: absolute;
+            left: 100%;
+            display: none;
+
+            top: -2px;
+            border: 1px solid @theme-gray-light;
+            .shadow;
+            border-left: 0px;
+            min-height: 371px;
+            background-color: #FFF;
+
+            & > .extend-group{
+                padding: 10px;
+                & > .extend-title{
+                    border-bottom: 1px solid @theme-gray-light;
+                    line-height: 28px;
+                }
+                & > .extend-items{
+                    & > .extend-item{
+                        display: inline-block;
+                    }
+                    & > .extend-spliter{
+                        display: inline-block;
+                    }
+                }
+            }
+        }    
+    }
+}
+
+
+/////////////////////////////////////////////
+//课程导航右侧的幻灯片部分
+/////////////////////////////////////////////
+.carousel{
+    .width-x(560px);
+    position: relative;
+    height: 260px;
+    
+    .carousel-arrow(){
+        height:50px;
+        width: 40px;
+        background-repeat: no-repeat;
+        background-size: 60px 120px;
+        position: absolute;
+        top:105px;
+        cursor: pointer;
+        background-position: -10px -5px;
+        display: none; 
+        
+        &:hover{
+            background-position: -10px -65px;
+        }
+    }
+    
+    & > .carousel-left{
+        .carousel-arrow;
+        background-image: url("@{base-path}/index/page_nav/img/left-arrow.png");
+        left: 0px;  
+    }
+    
+    & > .carousel-right{
+        .carousel-arrow;
+        background-image: url("@{base-path}/index/page_nav/img/right-arrow.png");
+        right: 0px; 
+    }
+    
+    & > .carousel-pagenation{
+        position: absolute;
+        text-align: center;
+        bottom: 20px;
+        width: 100%;
+        
+        & > .pagenation-item{
+            display: inline-block;
+            height: 3px;
+            width: 40px;
+            background-color: #FFF;
+            margin: 0px 6px;
+        }
+        
+        & > .active{
+            background-color: @theme-primary-color;
+        }
+    }
+    
+    & > .carousel-content{
+        height: 260px;
+        .width-x(560);
+        overflow: hidden;
+        position: relative;
+        
+        & > .content-item{
+            width: 560px;
+            height: 260px;
+            display: inline-block;
+            position: absolute;
+            top: 0px;
+        }
+    }
+}
+
+
+/////////////////////////////////////////////
+//幻灯片下的滑动导航
+/////////////////////////////////////////////
+.nav-slider{
+    overflow: hidden;
+    width:100%
+	height: 100px;
+	box-sizing: border-box;
+	border: 1px solid @theme-gray-light;
+	position: relative;
+    
+    .slider-arrow(){
+        height:40px;
+        width: 24px;
+        background-image: url("@{base-path}/index/page_nav/img/arrow-slim.png");
+        background-repeat: no-repeat;
+        background-size: 48px 80px;
+        position: absolute;
+        top:29px;
+        cursor: pointer;
+        display: none;
+    }
+    
+    & > .slider-container{
+        width: 748px;
+        
+        & > .slider-item{
+            box-sizing: border-box;
+            height: 98px;
+            border-right: 1px solid #F3F3F3; 
+            display: inline-block;
+            width: 187px;
+            font-size: 12px;
+            line-height: 1.5;
+            text-align: center;
+            float: left;
+            
+            & > .item-image{
+                width: 40px;
+                height: 40px;
+                display: block;
+                margin:8px auto;
+            }
+            
+            & > .item-image img{
+                height: 40px;
+                width: auto;
+            }
+            
+            & > .item-info{
+                
+                & > .info-intro{
+                    color: @theme-gray-dark;
+                }
+            }
+        }   
+    }
+    
+    & > .slider-left{
+        .slider-arrow;
+        left: 0px;
+        background-position: -0px -0px;
+        &:hover{
+            background-position: -0px -40px;
+        }
+    }
+    
+    & > .slider-right{
+        .slider-arrow;
+        right: 0px;
+        background-position: -24px -0px;
+        &:hover{
+            background-position: -24px -40px;
+        }
+    }
+}
+
+
+/////////////////////////////////////////////
+//幻灯片右侧的新闻
+/////////////////////////////////////////////
+.news{
+    border: 1px solid @theme-gray-light;
+    border-bottom:  none;
+    padding: 0px 13px 9px 13px;
+	height: 123px;
+    
+    & > .title{
+       margin: 10px 0px 6px 0px;
+	   line-height: 19px;
+    }
+    
+    & > .news-list{
+        
+        & > .news-item{
+            width: 182px;
+            overflow:  hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 12px;
+            height: 21px;
+            line-height: 21px;
+        }
+    }
+}
+
+/////////////////////////////////////////////
+//按钮工具部分
+/////////////////////////////////////////////
+
+.animate(@speed) when (isunit(@speed, s)){
+    transition: all @speed ease-out;
+}
+
+.rounded(@round) when (ispixel(@round)){
+    border-radius: @round;
+}
+
+.button(@front-color, @alter-color , @border-color){
+    border:  1px solid @border-color;
+    background-color: @front-color;
+    &:hover{
+        background-color: @alter-color;   
+    }
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.button-samll(@front-color, @alter-color , @border-color) {
+    .button(@front-color,@alter-color, @border-color);
+    .animate(0.3s);
+    height: 20px;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.button-large(@front-color, @alter-color , @border-color) {
+    .button(@front-color,@alter-color, @border-color);
+    .animate(0.3s);
+    height: 30px;
+    font-size: 14px;
+    line-height: 28px;
+}
+
+
+/////////////////////////////////////////////
+//幻灯片右侧的用户信息
+/////////////////////////////////////////////
+.user-info{
+    border: 1px solid @theme-gray-light;
+    border-bottom:  none;
+    
+    & > .user-image{
+       float: left;
+	   margin: 10px 12px 0px 12px;
+       width: 40px;
+	   height: 40px;
+    }
+    
+    & > .login{
+        float: left;
+        height: 75px;
+        font-size: 12px;
+        margin-top: 10px;
+        line-height: 18px;
+        
+        & > .login-button{
+            .button-samll(@theme-primary-color,@theme-primary-color,@theme-primary-color);
+            color: #FFF;
+            width: 48px;
+            height: 20px;
+            float: left;
+            margin-right: 10px;
+        }
+        
+        & > .register-button{
+            .button-samll(@theme-alert-color,@theme-alert-color,@theme-alert-color);
+            color: #FFF;
+            width: 48px;
+            height: 20px;
+            float: left;
+        }   
+    }
+}
+
+
+/////////////////////////////////////////////
+//幻灯片右侧的其他导航部分
+/////////////////////////////////////////////
+.side-nav{
+    border-top: 1px solid @theme-gray-light;
+    overflow: hidden;
+    position: relative;
+
+    & > .nav-item{        
+        height: 76px;
+        border-right: 1px solid @theme-gray-light;
+        border-bottom: 1px solid @theme-gray-light;
+        width: 25%;
+        float: left;
+        box-sizing: border-box;
+        
+        &:nth-child(4n+1){
+            border-left: 1px solid @theme-gray-light;
+        }
+        
+        & > .item-icon{
+            background-image: url("@{base-path}/index/page_nav/img/sub-nav.png");
+            display: block;
+            width: 25px;
+            height: 25px;
+            margin: 13px auto 0;
+            background-size: 71px 232px;   
+        }
+        
+        & > .item-title{
+            font-size: 12px;
+            text-align: center; 
+        }
+        
+        & > .arrow{
+            border-top: 5px solid @theme-gray;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 0px;
+            height: 0px;
+            width: 0px;
+            margin: 0px auto;
+        }
+        
+        &:hover{
+            color: @theme-primary-color;
+            cursor: pointer;
+        }
+        
+        .icon-wenda{
+            background-position: -5px -3px;
+        }
+
+        .icon-wiki{
+            background-position: -5px -31px;
+        }
+
+        .icon-course{
+            background-position: -5px -59px;
+        }
+
+        .icon-community{
+            background-position: -5px -87px;
+        }
+
+        .icon-download{
+            background-position: -5px -117px;
+        }
+
+        .icon-knowledge{
+            background-position: -5px -144px;
+        }
+
+        .icon-career{
+            background-position: -5px -173px;
+        }
+
+        .icon-vip{
+            background-position: -5px -202px;
+        }
+    }
+    
+    & > .extend-nav{
+        display: none;
+        position: absolute;
+        top: 0px;
+        background-color: #FFF;
+        width: 100%;
+        
+        & > .extend-nav-list{
+            & > .extend-list-item{
+                width: 52px;
+                box-sizing: border-box;
+                border-bottom: 1px solid @theme-gray-light;
+                border-right: 1px solid @theme-gray-light;
+                display: inline-block;
+                float: left;
+                font-size: 12px;
+                text-align: center;
+                background-color: @theme-gray-lighter;
+                cursor: pointer;
+                
+                &:nth-child(1){
+                    width: 53px;
+                    border-left: 1px solid @theme-gray-light;
+                }
+                
+                &:nth-child(4){
+                    width: 53px;
+                }
+                
+                &:hover{
+                    border-bottom: 1px solid transparent;
+                    background-color: #FFF;
+                    color: @theme-primary-color;
+                }
+            }
+        }
+        
+        
+        & > .extend-nav-item{
+            border-left: 1px solid @theme-gray-light;
+            border-right: 1px solid @theme-gray-light;
+            border-bottom: 1px solid @theme-gray-light;
+            overflow: hidden;
+            height: 129px;
+            
+            
+             &> .extend-wenda-item{
+                display: inline-block;
+                font-size: 12px;
+                width: 190px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                margin: 4px 8px;
+                line-height: 16px;
+                float: left;
+                
+                & > img{
+                    width: 16px;
+                    height: 16px;
+                    display: inline;
+                    vertical-align:  text-bottom;
+                    line-height: 12px;
+                    margin-right: 10px;
+                }
+            }
+            
+            & > .extend-course-item{
+                border-bottom: 1px solid #F3F3F3;
+                border-left: 1px solid #F3F3F3;
+                margin-left: -1px;
+                width: 104px;
+                height: 64px;
+                float: left;
+                
+                & > .item-image{
+                    display: block;
+                    width: 30px;
+                    height: 30px;
+                    margin: 7px auto 3px auto;
+                }
+                
+                & .item-title{
+                    font-size: 12px;
+	                text-align: center;
+                }   
+            }
+            
+            & > .wiki-list{
+                padding: 15px 10px;
+                
+                & > .list-item{
+                    float: left;
+                    margin-left: 7px;
+                    width: 55px;
+                    & > .item-img{
+                         width: 55px;
+                    }
+                    
+                    & > .item-title{
+                        margin: 8px auto;
+                        width: 55px;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        font-size: 12px;
+                        
+                    }
+                }
+            }
+            
+            & > .community-list{
+                padding: 10px 0px;
+                
+                & > .community-item{
+                    box-sizing: border-box;
+                    padding: 10px;
+                    display: block;
+                    width: 100%;
+                    overflow: hidden;
+
+                    & > .item-img{
+                        width: 32px;
+                        height: 32px;
+                        float: left;
+                        margin-right: 10px;
+                    }
+                    
+                    & > .item-info{
+                        float: left;
+                        width: 95px;
+                        
+                        
+                        & > .item-title{
+                            font-size: 12px;
+                            line-height: 16px;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            
+                        }
+                        
+                        & > .item-intro{
+                            font-size: 12px;
+                            line-height: 16px;
+                            color: @theme-gray-dark;
+                        }
+                    }
+                    
+                    & > .join{
+                        .button-samll(@theme-alert-color,@theme-alert-color,@theme-alert-color);
+                        .rounded(2px);
+                        color: #FFF;
+                        width: 50px;
+                        margin-top: 6px;
+                        float: left;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/////////////////////////////////////////////
+//课程部分的导航条
+/////////////////////////////////////////////
+.tabs-nav{
+    & > .nav-item{
+        display: inline-block;
+        float: left;
+        width: 166px;
+        border-bottom: 2px solid #f3f3f3;
+        height: 39px;
+        line-height:39px;
+        position: relative;
+        color: #333;
+        text-align: center;
+        
+        & > .arrow{
+            position: absolute;
+            bottom: 0px;
+            border: 5px solid #35b558;
+            border-top: 0px;
+            width: 0px;
+            left: 50%;
+            border-left-color: rgba(0,0,0,0);
+            border-right-color: rgba(0,0,0,0);
+            margin-left: -5px;
+            display: none;
+        }
+    }
+    
+    & > .active{
+        border-bottom: 2px solid #35b558;
+        
+        & > .arrow{
+            display: block;
+        }
+    }
+}
+
+/////////////////////////////////////////////
+//课程部分的内容
+/////////////////////////////////////////////
+.course-content:extend(.page-block, .clearfix all){
+    display: none;
+    
+    & > .content-item{
+        display: inline-block;
+        float: left;
+        width: 235px;
+        height: 220px;
+        margin: 20px 20px 20px 0px;
+        position: relative;
+        
+        & > .content-title{
+            border-left: 1px solid @theme-gray-light;
+            border-right: 1px solid @theme-gray-light;
+            padding: 10px;
+            line-height: 1.3;
+            height: 36px;
+        }
+
+        & > .content-intro{
+            border-left: 1px solid @theme-gray-light;
+            border-right: 1px solid @theme-gray-light;
+            font-size: 12px;
+            color: @theme-gray-dark;
+            padding: 0px 10px;
+            line-height: 1.5;
+            height: 54px;
+            overflow: hidden;
+            display: none;
+        }
+        
+        & > .content-footer{
+            background-color: #FFF;
+            border: 1px solid @theme-gray-light;
+            border-top: 0px;
+            font-size: 12px;
+            color: #333;
+            overflow: hidden;
+            padding: 10px;
+            
+            & > .footer-left{
+                float: left;
+                width: 50%;
+                
+                & > .level{
+                    display: none;
+                }
+            }
+
+            & > .footer-right{
+                float: right;
+                width: 50%;
+                text-align: right;
+                position: relative;
+                
+                & > .peoples{
+                    display: none;
+                }
+                
+                & > .kind{
+                    width: 18px;
+                    height: 18px;
+                    display: inline-block;
+                    position: relative;
+                    cursor: pointer;
+                }
+            }  
+        }
+
+        &:nth-child(4n+4){
+            margin-right: 0px;
+        }
+        
+        &:hover{
+            & > .content-image{
+                & > .content-image-cover{
+                    opacity: 1;
+                    .animate(0.3s);
+                }
+            }
+        }
+        
+        & > .content-image{
+            border: 1px solid #f3f3f3;
+            border-bottom: 0px; 
+            position: relative;
+            cursor: pointer;
+            height: 129px;
+            widows: 233px;
+            
+            & > img{
+                width: 100%;
+                height: 100%;
+            }
+            
+            & > .content-image-cover{
+                height: 100%;
+                width: 100%;
+                background-color: rgba(0,0,0,0.4);
+                position: absolute;
+                top: 0;
+                left: 0;
+               background-image:url("@{base-path}/index/page_course/img/player_icon.png");
+                background-position: 50% 50%;
+                background-size: 50px 50px; 
+                background-repeat: no-repeat;
+                opacity: 0;
+                .animate(0.3s);
+            }
+        }
+    }
+}
+
+/////////////////////////////////////////////
+//所有页面模块的标题部分
+/////////////////////////////////////////////
+.title{
+    & > .title-text{
+        font-size: 18px;
+        display: inline-block;
+        line-height: 25px;
+        font-weight: 500;
+        margin: 20px 0px;
+    }
+    
+    & > .way{
+        height: 14px;
+        width: 14px;
+        text-align: center;
+        border-radius: 10px;
+        background: #666;
+        color: #FFF;
+        position: relative;
+        font-size: 12px;
+        display: inline-block;
+        vertical-align: text-top; 
+        line-height: 14px;
+        position: relative;
+        
+        & > .info{
+            position: absolute;
+            left: 20px;
+            font-size: 12px;
+            box-shadow: 0px 1px 2px #666;
+            display: none;
+        }
+    }
+    
+    & > .more{
+        float: right;
+        margin-left: -100%;
+        font-size: 12px;
+        color: #333;
+        cursor: pointer;
+        line-height: 25px;
+        margin: 20px 0px;
+    }
+}
+
+/////////////////////////////////////////////
+//职业路径部分的内容样式
+/////////////////////////////////////////////
+.career-content{
+    & > .content-item{
+        display: inline-block;
+        position: relative;
+        width: 199px;
+        height: 302px;
+        margin-left: -1px;
+        margin-top: -1px;
+        float: left;
+        border: 1px solid @theme-gray-light;
+        
+        & > .item-image img{
+            width: 199px;
+            height: 120px;
+            margin-bottom: 24px;
+        }
+
+        & > .item-title{
+            height: 18px;
+            margin-bottom: 20px;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        & > .item-intro{
+            line-height: 20px;
+            margin-bottom: 20px;
+            font-size: 12px;
+            text-align: center;
+            color: @theme-gray-dark;
+        }
+
+        & > .item-doitnow{
+            color: @theme-primary-color;
+            width: 138px;
+            margin: 0px auto;
+            .button-large(@theme-primary-color-lighter,@theme-primary-color,@theme-primary-color);
+            .animate(0.3s);    
+        }
+
+        &:hover{
+            & > .item-doitnow{
+                color: #FFF;
+                background-color: @theme-primary-color;
+            }
+
+            border-color: @theme-primary-color;
+            z-index: 999;
+        }
+    }
+    
+    & > .disable{
+        .item-doitnow{
+            color:@theme-gray;
+            .button-large(@theme-gray-lighter,@theme-gray-lighter,@theme-gray);
+        }
+        
+        &:hover{
+            & > .item-doitnow{
+                color: @theme-gray-dark;
+                background-color: @theme-gray;
+            }
+            
+            border-color: @theme-primary-color;
+            z-index: 999;
+        }
+    }
+}
+
+/////////////////////////////////////////////
+//知识体系部分的内容样式
+/////////////////////////////////////////////
+.knowledge-content{ 
+    overflow: hidden;
+	border-right: 1px solid @theme-gray-light;
+	border-bottom: 1px solid @theme-gray-light;
+    width: 1002px;
+    
+       
+    & > .knowledge-item{
+        width: 167px;
+        box-sizing: border-box;
+        display: inline-block;
+        border-left: 1px solid @theme-gray-light;
+        border-top:  1px solid @theme-gray-light;
+        float: left;
+        transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+        perspective: 600px; 
+        
+        &:hover{
+            & > .item-wrapper{
+                transition:transform 0.3s ease-out;
+                transform: rotateY(180deg);
+                -webkit-transition: transform 0.3s ease-out;
+                -webkit-transform: rotateY(180deg);
+                -webkit-backface-visibility: hidden;
+            }
+        }
+        
+        & > .item-wrapper{
+            position: relative;
+            width: 166px;
+            height: 120px;
+            transform-style: preserve-3d;
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            transition:transform 0.3s ease-out;
+            -webkit-transition: transform 0.3s ease-out;           
+        
+            & > .front{
+                width: 166px;
+                height: 90px;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                background-color: #fff;
+                padding: 15px 0px;
+                transform: rotateY(0deg);
+                -webkit-transform: rotateY(0deg);
+                backface-visibility:  hidden;
+                
+                & > .knowledge-image{
+                    width: 40px;
+                    height: 40px;
+                    display: block;
+                    margin: 0px auto;
+                }
+                
+                & > .knowledge-intro{
+                    & > .name{
+                        font-size: 15px;
+                        color: #000;
+                        text-align: center;
+                    }
+
+                    & > .count{
+                        font-size: 14px;
+                        color: @theme-primary-color;
+                        text-align: center;
+                    }
+                }
+            }
+            
+            & > .back{
+                width: 166px;
+                height: 90px;
+                background-color: @theme-gray-lighter;
+                padding: 30px 0px 0px 0px;
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                transform: rotateY(180deg);
+                -webkit-transform: rotateY(180deg) translateZ(1px);
+                backface-visibility:  hidden;
+                
+                & > .peoples{
+                    color: #000;
+                    font-size: 14px;
+                    line-height: 14px;
+                    height: 30px;
+                    text-align: center;
+                }
+
+                & > .learn{
+                    color: #FFF;
+                    width: 140px;
+                    height: 36px;
+                    background-color: @theme-primary-color;
+                    text-align: center;
+                    line-height: 36px;
+                    margin: 0px auto;
+                }
+            }
+        }   
+    }
+}
+
+
+/////////////////////////////////////////////
+//推荐课程的内容
+/////////////////////////////////////////////
+.special-content{
+    & > .special-item{
+        width: 235px;
+        height: 261px;
+        box-sizing: border-box;
+        border: 1px solid @theme-gray-light;
+        padding: 16px;
+        float: left;
+        margin-left: 20px;
+        position: relative;
+        .animate(0.2s);
+        
+        &:nth-child(1){
+            margin-left: 0px;
+        }
+        
+        & > .item-content{
+            margin-bottom: 15px;
+            
+            & > .content-iamge{
+                width: 160px;
+                height: 201px;
+                overflow: hidden;
+            }
+
+            & > .content-title{
+                margin-bottom: 15px;
+                line-height: 15px;
+            }
+        }
+        
+        &:hover .item-cover{
+            opacity: 1;
+            .animate(0.2s);
+        }
+        
+        & > .item-cover {
+            box-sizing: border-box;
+            height: 215px;
+            width: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background-color: rgba(255,255,255,0.9);
+            padding: 16px;
+            opacity: 0;
+            .animate(0.2s);
+
+            & > .cover-portrait{
+                margin-bottom: 15px;
+                
+                & > .teacher-id{
+                    display: inline-block;
+                    width: 100%;
+                    text-align: center;
+                }
+                
+                img{
+                    display: block;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 25px;
+                    margin: 0px auto;
+                }
+            }
+
+            & > .cover-info{
+                height: 36px;
+                overflow: hidden;
+                font-size: 12px;
+                line-height: 1.5;
+                margin-bottom: 20px;
+            }
+
+            & > .cover-doitnow{
+                width: 100px;
+                border-radius: 3px;
+                background-color: @theme-primary-color;
+                color: #FFF;
+                cursor: pointer;
+                height: 28px;
+                line-height: 28px;
+                text-align: center;
+                margin:0px auto;
+            }
+        }
+        
+        & > .item-footer{
+            & > .people{
+                display: inline-block;
+                height: 20px;
+                font-size: 12px;
+                color: @theme-gray-dark;
+                line-height: 20px;
+                vertical-align: middle;
+            }
+
+            & > .collect{
+                .button-samll(@theme-primary-color,@theme-primary-color,@theme-primary-color);
+                .rounded(3px);
+                display: inline-block;
+                float: right;
+                width: 56px;
+                vertical-align: middle;
+                color: #FFF;
+            }
+        }
+    }
+}
+
+/////////////////////////////////////////////
+//wiki的内容
+/////////////////////////////////////////////
+.wiki-content{
+    & > .wiki-group{
+        border: 1px solid @theme-gray-light;
+        width: 302px;
+        float: left;
+        margin-left: -1px;
+        position: relative;
+        padding: 15px;
+        
+        &:hover{
+            border: 1px solid @theme-primary-color;
+            z-index: 999;
+        }
+        
+        & > .title{
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        & > .books{
+            overflow: hidden;
+            margin-bottom: 15px;
+            
+            & > .book-item{
+                float: left;
+                
+                &:hover{
+                    & > .image img{
+                        transform: scaleX(0.95);
+                        transform-origin: 0px 0px;
+                        .animate(0.3s);
+                    }
+                }
+                
+                &:nth-child(1){
+                    margin-right: 15px;
+                }
+
+                & > .image img{
+                    width: 142px;
+                    height: 200px;
+                    .rounded(5px);
+                    transform: scaleX(1);
+                    transform-origin: 0px 0px;
+                    .animate(0.3s);
+                }
+
+                & > .image{
+                    width: 142px;
+                    height: 200px;
+                    background-color: @theme-gray-dark;
+                    border-radius: 5px;
+                    
+                }
+
+                #wiki .wiki-group .book-item:hover .image img{
+                    transform: scaleX(0.95);
+                    transform-origin: 0px 0px;
+                    .animate(0.3s);
+                }
+
+                & > .title{
+                    font-size: 13px;
+                    margin: 10px auto;
+                    text-align: center;
+                }
+
+                & > .intro{
+                    color: @theme-gray-dark;
+                    font-size: 12px;
+                    line-height: 12px;
+                    text-align: center;
+                }
+            }
+        }
+        
+        & > .book-more{
+            font-size: 12px;
+            color: @theme-gray-dark;
+            overflow: hidden;
+            
+            & > .more-item{
+                display: inline-block;
+                float: left;
+            }
+            & > .more-item-info{
+                display: inline-block;
+                float: right;
+            }
+        }
+    }
+}
+
+/////////////////////////////////////////////
+//页面底部的样式
+/////////////////////////////////////////////
+.footer-content{
+    width:100%;
+    border-top: 1px solid @theme-gray-light;
+	border-bottom: 1px solid @theme-gray-light;
+	background-color: @theme-gray-lighter;
+    padding-bottom: 25px;
+    
+    .left-content{
+        margin-top: 20px;
+        float: left;
+        width:740px;
+        & > .content-item{
+            border-left: 1px solid #EEEEEE;
+            padding-left: 30px;
+            width: 154px;
+            float: left;
+            color: @theme-gray-darker;
+            line-height: 200%;
+            
+            & > .title{
+                font-weight:  500;
+            }
+            
+            .list-item{
+                list-style-position:  inside;
+                list-style-type: disc;
+                font-size: 12px;
+                
+                &:hover{
+                    color: @theme-primary-color;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    
+    .right-content{
+        float: left;
+        width: 260px;
+        box-sizing: border-box;
+        border-left:1px solid @theme-gray-light;
+        height: 200px;
+        padding-left: 40px;
+        padding-top: 20px;
+        
+        & > .slogen{
+            font-size: 15px;
+            color: @theme-primary-color;
+            display: block;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        & > .app{
+            & > img{
+                float: left;
+                height: 39px;
+                width: 21px;
+                margin-right: 15px;
+            }
+            
+            &:hover{
+                cursor: pointer;
+                
+                strong{
+                    color: @theme-primary-color;
+                }
+                
+                p{
+                    color: @theme-primary-color;
+                }
+            }
+            
+            strong{
+                font-size: 18px;
+                color: @theme-gray-darker;
+                margin-bottom: 8px;
+                line-height: 1;
+            }
+            
+            p {
+                font-size: 14px;
+                color: @theme-gray-dark;
+                line-height: 1;
+            }
+        }
+        
+        & > .share{
+            margin-top: 15px;
+            .icon(){
+                background-image:url("@{base-path}/index/page_footer/img/icon_set.png");
+                width: 32px;
+                height: 32px;
+                display: inline-block;
+                float: left;
+                margin-right: 10px;
+                position: relative;
+            }
+            
+            & > .icon-sina{
+                .icon;
+                background-position: -23px 0;
+                &:hover{
+                    background-position: -23px -40px;
+                }
+            }
+            
+            & > .icon-tieba{
+                .icon;
+                background-position: -145px 0;
+                &:hover{
+                    background-position: -145px -40px;
+                }
+            }
+            
+            & > .icon-weixin{
+                .icon;
+                background-position: -23px -82px;
+                &:hover{
+                    background-position: -23px -122px;
+                }
+            }
+        }
+        
+        & > .kefu{
+            margin-top: 15px;
+            
+            & > .icon-kefu{
+                margin-right: 10px;
+                float: left;
+                width: 40px;
+                height: 40px;
+                background-image: url("@{base-path}/index/page_footer/img/kefu.png");
+                background-size: 80px 40px;
+            }
+            
+            &:hover{
+                strong{
+                    color:@theme-primary-color;
+                }
+                
+                p{
+                    color:@theme-primary-color;
+                }
+            }
+            
+            strong{
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 20px;
+                color: @theme-gray-darker;
+                vertical-align: top;
+            }
+            
+            p{
+                vertical-align: top;
+                font-weight: 200;
+                font-size: 12px;
+                line-height: 15px;
+                color: @theme-gray-dark;
+            }
+        }
+    }
+}
+
+/////////////////////////////////////////////
+//页面版权
+/////////////////////////////////////////////
+.footer-cp{
+    text-align: center;
+    font-size: 12px;
+    color: @theme-gray-darker;
+    line-height: 40px;
+}
+
+/////////////////////////////////////////////
+//所有滑动部分的公共样式
+/////////////////////////////////////////////
+.slider{
+    box-sizing: border-box;
+	border: 1px solid @theme-gray-light;
+	position: relative; 
+    
+    & > .slider-container{
+        overflow: hidden;
+        
+        & > .slider-wrapper{
+            width:200%;
+        }
+        
+        .slider-item{
+            display: inline-block;
+            float: left;
+            box-sizing: border-box;
+            margin: 0px 3px;
+            overflow: hidden;
+        }
+    }
+    
+    .slider-arrow(){
+        background-repeat: no-repeat;
+        background-position: -10px -5px;
+        background-size: 60px 120px;
+        cursor: pointer;
+        display: none;
+        width: 40px;
+    }
+    
+    .vertical-middle(@height) when (ispixel(@height)){
+        position: absolute;
+        height: @height;
+        top:50%;
+        margin-top: -25px;
+    }
+    
+    & > .slider-right{
+        .slider-arrow;
+        .vertical-middle(50px);
+        background-image: url("@{base-path}/index/page_intro/img/right-arrow.png");
+        right: 0px;
+    }
+    
+    & > .slider-left{
+        .slider-arrow;
+        .vertical-middle(50px);
+        background-image: url("@{base-path}/index/page_intro/img/left-arrow.png");
+        left: 0px;
+    }
+    
+    & > .slider-left , & > .slider-right{
+        &:hover{
+            background-position: -10px -65px;
+        }
+    }
+}
+
+/////////////////////////////////////////////
+//公司的滑动导航
+/////////////////////////////////////////////
+.company-slider:extend(.slider all){
+    padding: 20px 26px;
+    .slider-container{
+        height: 52px;
+        .slider-item{
+            border:1px solid @theme-gray-light;
+        }
+    }
+}
+
+/////////////////////////////////////////////
+//合作院校的滑动导航
+/////////////////////////////////////////////
+.collage-slider:extend(.slider all){
+    padding: 20px 9px;
+    .slider-container{
+        .slider-item{
+            margin: 0px 15px;
+        }
+    }
+}
+
+/////////////////////////////////////////////
+//合作媒体的滑动导航
+/////////////////////////////////////////////
+.public-slider:extend(.slider all){
+    padding: 20px 26px;
+    .slider-container{
+        height: 52px;
+        .slider-item{
+            border:1px solid @theme-gray-light;
+        }
+    }
+}
+
+
+
+

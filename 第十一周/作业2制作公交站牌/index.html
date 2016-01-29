@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>使用LESS制作公交站牌</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div class="station">
+        <div class="station-name">
+            <h1>岗厦村</h1>
+        </div>
+
+        <div class="bus bus-info">
+            <div class="body">
+                <!--线路信息-->
+                <div class="line">
+                    <h3 class="line-number">T01路示意图</h3>
+                    <div class="carrying-time">
+                        <div class="summer">夏季: 06:30-21:30</div>
+                        <div class="winter">冬季: 06:30-21:00</div>
+                    </div>
+                </div>
+
+                <!--线路始发和终点站-->
+                <div class="origin-terminus">
+                    <h4 class="origin-station">濮院</h4>
+                    <div class="arrows">
+                        <div class="from">
+                            <div class="arrow"></div>
+                            <div class="bar"></div>
+                        </div>
+                        <div class="to">
+                            <div class="arrow"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                    <h4 class="terminal-station">泰山航海学院</h4>
+                </div>
+
+                <!--经过站点-->
+                <div class="stops">
+                    <div class="stop-station">濮院</div>
+                    <div class="stop-station">高新开发区</div>
+                    <div class="stop-station">国电中心</div>
+                    <div class="stop-station">南天学府</div>
+                    <div class="stop-station current-station">岗厦村</div>
+                    <div class="stop-station">一中路口</div>
+                    <div class="stop-station">梁家巷</div>
+                    <div class="stop-station">簸箕街</div>
+                    <div class="stop-station">北大街</div>
+                    <div class="stop-station">省市政务中心</div>
+                    <div class="stop-station">锣锅巷</div>
+                    <div class="stop-station">市青少年宫</div>
+                    <div class="stop-station">顺城大街南</div>
+                    <div class="stop-station">盐市口</div>
+                    <div class="stop-station">大业路</div>
+                    <div class="stop-station">新光华街</div>
+                    <div class="stop-station">红照壁</div>
+                    <div class="stop-station">南大街</div>
+                    <div class="stop-station">泰山航海学院</div>
+                </div>
+            </div>
+
+            <!--站点开往-->
+            <div class="bound-to">
+                <h2>开往泰山航海学院</h2>
+                <div class="bus-logo">&#xe601;</div>
+            </div>
+        </div>
+        
+        
+        <div class="bus bus-info">
+            <div class="body">
+                <!--线路信息-->
+                <div class="line">
+                    <h3 class="line-number">T02路示意图</h3>
+                    <div class="carrying-time">
+                        <div class="summer">夏季: 06:30-21:30</div>
+                        <div class="winter">冬季: 06:30-21:00</div>
+                    </div>
+                </div>
+
+                <!--线路始发和终点站-->
+                <div class="origin-terminus">
+                    <h4 class="origin-station">塔前汽车站</h4>
+                    <div class="arrows">
+                        <div class="from">
+                            <div class="arrow"></div>
+                            <div class="bar"></div>
+                        </div>
+                        <div class="to">
+                            <div class="arrow"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                    <h4 class="terminal-station">南大街</h4>
+                </div>
+
+                <!--经过站点-->
+                <div class="stops">
+                    <div class="stop-station">塔前汽车站</div>
+                    <div class="stop-station">濮院</div>
+                    <div class="stop-station">高新开发区</div>
+                    <div class="stop-station">国电中心</div>
+                    <div class="stop-station">南天学府</div>
+                    <div class="stop-station current-station">岗厦村</div>
+                    <div class="stop-station">一中路口</div>
+                    <div class="stop-station">锦江国际</div>
+                    <div class="stop-station">鲥鱼村</div>
+                    <div class="stop-station">石湖码头</div>
+                    <div class="stop-station">昭觉寺公交站</div>
+                    <div class="stop-station">昭觉横路</div>
+                    <div class="stop-station">洪家坡</div>
+                    <div class="stop-station">驷马桥</div>
+                    <div class="stop-station">高笋塘</div>
+                    <div class="stop-station">解放北路一段</div>
+                    <div class="stop-station">梁家巷</div>
+                    <div class="stop-station">簸箕街</div>
+                    <div class="stop-station">北大街</div>
+                    <div class="stop-station">省市政务中心</div>
+                    <div class="stop-station">锣锅巷</div>
+                    <div class="stop-station">市青少年宫</div>
+                    <div class="stop-station">顺城大街南</div>
+                    <div class="stop-station">盐市口</div>
+                    <div class="stop-station">大业路</div>
+                    <div class="stop-station">新光华街</div>
+                    <div class="stop-station">红照壁</div>
+                    <div class="stop-station">南大街</div>
+                </div>
+            </div>
+
+            <!--站点开往-->
+            <div class="bound-to">
+                <h2>开往南大街</h2>
+                <div class="bus-logo">&#xe601;</div>
+            </div>
+        </div>
+        
+        <div class="bus bus-info">
+            <div class="body">
+                <!--线路信息-->
+                <div class="line">
+                    <h3 class="line-number">N39路示意图</h3>
+                    <div class="carrying-time">
+                        <div class="summer">夏季: 06:30-21:30</div>
+                        <div class="winter">冬季: 06:30-21:00</div>
+                    </div>
+                </div>
+
+                <!--线路始发和终点站-->
+                <div class="origin-terminus">
+                    <h4 class="origin-station">塔前汽车站</h4>
+                    <div class="arrows">
+                        <div class="from">
+                            <div class="arrow"></div>
+                            <div class="bar"></div>
+                        </div>
+                        <div class="to">
+                            <div class="arrow"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                    <h4 class="terminal-station">泰山航海学院</h4>
+                </div>
+
+                <!--经过站点-->
+                <div class="stops">
+                    <div class="stop-station">塔前汽车站</div>
+                    <div class="stop-station">濮院</div>
+                    <div class="stop-station">高新开发区</div>
+                    <div class="stop-station">国电中心</div>
+                    <div class="stop-station">南天学府</div>
+                    <div class="stop-station current-station">岗厦村</div>
+                    <div class="stop-station">一中路口</div>
+                    <div class="stop-station">锦江国际</div>
+                    <div class="stop-station">鲥鱼村</div>
+                    <div class="stop-station">石湖码头</div>
+                    <div class="stop-station">昭觉寺公交站</div>
+                    <div class="stop-station">昭觉横路</div>
+                    <div class="stop-station">洪家坡</div>
+                    <div class="stop-station">驷马桥</div>
+                    <div class="stop-station">高笋塘</div>
+                    <div class="stop-station">解放北路一段</div>
+                    <div class="stop-station">梁家巷</div>
+                    <div class="stop-station">簸箕街</div>
+                    <div class="stop-station">北大街</div>
+                    <div class="stop-station">省市政务中心</div>
+                    <div class="stop-station">锣锅巷</div>
+                    <div class="stop-station">市青少年宫</div>
+                    <div class="stop-station">顺城大街南</div>
+                    <div class="stop-station">盐市口</div>
+                    <div class="stop-station">大业路</div>
+                    <div class="stop-station">新光华街</div>
+                    <div class="stop-station">高笋塘</div>
+                    <div class="stop-station">解放北路一段</div>
+                    <div class="stop-station">梁家巷</div>
+                    <div class="stop-station">簸箕街</div>
+                    <div class="stop-station">红照壁</div>
+                    <div class="stop-station">南大街</div>
+                    <div class="stop-station">泰山航海学院</div>
+                </div>
+            </div>
+
+            <!--站点开往-->
+            <div class="bound-to">
+                <h2>开往泰山航海学院</h2>
+                <div class="bus-logo">&#xe601;</div>
+            </div>
+        </div>
+        
+        <div class="bus bus-info">
+            <div class="body">
+                <!--线路信息-->
+                <div class="line">
+                    <h3 class="line-number">EXPRESS09 路示意图</h3>
+                    <div class="carrying-time">
+                        <div class="summer">夏季: 06:30-21:30</div>
+                        <div class="winter">冬季: 06:30-21:00</div>
+                    </div>
+                </div>
+
+                <!--线路始发和终点站-->
+                <div class="origin-terminus">
+                    <h4 class="origin-station">塔前汽车站</h4>
+                    <div class="arrows">
+                        <div class="from">
+                            <div class="arrow"></div>
+                            <div class="bar"></div>
+                        </div>
+                        <div class="to">
+                            <div class="arrow"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                    <h4 class="terminal-station">泰山航海学院</h4>
+                </div>
+
+                <!--经过站点-->
+                <div class="stops">
+                    <div class="stop-station">塔前汽车站</div>
+                    <div class="stop-station">濮院</div>
+                    <div class="stop-station">高新开发区</div>
+                    <div class="stop-station">国电中心</div>
+                    <div class="stop-station">南天学府</div>
+                    <div class="stop-station current-station">岗厦村</div>
+                    <div class="stop-station">一中路口</div>
+                    <div class="stop-station">锦江国际</div>
+                    <div class="stop-station">鲥鱼村</div>
+                    <div class="stop-station">石湖码头</div>
+                    <div class="stop-station">昭觉寺公交站</div>
+                    <div class="stop-station">昭觉横路</div>
+                    <div class="stop-station">洪家坡</div>
+                    <div class="stop-station">驷马桥</div>
+                    <div class="stop-station">高笋塘</div>
+                    <div class="stop-station">解放北路一段</div>
+                    <div class="stop-station">梁家巷</div>
+                    <div class="stop-station">新光华街</div>
+                    <div class="stop-station">红照壁</div>
+                    <div class="stop-station">南大街</div>
+                    <div class="stop-station">泰山航海学院</div>
+                </div>
+            </div>
+
+            <!--站点开往-->
+            <div class="bound-to">
+                <h2>开往泰山航海学院</h2>
+                <div class="bus-logo">&#xe601;</div>
+            </div>
+        </div>
+        
+        
+        <div class="bus bus-info">
+            <div class="body">
+                <!--线路信息-->
+                <div class="line">
+                    <h3 class="line-number">T01路示意图</h3>
+                    <div class="carrying-time">
+                        <div class="summer">夏季: 06:30-21:30</div>
+                        <div class="winter">冬季: 06:30-21:00</div>
+                    </div>
+                </div>
+
+                <!--线路始发和终点站-->
+                <div class="origin-terminus">
+                    <h4 class="origin-station">塔前汽车站</h4>
+                    <div class="arrows">
+                        <div class="from">
+                            <div class="arrow"></div>
+                            <div class="bar"></div>
+                        </div>
+                        <div class="to">
+                            <div class="arrow"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                    <h4 class="terminal-station">泰山航海学院</h4>
+                </div>
+
+                <!--经过站点-->
+                <div class="stops">
+                    <div class="stop-station">塔前汽车站</div>
+                    <div class="stop-station">濮院</div>
+                    <div class="stop-station">高新开发区</div>
+                    <div class="stop-station">国电中心</div>
+                    <div class="stop-station">南天学府</div>
+                    <div class="stop-station current-station">岗厦村</div>
+                    <div class="stop-station">一中路口</div>
+                    <div class="stop-station">锦江国际</div>
+                    <div class="stop-station">鲥鱼村</div>
+                    <div class="stop-station">石湖码头</div>
+                    <div class="stop-station">昭觉寺公交站</div>
+                    <div class="stop-station">昭觉横路</div>
+                    <div class="stop-station">洪家坡</div>
+                    <div class="stop-station">驷马桥</div>
+                    <div class="stop-station">高笋塘</div>
+                    <div class="stop-station">解放北路一段</div>
+                    <div class="stop-station">梁家巷</div>
+                    <div class="stop-station">新光华街</div>
+                    <div class="stop-station">红照壁</div>
+                    <div class="stop-station">南大街</div>
+                    <div class="stop-station">泰山航海学院</div>
+                </div>
+            </div>
+
+            <!--站点开往-->
+            <div class="bound-to">
+                <h2>开往泰山航海学院</h2>
+                <div class="bus-logo">&#xe601;</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
