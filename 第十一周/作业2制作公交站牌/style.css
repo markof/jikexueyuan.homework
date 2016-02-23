@@ -1,0 +1,230 @@
+/**
+ * @author:markof
+ * @update:2016.1.18
+ * @description:
+ * 公交站牌less文件
+ */
+dl,
+dd,
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+legend,
+input,
+textarea,
+optgroup,
+p,
+blockquote,
+figure,
+hr,
+menu,
+dir,
+thead,
+tbody,
+tfoot,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+body,
+button,
+input,
+select,
+textarea {
+  font-family: 'helvetica neue', 'tahoma', 'hiragino sans gb', 'stheiti', 'wenquanyi micro hei', '\5FAE\8F6F\96C5\9ED1,\5B8B\4F53', 'sans-serif';
+  -ms-text-autospace: ideograph-alpha ideograph-numeric ideograph-parenthesis;
+  /* 5 */
+  text-autospace: ideograph-alpha ideograph-numeric ideograph-parenthesis;
+  /* 5 */
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+h1 {
+  font-size: 96px;
+}
+h2 {
+  font-size: 36px;
+}
+h3 {
+  font-size: 32px;
+}
+h4 {
+  font-size: 32px;
+}
+@font-face {
+  font-family: 'iconfont';
+  src: url('font/iconfont.eot');
+  /* IE9*/
+  src: url('font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('font/iconfont.woff') format('woff'), /* chrome、firefox */ url('font/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('font/iconfont.svg#iconfont') format('svg');
+  /* iOS 4.1- */
+}
+.station > .station-name {
+  text-align: center;
+  display: block;
+  width: 100%;
+  background-color: #0A6343;
+  color: white;
+}
+.station > .bus {
+  width: 100%;
+}
+@media screen and (min-width: 1023px) {
+  .station > .bus {
+    box-sizing: border-box;
+    width: 50%;
+    float: left;
+  }
+  .station > .bus:nth-child(2n) {
+    border-right: 1px solid slategray;
+  }
+}
+.bus-info > .body {
+  padding: 10px;
+}
+.bus-info > .body > .line {
+  display: flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: center;
+}
+.bus-info > .body > .line > .line-number {
+  color: #0A6343;
+  font-weight: 700;
+  letter-spacing: 200%;
+}
+.bus-info > .body > .line > .carrying-time {
+  color: #0A6343;
+}
+.bus-info > .body > .origin-terminus {
+  display: flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: center;
+  -webkit-align-items: center;
+  margin: 10px 0px;
+}
+.bus-info > .body > .origin-terminus > .origin-station {
+  font-weight: 600;
+  color: #9D1116;
+  white-space: nowrap;
+}
+.bus-info > .body > .origin-terminus > .terminal-station {
+  font-weight: 600;
+  color: #9D1116;
+  white-space: nowrap;
+}
+.bus-info > .body > .origin-terminus > .arrows > .from {
+  overflow: hidden;
+  margin-bottom: 3px;
+}
+.bus-info > .body > .origin-terminus > .arrows > .from > .arrow {
+  float: right;
+  border-top: 12px solid transparent;
+  border-left: 24px solid #9D1116;
+}
+.bus-info > .body > .origin-terminus > .arrows > .from > .bar {
+  margin-right: 24px;
+  width: 130px;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid #9D1116;
+}
+.bus-info > .body > .origin-terminus > .arrows > .to {
+  overflow: hidden;
+}
+.bus-info > .body > .origin-terminus > .arrows > .to > .arrow {
+  float: left;
+  border-bottom: 12px solid transparent;
+  border-right: 24px solid #0A6343;
+}
+.bus-info > .body > .origin-terminus > .arrows > .to > .bar {
+  float: right;
+  width: 130px;
+  border-top: 6px solid #0A6343;
+  border-bottom: 6px solid transparent;
+}
+.bus-info > .body > .stops {
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+  counter-reset: rec;
+}
+.bus-info > .body > .stops > .stop-station {
+  text-align: center;
+  float: left;
+  width: 16px;
+  font-size: 16px;
+  line-height: 1;
+  color: #0A6343;
+  font-weight: 500;
+}
+.bus-info > .body > .stops > .stop-station:before {
+  font-size: 12px;
+  counter-increment: rec;
+  margin-bottom: 5px;
+  border: 1px solid #0A6343;
+  text-align: center;
+  writing-mode: horizontal-tb;
+  content: counter(rec);
+  line-height: 14px;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background-color: white;
+  line-height: 18px;
+}
+.bus-info > .body > .stops > .current-station {
+  color: #9D1116;
+  font-weight: 700;
+}
+.bus-info > .body > .stops > .current-station:before {
+  border-color: #9D1116;
+}
+.bus-info > .bound-to {
+  position: relative;
+}
+.bus-info > .bound-to h2 {
+  margin-top: 5px;
+  line-height: 48px;
+  height: 48px;
+  background-color: #0A6343;
+  text-align: center;
+  color: white;
+}
+.bus-info > .bound-to > .bus-logo {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-family: 'iconfont';
+  border: 2px solid #9D1116;
+  background-color: white;
+  color: #9D1116;
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  font-size: 60px;
+  line-height: 60px;
+  text-align: center;
+}

@@ -1,0 +1,268 @@
+/*
+* author:zhanglei
+* CSS for page_top_bar
+* require:reset
+*/
+
+#page_top_bar .top-bar{
+	
+}
+
+#page_top_bar_weather{
+	margin-left: 20px;
+}
+
+#page_top_bar .nav a, #page_top_bar .tools a{
+	color: #FFF;
+	text-decoration: underline;
+}
+
+#page_top_bar .side-bar a{
+	color: #222;
+}
+
+#page_top_bar .theme-white{
+	background: none;
+	border-bottom: 1px solid #F3F3F3;
+	color: #000; 
+}
+
+#page_top_bar .theme-white .nav a, 
+#page_top_bar .theme-white .tools a{
+	color: #000;
+	text-decoration: underline;
+}
+
+#page_top_bar .theme-black{
+	background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(15,25,50,.3)),to(rgba(15,25,50,.3)));
+    background-image: -moz-linear-gradient(rgba(15,25,50,.3) 0,rgba(15,25,50,.3) 100%);
+    background-image: -ms-linear-gradient(rgba(15,25,50,.3) 0,rgba(15,25,50,.3) 100%);
+    background-image: -o-linear-gradient(rgba(15,25,50,.3) 0,rgba(15,25,50,.3) 100%);
+    background-image: linear-gradient(rgba(15,25,50,.3) 0,rgba(15,25,50,.3) 100%);
+	border-bottom: none;
+	color: #FFF;
+}
+
+#page_top_bar .theme-black .nav a, #page_top_bar .theme-black .tools a{
+	color: #FFF;
+	text-decoration: underline;
+}
+
+/*全局容器*/
+#page_top_bar .top-bar{
+	width: 100%;
+	min-width: 1000px;
+	height: 32px;
+}
+
+#page_top_bar .tools a{
+	font-weight: normal;
+}
+
+/*工具栏部分*/
+#page_top_bar .tools .tool-item{
+	float: left;
+	line-height: 32px;
+	margin-right: 19px;
+	font-weight: bold;
+	font-size: 12px;
+	position: relative;
+}
+
+/*导航部分*/
+#page_top_bar .nav .nav-item{
+	float: left;
+	display: inline-block;
+	line-height: 32px;
+	margin-right: 20px;
+	position: relative;
+}
+
+#page_top_bar .nav .bold{
+	font-weight: bold;
+}
+
+#page_top_bar .nav{
+	float: right;
+	font-size: 13px;
+}
+
+/*更多产品部分*/
+#page_top_bar .nav-more{
+	float: right;
+	width: 86px;
+	line-height: 32px;
+	text-align: center;
+	background-color: #398bfb;
+	cursor: pointer;
+	color: #FFF;
+}
+
+/*侧边显示的“更多”导航部分*/
+#page_top_bar .side-bar{
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	height: 100%;
+	background-color: #F9F9F9;
+	width: 86px;
+	text-align: center;
+	display: none;
+	overflow-y: auto;
+}
+
+#page_top_bar .side-more-text{
+	width: 86px;
+	line-height: 32px;
+	text-align: center;
+	cursor: pointer;
+}
+
+#page_top_bar .side-more .side-more-item{
+	display: inline-block;
+	width: 66px;
+	border-top:1px solid #F2F2F2;
+	height: 66px;
+	padding-top: 10px;
+}
+
+#page_top_bar .side-more-item-icon{
+	display: inline-block;
+	width: 40px;
+	height: 36px;
+}
+
+#page_top_bar .side-more-item-text{
+	font-size: 12px;
+	line-height: 14px;
+}
+
+#page_top_bar .smaller{
+	font-size: smaller;
+}
+
+#page_top_bar .icon_music{
+	background-image: url(sideMoreIcon.png);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+}
+
+#page_top_bar .icon_picture{
+	background-image: url(sideMoreIcon.png);
+	background-repeat: no-repeat;
+	background-position: 0px -36px;
+}
+
+#page_top_bar .icon_zhidao{
+	background-image: url(sideMoreIcon.png);
+	background-repeat: no-repeat;
+	background-position: 0px -72px;
+}
+
+#page_top_bar .icon_wenku{
+	background-image: url(sideMoreIcon.png);
+	background-repeat: no-repeat;
+	background-position: 0px -108px;
+}
+
+#page_top_bar .icon_top{
+	background-image: url(sideMoreIcon.png);
+	background-repeat: no-repeat;
+	background-position: 0px -144px;
+}
+
+#page_top_bar .icon_e{
+	background-image: url(sideMoreIcon.png);
+	background-repeat: no-repeat;
+	background-position: 0px -180px;
+}
+
+#page_top_bar .top-bar .nav .nav-item-expand{
+	position: absolute;
+	color: #000;
+	width: 70px;
+	left: 50%;
+	margin-left: -35px;
+	font-size: 12px;
+	box-shadow: 1px 1px 2px 2px rgba(100,100,100,0.2);
+	display: none;
+}
+
+#page_top_bar .top-bar .nav .nav-item:hover .nav-item-expand,
+#page_top_bar .top-bar .nav .nav-item .nav-item-expand:hover{
+	display: block;
+}
+
+
+#page_top_bar .top-bar .nav .nav-item-expand .list-item{
+	padding-left: 11px;
+	line-height: 25px;
+	height: 25px;
+	background-color: #FFF;
+	cursor: pointer;
+}
+
+#page_top_bar .top-bar .nav .nav-item-expand .list-item:hover{
+	background-color: #398bfb;
+	color: #FFF;
+}
+
+#page_top_bar .top-bar .nav .nav-item-expand .arrow{
+	position: absolute;
+	border-bottom:5px solid #FFF;
+	height: 0px;
+	width: 0px;
+	border-top:0px;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	top:-5px;
+	left: 30px;
+}
+
+#page_top_bar .tool-item:hover .weather-brocast,
+#page_top_bar .tool-item .weather-brocast:hover{
+	display: block;
+}
+
+#page_top_bar .tool-item .weather-brocast .arrow{
+	position: absolute;
+	border-bottom:5px solid #FFF;
+	height: 0px;
+	width: 0px;
+	border-top:0px;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	top:-5px;
+	left: 70px;
+}
+
+#page_top_bar .tool-item .weather-brocast{
+	white-space: nowrap;
+	background-color: #FFF;
+	color: #000;
+	box-shadow: 1px 1px 2px 2px rgba(100,100,100,0.3);
+	padding: 15px 0px;
+	position: absolute;
+	top: 32px;
+	display: none;
+}
+
+#page_top_bar .tool-item .weather-brocast .weather-item{
+	display: inline-block;
+	width: 106px;
+}
+
+#page_top_bar .tool-item .weather-brocast .weather-item img{
+	vertical-align: middle;
+	display: block;
+	width: auto;
+	margin: 10px auto;
+}
+
+#page_top_bar .tool-item .weather-brocast .weather-item span{
+	display: block;
+	line-height: 1.5;
+	text-align: center;
+}
+
+
