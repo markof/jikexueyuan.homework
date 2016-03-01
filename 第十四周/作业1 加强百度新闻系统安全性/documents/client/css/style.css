@@ -1,0 +1,214 @@
+/*reset 这里偷懒，直接全部设置为0了*/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body,
+button, 
+input,
+select,
+textarea 
+{
+    font-family: 'helvetica neue',arial,'hiragino sans gb',stheiti,'wenquanyi micro hei',\5FAE\8F6F\96C5\9ED1,\5B8B\4F53,sans-serif;
+}
+
+.clearfix:after{
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+.header{
+    background-color: #3e98f0;
+}
+
+/*题头部分*/
+.title{
+    background-image: url("../img/logo.png");
+    background-position: 50% 6px;
+    background-repeat: no-repeat;
+    background-size: 77px auto;
+    height: 44px;
+}
+
+/**/
+.title .title-item{
+    height: 44px;
+    width: 34px;
+    display: inline-block;
+    background-image: url("../img/toolbar.png");
+    background-size: 40px 500px;
+    background-repeat: no-repeat;
+}
+
+.title .left{
+    float: left;
+}
+
+.title .right{
+    float: right;
+}
+
+.title .icon-baidu{
+    background-position: 50% 4px;
+}
+
+.title .icon-user{
+    background-position: 50% -463px;
+}
+
+.title .icon-search{
+    background-position: 50% -162px;
+}
+
+.title .icon-plus{
+    background-position: 50% -107px;
+}
+
+.header .spliter{
+    margin: 0px 10px;
+    height: 1px;
+    background-color: #5dabf0;
+}
+
+.nav{
+    background-color: #3e98f0;
+}
+
+.nav .nav-item{
+    height: 33px;
+    position: relative;
+    text-align: center;
+    font-size: 16px;
+    color: #FFF;
+    line-height: 16px;
+}
+
+.nav .col-1{
+    float: left;
+    display: inline-block;
+    width: 16.666%;
+}
+
+.nav .col-2{
+    float: left;
+    display: inline-block;
+    width: 33.333%;
+}
+
+.nav .nav-item .right-border{
+    position: absolute;
+    height: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 8px 0px;
+    border-right:1px solid #5dabf0;   
+}
+
+.nav .nav-item .nav-item-title{
+    margin: 8px auto 4px auto;
+    display: inline-block;
+}
+
+.nav .nav-item .nav-item-title .underline{
+    margin: 2px auto;
+    height: 1.4px;
+    width: 100%;
+    background-color: transparent;
+}
+
+.nav .active .nav-item-title .underline{
+    margin: 2px auto;
+    height: 1.4px;
+    width: 100%;
+    background-color: #FFF;
+}
+
+.content a{
+    color: #000;
+    text-decoration: none;
+}
+
+.news-item{
+    margin: 10px 10px;
+    border-bottom: 1px solid #f6f6f6;
+    display: block;
+    padding-bottom: 10px;
+}
+
+.news-item .news-body{
+    height: 40px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.news-item .news-title{
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.news-item .news-content{
+    font-size: 13px;
+    line-height: 20px;
+    color: #b8bac0;
+}
+
+.news-item .news-pass{
+    height: 20px;
+    line-height: 20px;
+    color: #b8bac0;
+    font-size: 13px;
+}
+
+.one-image .news-image{
+    float: left;
+    height: 68px;
+    width: 96px;
+    margin-right: 10px;
+}
+
+.one-image .news-image img{
+    height: 100%;
+    width: 100%;
+}
+
+.three-image .news-image{
+    float: left;
+    box-sizing: border-box;
+    width: 33.33%;
+}
+
+.three-image .news-image:nth-child(1){
+    padding-right: 7px;
+}
+
+.three-image .news-image:nth-child(2){
+    padding-right: 3.5px;
+    padding-left: 3.5px;
+}
+
+.three-image .news-image:nth-child(3){
+    padding-left: 7px;
+}
+
+.three-image .news-image img{
+    width: 100%;
+    max-height: 200px;
+}
+
+.more-news-btn{
+    margin: 10px 40px;
+    background-color: #f8f9fa;
+    border:1px solid #ebedef;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+}
+

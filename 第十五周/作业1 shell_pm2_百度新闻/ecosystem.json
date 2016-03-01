@@ -1,0 +1,51 @@
+{
+  /**
+   * Application configuration section
+   * http://pm2.keymetrics.io/docs/usage/application-declaration/
+   */
+  apps : [
+
+    //   请在这里配置你的程序。
+    {
+      name      : "baidu_news",
+      script    : "index.js",   
+      watch     : false,
+      cwd       : "./", //请在这里配置你的app的路径
+      env: {
+        COMMON_VARIABLE: "true"
+      },
+      env_production : {
+        NODE_ENV: "production"
+      }
+    },
+    {
+        //   如果你有第二个程序，请在这里配置
+    }
+  ],
+
+  /**
+   * Deployment section
+   * http://pm2.keymetrics.io/docs/usage/deployment/
+   */
+  deploy : {
+    production : {
+      user : "node",
+      host : "212.83.163.1",
+      ref  : "origin/master",
+      repo : "git@github.com:repo.git",
+      path : "/var/www/production",
+      "post-deploy" : "npm install ; pm2 startOrRestart ecosystem.json --env production"
+    },
+    dev : {
+      user : "node",
+      host : "212.83.163.1",
+      ref  : "origin/master",
+      repo : "git@github.com:repo.git",
+      path : "/var/www/development",
+      "post-deploy" : "npm install ; pm2 startOrRestart ecosystem.json --env dev",
+      env  : {
+        NODE_ENV: "dev"
+      }
+    }
+  }
+}

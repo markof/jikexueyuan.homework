@@ -1,0 +1,16 @@
+{
+  "name": "serverfornews",
+  "version": "1.0.0",
+  "description": "jikexueyuan homework 9th week, homework 1,create site server the front using nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "markof",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.0.0-alpha8",
+    "orm": "^2.1.29",
+    "restify": "^4.0.3"
+  }
+}

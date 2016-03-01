@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap开发后台--管理首页</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/site.index.css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+    <script src="./js/jquery-2.1.4.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/editor.js"></script>
+    <script src="./js/hotkey.js"></script>
+    <script src="./js/seajs.js"></script>
+    <script src="./js/seajs-css.js"></script>
+    <script src="./js/seajs-text.js"></script>
+</head>
+
+<body>
+    <div id="header" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <div class="glyphicon glyphicon-leaf"></div><span> LEAF</span>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#"><span class="glyphicon glyphicon-th-list"></span> 新闻管理</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> 消息 <span class="label label-primary">3</span></a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-time"></span> 待办 <span class="label label-primary">1</span></a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-cog"></span> 设置</a></li>
+                    <li><a href="login.html"><span class="glyphicon glyphicon-log-out"></span> 退出登录</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!--the whole page body-->
+    <div id="body" class="container">
+        <div id="body" class="row">
+            <!--side navigate bar-->
+            <div id="sideNav" class="col-md-2 col-sm-3 col-xm-12">
+                <div id="searchbar">
+                    <input id="main_search_input" type="text" class="form-control withicon" placeholder="文章搜索...">
+                    <span id="searchbaricon" class="glyphicon glyphicon-search"></span>
+                </div>
+                <ul id="navbar" class="nav nav-pills nav-stacked">
+                    <li class="navtitle">新闻管理</li>
+                    <li id="overview_btn" data-name="overview" class="active"><a href="#">概览</a></li>
+                    <li id="news_manage_btn" data-name="news_manage"><a href="#">新闻管理</a></li>
+                    <li id="category_manage_btn" data-name="category_manage" ><a href="#">类目管理</a></li>
+                    <li class="navtitle">更多</li>
+                    <li id="init_database_btn" data-name="init_database"><a href="#">数据库初始化</a></li>
+                    </li>
+                </ul>
+            </div>
+
+            <!--page body content-->
+            <div id="content" class="col-md-10 col-sm-9 col-xm-12">
+                <div id="overview_view" class="module_view"></div>
+                <div id="init_database_view" class="module_view"></div>
+                <div id="category_manage_view" class="module_view"></div>
+                <div id="news_manage_view" class="module_view"></div>
+                <div id="news_search_view" class="module_view"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    seajs.config({
+		base: "./",
+		alias: {
+		}
+  	});
+	seajs.use("./module/main");
+</script>
+
+</html>
